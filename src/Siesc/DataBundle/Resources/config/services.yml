@@ -1,7 +1,7 @@
-imports:
-  - { resource: 'admin.yml' }
-
-parameters:
-#    siesc_data.example.class: Siesc\DataBundle\Example
+services:
+    siesc_data.listener.docente:
+        class: Siesc\DataBundle\EventListener\DocenteListener
+        tags:
+            - { name: kernel.event_listener, event: siesc.docente.pre_create, method: onPreCreate }
 
 

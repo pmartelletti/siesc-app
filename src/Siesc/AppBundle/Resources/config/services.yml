@@ -18,3 +18,7 @@ services:
     siesc_app.mailer.notificacion:
         class: Siesc\AppBundle\Mailer\NotificacionMailer
         arguments: [@siesc_app.mandrill_mailer, @router]
+
+    siesc_app.mailer.docente:
+        class: Siesc\AppBundle\Mailer\DocenteMailer
+        arguments: [@siesc_app.mandrill_mailer, @router]

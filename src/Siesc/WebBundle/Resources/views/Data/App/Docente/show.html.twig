@@ -27,8 +27,14 @@
                     Acciones
                 </header>
                 <div class="panel-body">
+                    <a href="{{ path('data_app_docente_send_credentials', {'id': entity.id }) }}" class="btn btn-success btn-block">
+                        <i class="icon-lock3"></i> Enviar mail de acceso
+                    </a>
                     <a href="{{ path('data_app_docente_edit', {'id': entity.id}) }}" class="btn btn-primary btn-block">
                         <i class="icon-pencil"></i> Editar Docente
+                    </a>
+                    <a href="#" class="btn btn-warning btn-block">
+                        <i class="icon-pencil"></i> Editar Roles
                     </a>
                     <a href="{{ path('data_app_docente') }}" class="btn btn-info btn-block">
                         <i class="icon-list"></i> Volver a la lista

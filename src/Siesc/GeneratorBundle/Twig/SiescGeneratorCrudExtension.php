@@ -34,6 +34,9 @@ class SiescGeneratorCrudExtension extends \Twig_Extension
         if (is_array($property) || $property instanceof PersistentCollection ) {
             $htmlProperty .= "<ul>";
             foreach($property as $prop) {
+                if (StringUTils::startsWith($prop, 'ROLE_') && !StringUtils::startsWith($prop, 'ROLE_PARTES')) {
+                    continue;
+                }
                 $htmlProperty .= sprintf("<li>%s</li>", $this->crudPropertyShow($mainEntity, $prop));
             }
             $htmlProperty .= "</ul>";

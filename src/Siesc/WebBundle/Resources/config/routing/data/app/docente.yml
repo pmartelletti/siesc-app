@@ -21,3 +21,7 @@ data_app_docente_close:
 data_app_docente_open:
     pattern:  /{id}/reopen
     defaults: { _controller: "SiescDataBundle:App/Docente:open" }
+
+data_app_docente_send_credentials:
+    pattern: /{id}/enviar-credenciales
+    defaults: { _controller: "SiescDataBundle:App/Docente:sendCredentialsEmail" }

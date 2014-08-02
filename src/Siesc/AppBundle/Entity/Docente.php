@@ -72,7 +72,7 @@ class Docente extends User
     public function __construct() {
         parent::__construct();
         // main roles for docentes
-        $this->roles = array('ROLE_USER_APP', 'ROLE_ACADEMICO_USER');
+        $this->roles = array('ROLE_USER_APP', 'ROLE_ACADEMICO_DOCENTE');
     }
     
     // workaround for not using username
