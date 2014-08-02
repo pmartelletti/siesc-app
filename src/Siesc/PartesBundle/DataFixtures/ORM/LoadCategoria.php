@@ -14,8 +14,8 @@ class LoadCategoria extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $names = ["Profesor", "Preceptor", "Director", "Secretario"];
-        $funciones = ["EI", "EP", "EM"];
+        $names = array("Profesor", "Preceptor", "Director", "Secretario");
+        $funciones = array("EI", "EP", "EM");
         foreach($names as $name)
         {
             foreach($funciones as $funcion) {
