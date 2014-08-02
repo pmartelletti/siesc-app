@@ -30,8 +30,8 @@ class AppKernel extends Kernel
             new Siesc\AppBundle\SiescAppBundle(),
             new Siesc\PartesBundle\SiescPartesBundle(),
             new Siesc\DataBundle\SiescDataBundle(),
-            new Siesc\AcademicoBundle\SiescAcademicoBundle(),
-            new Siesc\AdmisionesBundle\SiescAdmisionesBundle(),
+            //new Siesc\AcademicoBundle\SiescAcademicoBundle(),
+            //new Siesc\AdmisionesBundle\SiescAdmisionesBundle(),
             new Siesc\WebBundle\SiescWebBundle(),
             new Siesc\CourseManagementBundle\SiescCourseManagementBundle(),
             new \Siesc\GeneratorBundle\SiescGeneratorBundle()
