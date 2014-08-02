@@ -1,0 +1,23 @@
+data_app_distrito:
+    pattern:  /
+    defaults: { _controller: "SiescDataBundle:App/Distrito:index" }
+
+data_app_distrito_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SiescDataBundle:App/Distrito:show" }
+
+data_app_distrito_new:
+    pattern:  /new
+    defaults: { _controller: "SiescDataBundle:App/Distrito:new" }
+
+data_app_distrito_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SiescDataBundle:App/Distrito:edit" }
+
+data_app_distrito_close:
+    pattern:  /{id}/close
+    defaults: { _controller: "SiescDataBundle:App/Distrito:close" }
+
+data_app_distrito_open:
+    pattern:  /{id}/reopen
+    defaults: { _controller: "SiescDataBundle:App/Distrito:open" }

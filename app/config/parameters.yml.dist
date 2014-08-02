@@ -1,0 +1,23 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     siesc_project
+    database_user:     root
+    database_password: ~
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt
+
+    institucion: "Escuela Paula Albaraccín"
+    project_code: 'paula'
+
+    mandrill_key: 2767832a-3594-4647-90d5-316377ad0cd8
+    mandrill_subaccount: demo.siesc.com.ar
+    mandrill_sender_mail: notificaciones@siesc.com.ar
+    contact_email: info@siesc.com.ar

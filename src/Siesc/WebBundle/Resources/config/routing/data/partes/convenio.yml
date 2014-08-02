@@ -1,0 +1,29 @@
+data_partes_convenio:
+    pattern:  /
+    defaults: { _controller: "SiescDataBundle:Partes/Convenio:index" }
+
+data_partes_convenio_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SiescDataBundle:Partes/Convenio:show" }
+
+data_partes_convenio_new:
+    pattern:  /new
+    defaults: { _controller: "SiescDataBundle:Partes/Convenio:new" }
+
+data_partes_convenio_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SiescDataBundle:Partes/Convenio:edit" }
+
+data_partes_convenio_close:
+    pattern:  /{id}/close
+    defaults: { _controller: "SiescDataBundle:Partes/Convenio:close" }
+
+data_partes_convenio_open:
+    pattern:  /{id}/reopen
+    defaults: { _controller: "SiescDataBundle:Partes/Convenio:open" }
+
+data_partes_convenio_cargos:
+    pattern: /{id}/cargos
+    defaults: { _controller: "SiescDataBundle:Partes/Convenio:getCargos" }
+    options:
+        expose: true

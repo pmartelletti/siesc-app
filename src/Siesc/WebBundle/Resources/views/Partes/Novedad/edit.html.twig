@@ -1,0 +1,68 @@
+{% extends 'SiescWebBundle:apps:partes.html.twig' %}
+{% from 'SiescWebBundle:Macros:form_actions.html.twig' import update %}
+
+{% block page_title %}
+    Novedades
+{% endblock %}
+
+{% block current_breadcrumb %}
+    {{ parent() }}
+    <li>
+        <a href="{{ path('partes_novedad_index') }}">Novedades</a>
+    </li>
+    <li class="active">Editar</li>
+{% endblock %}
+
+{% block page_content -%}
+    <div class="row">
+        <div class="col-md-12">
+            Estado!
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading">Crear nueva Novedad</header>
+                <div class="panel-body">
+                    <form action="{{ path('partes_novedad_edit', {'id': entity.id}) }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+                        <fieldset>
+                            {{ form_widget(form) }}
+                        </fieldset>
+                        {{ form_rest(form) }}
+                        {{ update() }}
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+{% block theme_javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        var cargos = $('select[name="siesc_partesbundle_novedad[cargoDocente]"]');
+        var cargo_id = cargos.val();
+        var first = true;
+        cargos.empty();
+        var convenios = $('select[name="siesc_partesbundle_novedad[convenio]"]');
+        convenios.change(function(){
+            var id = $(this).val();
+            $.post(Routing.generate('data_partes_convenio_cargos', {'id': id}), function(html_response){
+                cargos.html(html_response).removeClass('form-control');
+                if (first) {
+                    // in the edit, I select the cargos id
+                    cargos.val(cargo_id);
+                    first = false;
+                }
+                cargos.select2({width: '100%'});
+
+            });
+        });
+        $(document).ready(function(){
+            // trigger the change for the first time
+            convenios.trigger('change');
+        })
+
+
+    </script>
+{% endblock %}

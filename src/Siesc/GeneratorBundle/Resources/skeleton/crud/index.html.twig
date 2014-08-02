@@ -1,0 +1,115 @@
+{% block extends %}
+{{ "{% extends 'SiescWebBundle::base.html.twig' %}" }}
+{% endblock %}
+
+{% block body %}
+{{ "{% block page_title %}" }}
+{{ "%ss" | format(entity_normal_name) }}
+{{ "{% endblock %}" }}
+
+{{ "{% block current_breadcrumb %}" }}
+<li>
+    <a href="{{ "{{ path('data_index') }}" }}">Data</a>
+</li>
+<li>{{ subdir }}</li>
+<li class="active">{{ entity_normal_name }}</li>
+{{ "{% endblock %}" }}
+
+{{ "{% block page_content -%}" }}
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-right">
+                <a class="btn btn-primary" href="{{ "{{ path('%s_new') }}" | format(route_prefix)}}">
+                    <i class="icon-plus-circle"></i> Nuevo {{ entity_normal_name }}
+                </a>
+            </p>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h6 class="panel-title">{{ "%ss" | format(entity_normal_name) }}</h6>
+                </div>
+                <div class="datatable">
+                    <div class="datatable-header"></div>
+                    <div class="datatable-scroll">
+                        <table class="table table-hover table-condensed dataTable">
+                            <thead>
+                            <tr>
+                            {%- for field in doctrine_fields %}
+                                {%- if field in ['closed_at'] %}
+                                    <td>Open</td>
+                                {%- else %}
+                                    <th>{{ field|replace({'_': ' '})|capitalize }}</th>
+                                {%- endif %}
+
+                            {%- endfor %}
+
+                                <th scope="col" class="text-right">Action</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {{ '{% for entity in entities %}' }}
+                                <tr class="{{ '{% if entity.isOpen is defined and not entity.isOpen %}disabled{% endif %}'}}">
+                            {% set hasOpen = false %}
+                                {%- for field in doctrine_fields %}
+                                {% if field in ['name', 'version'] %}
+
+                                    <td><a href="{{ "{{ path('" ~ route_prefix ~ "_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</a></td>
+
+                                {%- elseif field in ['closed_at'] %}
+                                    {% set hasOpen = true %}
+                                    <td>{{ '{{ entity.isOpen }}' }}</td>
+                                {%- else %}
+                                    <td>{{ '{{ siesc_crud_property(entity,"' ~ field|replace({'_': ''}) ~ '") }}' }}</td>
+                                {% endif %}
+                            {% endfor %}
+
+                                    <td class="text-right">
+                                        <a class="btn btn-info btn-xs" href="{{ "{{ path('%route_prefix%_show', { 'id': entity.id }) }}" | replace({'%route_prefix%': route_prefix }) }}"><i class="icon-zoom-in"></i> </a>
+                                        <a class="btn btn-warning btn-xs" href="{{ "{{ path('%route_prefix%_edit', { 'id': entity.id }) }}" | replace({'%route_prefix%': route_prefix }) }}"><i class="icon-pencil3"></i> </a>
+                                        {% if hasOpen %}
+                                        {{ '{% if entity.isOpen %}' }}
+                                            <a class="btn btn-danger btn-xs" href="{{"{{ path('%route_prefix%_close', { 'id': entity.id }) }}" | replace({'%route_prefix%': route_prefix }) }}">Close</a>
+                                        {{ '{% else %}' }}
+                                            <a class="btn btn-success btn-xs" href="{{ "{{ path('%route_prefix%_open', { 'id': entity.id }) }}" | replace({'%route_prefix%': route_prefix }) }}">Open</a>
+                                        {{ '{% endif %}' }}
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {{ '{% endfor %}' }}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="datatable-footer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{ '{% endblock %}' }}
+
+{{ "{% block javascripts %}
+    {{ parent() }}
+"}}
+    {#{% include '%template_dir%:table.js.twig' %}#}
+    {#{% include '%template_dir%:filters.js.twig' %}#}
+{#" | replace({'%template_dir%': template_dir }) }}#}
+{% if hasOpen %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('.text-toggle-button').toggleButtons({
+                width: 160,
+                label: {
+                    enabled: "Active",
+                    disabled: "All"
+                },
+                style: {
+                    enabled: "success",
+                    disabled: "danger"
+                }
+            });
+        })
+    </script>
+{% endif %}
+{{ '{% endblock javascripts %}' }}
+
+{% endblock %}

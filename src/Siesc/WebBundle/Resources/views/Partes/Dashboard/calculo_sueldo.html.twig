@@ -1,0 +1,18 @@
+{% extends 'SiescWebBundle:apps:partes.html.twig' %}
+
+{% block page_title %}
+    Calculo de sueldos docente
+{% endblock %}
+
+{% block current_breadcrumb %}
+    {{ parent() }}
+    <li class="active">Calculo de sueldo docente</li>
+{% endblock %}
+
+{% block page_content -%}
+<div class="row">
+    <div class="col-md-12">
+        <iframe width="100%" height="700px" src="{{ frameSrc }}"></iframe>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+services:
+     siesc_partes.listener.novedades_init:
+        class: Siesc\PartesBundle\EventListener\NovedadesListener
+        tags:
+          - { name: kernel.event_listener, event: siesc.novedades.pre_create, method: onCreate }
+          - { name: kernel.event_listener, event: siesc.novedades.pre_edit, method: postEdit }
+        arguments: [@sm.factory, @security.context]
+
+     kernel.listener.action_not_allowed:
+        class: Siesc\PartesBundle\EventListener\ActionNotAllowedListener
+        arguments: [@router, @session]
+        tags:
+          - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }

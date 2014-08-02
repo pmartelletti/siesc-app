@@ -1,0 +1,244 @@
+<?php
+
+namespace Siesc\PartesBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Siesc\AppBundle\Entity\Docente,
+    Siesc\AppBundle\Entity\Seccion;
+
+/**
+ * CargoDocente
+ *
+ * @ORM\Table(name="partes_cargoDocente")
+ * @ORM\Entity(repositoryClass="Siesc\PartesBundle\Entity\CargoDocenteRepository")
+ */
+class CargoDocente
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Docente")
+     */
+    private $docente;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Cargo")
+     */
+    private $cargo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="horas", type="integer")
+     */
+    private $horas;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="situacionRevista", type="string", length=255, nullable=true)
+     */
+    private $situacionRevista;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Seccion")
+     */
+    private $seccion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaAlta", type="date", nullable=true)
+     */
+    private $fechaAlta;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fechaBaja", type="date", nullable=true)
+     */
+    private $fechaBaja;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set docente
+     *
+     * @param \stdClass $docente
+     * @return CargoDocente
+     */
+    public function setDocente($docente)
+    {
+        $this->docente = $docente;
+    
+        return $this;
+    }
+
+    /**
+     * Get docente
+     *
+     * @return \stdClass 
+     */
+    public function getDocente()
+    {
+        return $this->docente;
+    }
+
+    /**
+     * Set cargo
+     *
+     * @param \stdClass $cargo
+     * @return CargoDocente
+     */
+    public function setCargo($cargo)
+    {
+        $this->cargo = $cargo;
+    
+        return $this;
+    }
+
+    /**
+     * Get cargo
+     *
+     * @return \stdClass 
+     */
+    public function getCargo()
+    {
+        return $this->cargo;
+    }
+
+    /**
+     * Set horas
+     *
+     * @param integer $horas
+     * @return CargoDocente
+     */
+    public function setHoras($horas)
+    {
+        $this->horas = $horas;
+    
+        return $this;
+    }
+
+    /**
+     * Get horas
+     *
+     * @return integer 
+     */
+    public function getHoras()
+    {
+        return $this->horas;
+    }
+
+    /**
+     * Set situacionRevista
+     *
+     * @param string $situacionRevista
+     * @return CargoDocente
+     */
+    public function setSituacionRevista($situacionRevista)
+    {
+        $this->situacionRevista = $situacionRevista;
+    
+        return $this;
+    }
+
+    /**
+     * Get situacionRevista
+     *
+     * @return string 
+     */
+    public function getSituacionRevista()
+    {
+        return $this->situacionRevista;
+    }
+
+    /**
+     * Set seccion
+     *
+     * @param \stdClass $seccion
+     * @return CargoDocente
+     */
+    public function setSeccion($seccion)
+    {
+        $this->seccion = $seccion;
+    
+        return $this;
+    }
+
+    /**
+     * Get seccion
+     *
+     * @return \stdClass 
+     */
+    public function getSeccion()
+    {
+        return $this->seccion;
+    }
+
+    /**
+     * Set fechaAlta
+     *
+     * @param \DateTime $fechaAlta
+     * @return CargoDocente
+     */
+    public function setFechaAlta($fechaAlta)
+    {
+        $this->fechaAlta = $fechaAlta;
+    
+        return $this;
+    }
+
+    /**
+     * Get fechaAlta
+     *
+     * @return \DateTime 
+     */
+    public function getFechaAlta()
+    {
+        return $this->fechaAlta;
+    }
+
+    /**
+     * Set fechaBaja
+     *
+     * @param \DateTime $fechaBaja
+     * @return CargoDocente
+     */
+    public function setFechaBaja($fechaBaja)
+    {
+        $this->fechaBaja = $fechaBaja;
+    
+        return $this;
+    }
+
+    /**
+     * Get fechaBaja
+     *
+     * @return \DateTime 
+     */
+    public function getFechaBaja()
+    {
+        return $this->fechaBaja;
+    }
+
+    public function __toString() {
+        return sprintf("%s - %s (%s)", $this->docente, $this->cargo, $this->seccion);
+    }
+}

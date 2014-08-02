@@ -1,0 +1,23 @@
+{{ routing_prefix }}:
+    pattern:  /
+    defaults: { _controller: "{{ bundle }}:{{ targetBundle }}/{{ entity_class }}:index" }
+
+{{ routing_prefix }}_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "{{ bundle }}:{{ targetBundle }}/{{ entity_class }}:show" }
+
+{{ routing_prefix }}_new:
+    pattern:  /new
+    defaults: { _controller: "{{ bundle }}:{{ targetBundle }}/{{ entity_class }}:new" }
+
+{{ routing_prefix }}_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "{{ bundle }}:{{ targetBundle }}/{{ entity_class }}:edit" }
+
+{{ routing_prefix }}_close:
+    pattern:  /{id}/close
+    defaults: { _controller: "{{ bundle }}:{{ targetBundle }}/{{ entity_class }}:close" }
+
+{{ routing_prefix }}_open:
+    pattern:  /{id}/reopen
+    defaults: { _controller: "{{ bundle }}:{{ targetBundle }}/{{ entity_class }}:open" }

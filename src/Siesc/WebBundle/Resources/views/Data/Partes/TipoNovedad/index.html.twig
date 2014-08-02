@@ -1,0 +1,62 @@
+{% extends 'SiescWebBundle::base.html.twig' %}
+
+{% block page_title %}
+Tipo Novedads
+{% endblock %}
+
+{% block current_breadcrumb %}
+<li>
+    <a href="{{ path('data_index') }}">Data</a>
+</li>
+<li>Partes</li>
+<li class="active">Tipo Novedad</li>
+{% endblock %}
+
+{% block page_content -%}
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-right">
+                <a class="btn btn-primary" href="{{ path('data_partes_tipo_novedad_new') }}">
+                    <i class="icon-plus-circle"></i> Nuevo Tipo Novedad
+                </a>
+            </p>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h6 class="panel-title">Tipo Novedads</h6>
+                </div>
+                <div class="datatable">
+                    <div class="datatable-header"></div>
+                    <div class="datatable-scroll">
+                        <table class="table table-hover table-condensed dataTable">
+                            <thead>
+                            <tr>                                    <th>Nombre</th>
+                                <th scope="col" class="text-right">Action</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entity in entities %}
+                                <tr class="{% if entity.isOpen is defined and not entity.isOpen %}disabled{% endif %}">
+                                                                                                <td>{{ siesc_crud_property(entity,"nombre") }}</td>
+                                                            
+                                    <td class="text-right">
+                                        <a class="btn btn-info btn-xs" href="{{ path('data_partes_tipo_novedad_show', { 'id': entity.id }) }}"><i class="icon-zoom-in"></i> </a>
+                                        <a class="btn btn-warning btn-xs" href="{{ path('data_partes_tipo_novedad_edit', { 'id': entity.id }) }}"><i class="icon-pencil3"></i> </a>
+                                                                            </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="datatable-footer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+        {% endblock javascripts %}
+

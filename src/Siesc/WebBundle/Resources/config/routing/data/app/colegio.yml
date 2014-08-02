@@ -1,0 +1,23 @@
+data_app_colegio:
+    pattern:  /
+    defaults: { _controller: "SiescDataBundle:App/Colegio:index" }
+
+data_app_colegio_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SiescDataBundle:App/Colegio:show" }
+
+data_app_colegio_new:
+    pattern:  /new
+    defaults: { _controller: "SiescDataBundle:App/Colegio:new" }
+
+data_app_colegio_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SiescDataBundle:App/Colegio:edit" }
+
+data_app_colegio_close:
+    pattern:  /{id}/close
+    defaults: { _controller: "SiescDataBundle:App/Colegio:close" }
+
+data_app_colegio_open:
+    pattern:  /{id}/reopen
+    defaults: { _controller: "SiescDataBundle:App/Colegio:open" }

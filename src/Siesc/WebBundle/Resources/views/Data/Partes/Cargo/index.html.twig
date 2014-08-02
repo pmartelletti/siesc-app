@@ -1,0 +1,67 @@
+{% extends 'SiescWebBundle::base.html.twig' %}
+
+{% block page_title %}
+Cargos
+{% endblock %}
+
+{% block current_breadcrumb %}
+<li>
+    <span>Admin</span>
+</li>
+<li>
+    <a href="{{ path('partes_cargo') }}">Cargo</a>
+</li>
+{% endblock %}
+
+{% block page_content -%}
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    Cargos
+                </header>
+                <div class="panel-body dataTables_wrapper">
+
+                    <p class="text-right">
+                        <a class="btn btn-primary" href="{{ path('partes_cargo_new') }}">
+                            <i class="icon-plus-circle"></i> Nuevo Cargo
+                        </a>
+                    </p>
+
+                    <div class="panel-body">
+
+                        <table class="table table-hover table-condensed datatable">
+                            <thead>
+                            <tr>                                    <th>Nombre</th>
+                                <th scope="col" class="text-right">Action</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entity in entities %}
+                                <tr class="{% if entity.isOpen is defined and not entity.isOpen %}disabled{% endif %}">
+                                                                                                <td>{{ siesc_crud_property(entity,"nombre") }}</td>
+                                                            
+                                    <td class="text-right">
+                                        <a class="btn btn-info btn-xs" href="{{ path('partes_cargo_show', { 'id': entity.id }) }}"><i class="icon-zoom-in"></i> </a>
+                                        <a class="btn btn-warning btn-xs" href="{{ path('partes_cargo_edit', { 'id': entity.id }) }}"><i class="icon-pencil3"></i> </a>
+                                                                            </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% include 'SiescWebBundle:Data/Partes/Cargo:table.js.twig' %}
+    {% include 'SiescWebBundle:Data/Partes/Cargo:filters.js.twig' %}
+
+{% endblock javascripts %}
+

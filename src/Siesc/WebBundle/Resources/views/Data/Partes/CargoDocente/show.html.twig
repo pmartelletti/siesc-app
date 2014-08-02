@@ -1,0 +1,41 @@
+{% extends 'SiescWebBundle::base.html.twig' %}
+
+{% block page_title %}
+Showing Cargo Docente: "{{ entity }}"
+{% endblock %}
+
+{% block current_breadcrumb %}
+<li>
+    <span>Admin</span>
+</li>
+<li>
+    <a href="{{ path('data_partes_cargo_docente') }}">Cargo Docente</a>
+</li>
+<li>
+    <a href="{{ path('data_partes_cargo_docente_show', {'id': entity.id}) }}">Detalle</a>
+</li>
+{% endblock %}
+
+{% block page_content -%}
+    <div class="row">
+        <div class="col-md-9">
+            {% include 'SiescWebBundle:Data/Partes/CargoDocente:_details.html.twig' %}
+        </div>
+        <div class="col-md-3">
+            <section class="panel">
+                <header class="panel-heading">
+                    Acciones
+                </header>
+                <div class="panel-body">
+                    <a href="{{ path('data_partes_cargo_docente_edit', {'id': entity.id}) }}" class="btn btn-primary btn-block">
+                        <i class="icon-pencil"></i> Editar Cargo Docente
+                    </a>
+                    <a href="{{ path('data_partes_cargo_docente') }}" class="btn btn-info btn-block">
+                        <i class="icon-list"></i> Volver a la lista
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock page_content -%}
+

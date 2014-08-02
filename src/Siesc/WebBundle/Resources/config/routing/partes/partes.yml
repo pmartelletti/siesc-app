@@ -1,0 +1,15 @@
+partes_index:
+    pattern:  /
+    defaults: { _controller: "SiescPartesBundle:Dashboard:index" }
+
+partes_calculo_sueldo:
+    pattern: /calculo-sueldo-docente/{region}
+    defaults: { _controller: "SiescPartesBundle:Dashboard:calculoSueldo" }
+
+partes_novedad:
+    prefix: /novedades
+    resource: @SiescWebBundle/Resources/config/routing/partes/novedades.yml
+
+partes_cierre_novedades:
+    prefix: /cierre-novedades
+    resource: @SiescWebBundle/Resources/config/routing/partes/cierre_novedades.yml

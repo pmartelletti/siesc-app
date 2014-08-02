@@ -1,0 +1,104 @@
+{% extends 'SiescWebBundle:apps:partes.html.twig' %}
+{% from 'SiescWebBundle:Macros:form_actions.html.twig' import create %}
+
+{% block page_title %}
+    Generar Cierre de Novedades
+{% endblock %}
+
+{% block current_breadcrumb %}
+    {{ parent() }}
+    <li>
+        <a href="{{ path('partes_cierre_novedades_index') }}">Cierre de Novedades</a>
+    </li>
+    <li class="active">Nueva</li>
+{% endblock %}
+
+
+{% block page_content -%}
+
+    <div class="row" style="margin-bottom: 10px">
+        <div class="col-md-12 clearfix">
+            <a href="{{ path('partes_cierre_novedades_liquidar_novedades', {'id': entity.id}) }}" class="btn btn-success pull-right">
+                <i class="icon-checkmark"></i> Marcar todas las novedades incluidas como liquidadas
+            </a>
+        </div>
+    </div>
+
+    <div class="row cierre-remove">
+        {% include 'SiescWebBundle:Partes/CierreNovedades:novedadesList.html.twig' with {'novedades': entity.novedades, 'type': 'remove'} %}
+    </div>
+
+    {% if entity.estado not in ['liquidacion_parcial', 'liquidacion_total'] %}
+    {# solo se muestra si no hay ninguna liquidada todavia #}
+    <div class="alert alert-info" style="margin: 8px 0">
+        <strong>Nota:</strong> solo se muestran las novedades que estan autorizadas.
+    </div>
+
+    <div class="row cierre-add">
+        {% include 'SiescWebBundle:Partes/CierreNovedades:novedadesList.html.twig' with {'novedades': novedades, 'type': 'add'} %}
+    </div>
+
+    {% else %}
+    <div class="alert alert-danger" style="margin: 8px 0">
+        <strong>Nota:</strong> este cierre ya se encuentrar parcial o totalmente liquidado, por lo que no se pueden agregar
+        nuevas novedades.
+    </div>
+    {% endif %}
+
+    <div id="novedad_modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><i class="icon-accessibility"></i> Detalles de la novedad</h4>
+                </div>
+
+                <div class="modal-body with-padding">
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-warning" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block theme_javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.cierre-add').on('click', 'a.btn-success', function(){
+                var novedad = $(this).attr('data-id');
+                var container = $('.cierre-remove');
+                var row = $(this).closest('tr');
+                $.post(Routing.generate('partes_cierre_novedades_add_novedad', {'id': {{ entity.id }}, 'novedad_id': novedad}), function(data){
+                    container.html(data);
+                    // growl notification?
+                    row.remove();
+                })
+            })
+
+            $('.cierre-remove').on('click', 'a.btn-danger', function(){
+                var novedad = $(this).attr('data-id');
+                var container = $('.cierre-add');
+                var row = $(this).closest('tr');
+                $.post(Routing.generate('partes_cierre_novedades_remove_novedad', {'id': {{ entity.id }}, 'novedad_id': novedad}), function(data){
+                    container.html(data);
+                    // growl notification?
+                    row.remove();
+                })
+            })
+
+            $('.cierre-remove, .cierre-add').on('click', 'a.preview-novedad', function(){
+                var novedad = $(this).attr('data-id');
+                var modal = $('#novedad_modal');
+                $.post(Routing.generate('partes_novedad_show', {'id': novedad}), function(data){
+                    modal.find('.modal-body').html(data);
+                    modal.modal('show');
+                });
+            })
+        })
+    </script>
+{% endblock %}

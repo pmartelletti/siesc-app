@@ -1,0 +1,23 @@
+data_partes_tipo_novedad:
+    pattern:  /
+    defaults: { _controller: "SiescDataBundle:Partes/TipoNovedad:index" }
+
+data_partes_tipo_novedad_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SiescDataBundle:Partes/TipoNovedad:show" }
+
+data_partes_tipo_novedad_new:
+    pattern:  /new
+    defaults: { _controller: "SiescDataBundle:Partes/TipoNovedad:new" }
+
+data_partes_tipo_novedad_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SiescDataBundle:Partes/TipoNovedad:edit" }
+
+data_partes_tipo_novedad_close:
+    pattern:  /{id}/close
+    defaults: { _controller: "SiescDataBundle:Partes/TipoNovedad:close" }
+
+data_partes_tipo_novedad_open:
+    pattern:  /{id}/reopen
+    defaults: { _controller: "SiescDataBundle:Partes/TipoNovedad:open" }

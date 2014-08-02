@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}SIESC - {{ institucion }} {% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    {% block styles %}
+        {% stylesheets output='assets/compiled/unuthorized.css' filter='cssrewrite'
+        'bundles/siescweb/css/bootstrap.min.css'
+        'bundles/siescweb/css/londinium-theme.css'
+        'bundles/siescweb/css/styles.css'
+        'bundles/siescweb/css/icons.css'
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    {% endblock %}
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<body class="full-width page-condensed">
+
+{% block navbar %}
+<!-- Navbar -->
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-right">
+            <span class="sr-only">Toggle navbar</span>
+            <i class="icon-grid3"></i>
+        </button>
+        <a href="{{ path('app_index') }}"><img src="{{ asset('bundles/siescapp/images/siesc.png') | imagine_filter('app_thumb') }}" alt="SIESC"></a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right collapse">
+        <li><a href="#"><i class="icon-screen2"></i></a></li>
+        <li><a href="#"><i class="icon-paragraph-justify2"></i></a></li>
+        <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cogs"></i></a>
+            <ul class="dropdown-menu icons-right dropdown-menu-right">
+                <li><a href="#"><i class="icon-cogs"></i> This is</a></li>
+                <li><a href="#"><i class="icon-grid3"></i> Dropdown</a></li>
+                <li><a href="#"><i class="icon-spinner7"></i> With right</a></li>
+                <li><a href="#"><i class="icon-link"></i> Aligned icons</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!-- /navbar -->
+{% endblock %}
+
+<!-- Login wrapper -->
+<div class="login-wrapper">
+    {% block page_content %}{% endblock page_content %}
+</div>
+<!-- /login wrapper -->
+
+{% block footer %}
+<!-- Footer -->
+<div class="footer clearfix">
+    <div class="pull-left">&copy; 2012 - {{ "now" | date('Y') }} Sistemas Informáticos para Escuelas (SIESC)</div>
+    <div class="pull-right icons-group">
+        <a href="#"><i class="icon-screen2"></i></a>
+        <a href="#"><i class="icon-balance"></i></a>
+        <a href="#"><i class="icon-cog3"></i></a>
+    </div>
+</div>
+<!-- /footer -->
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    {% javascripts output='assets/compiled/main-script.js'
+    'bundles/siescweb/js/plugins/interface/daterangepicker.js'
+    'bundles/siescweb/js/plugins/interface/moment.js'
+    'bundles/siescweb/js/plugins/interface/jgrowl.min.js'
+    'bundles/siescweb/js/plugins/interface/collapsible.min.js'
+    'bundles/siescweb/js/bootstrap.min.js'
+    'bundles/siescweb/js/application_blank.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+{% block theme_javascripts %}{% endblock %}
+{% block document_javascripts %}{% endblock %}
+</body>
+<!-- END BODY -->
+</html>

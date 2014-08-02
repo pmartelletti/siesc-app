@@ -1,0 +1,40 @@
+SiescWebBundle_docente:
+    resource: "@SiescWebBundle/Resources/config/routing/data/app/docente.yml"
+    prefix:   /app/docente
+
+SiescWebBundle_tipo_novedad:
+    resource: "@SiescWebBundle/Resources/config/routing/data/partes/tipo_novedad.yml"
+    prefix:   /partes/tipo-novedad
+
+SiescWebBundle_situacion_revista:
+    resource: "@SiescWebBundle/Resources/config/routing/data/partes/situacion_revista.yml"
+    prefix:   /partes/situacion-revista
+
+SiescWebBundle_categoria:
+    resource: "@SiescWebBundle/Resources/config/routing/data/partes/categoria.yml"
+    prefix:   /partes/categoria
+
+SiescWebBundle_convenio:
+    resource: "@SiescWebBundle/Resources/config/routing/data/partes/convenio.yml"
+    prefix:   /partes/convenio
+
+SiescWebBundle_cargo_docente:
+    resource: "@SiescWebBundle/Resources/config/routing/data/partes/cargo_docente.yml"
+    prefix:   /partes/cargo-docente
+
+SiescWebBundle_distrito:
+    resource: "@SiescWebBundle/Resources/config/routing/data/app/distrito.yml"
+    prefix:   /app/distrito
+
+SiescWebBundle_funcion:
+    resource: "@SiescWebBundle/Resources/config/routing/data/app/funcion.yml"
+    prefix:   /app/funcion
+
+SiescWebBundle_colegio:
+    resource: "@SiescWebBundle/Resources/config/routing/data/app/colegio.yml"
+    prefix:   /app/colegio
+
+
+data_index:
+    pattern:  /
+    defaults: { _controller: "SiescDataBundle:Default:index" }

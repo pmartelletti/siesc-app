@@ -1,0 +1,41 @@
+{% set current = app.request.attributes.get("_route") %}
+<ul class="navigation">
+    <li>
+        <a href="#" class="expand"><span>Configuracion General</span> <i class="icon-insert-template"></i></a>
+        <ul>
+            <li {% if "data_app_docente" in current %} class="active" {% endif %}>
+                <a href="{{ path('data_app_docente') }}">Usuarios (Docentes)</a>
+            </li>
+            <li {% if "data_app_colegio" in current %} class="active" {% endif %}>
+                <a href="{{ path('data_app_colegio') }}">Colegios</a>
+            </li>
+            <li {% if "data_app_funcion" in current %} class="active" {% endif %}>
+                <a href="{{ path('data_app_funcion') }}">Funciones</a>
+            </li>
+            <li {% if "data_app_distrito" in current %} class="active" {% endif %}>
+                <a href="{{ path('data_app_distrito') }}">Distritos</a>
+            </li>
+
+        </ul>
+    </li>
+    <li>
+        <a href="#" class="expand"><span>Sistema Partes / Novedades</span> <i class="icon-stack"></i></a>
+        <ul>
+            <li {% if "data_partes_cargo_docente" in current %} class="active" {% endif %}>
+                <a href="{{ path('data_partes_cargo_docente') }}">Cargos Docentes</a>
+            </li>
+            <li {% if "data_partes_convenio" in current %} class="active" {% endif %}>
+                <a href="{{ path('data_partes_convenio') }}">Convenios</a>
+            </li>
+            <li {% if "data_partes_categoria" in current %} class="active" {% endif %}>
+                <a href="{{ path('data_partes_categoria') }}">Categorias</a>
+            </li>
+            <li {% if "data_partes_situacion_revista" in current %} class="active" {% endif %}>
+                <a href="{{ path('data_partes_situacion_revista') }}">Situacion Revista</a>
+            </li>
+            <li {% if "data_partes_tipo_novedad" in current %} class="active" {% endif %}>
+                <a href="{{ path('data_partes_tipo_novedad') }}">Tipo de novedades</a>
+            </li>
+        </ul>
+    </li>
+</ul>

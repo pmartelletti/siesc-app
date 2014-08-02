@@ -1,0 +1,15 @@
+{% extends 'SiescPartesBundle::base.html.twig' %}
+
+{% block main_content %}
+    <h2>Crear Parte Diario</h2>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('partes_partediario') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

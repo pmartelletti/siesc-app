@@ -1,0 +1,56 @@
+<section class="panel">
+    <header class="panel-heading">
+        <i class="icon-paragraph-justify2"></i>Detalles del Docente
+    </header>
+    <div class="panel-body">
+        <table class="table table-condensed">
+            <tbody>
+
+            <tr>
+                <th>Email</th>
+                <td>{{ siesc_crud_property(entity,"email") }}</td>
+            </tr>
+            <tr>
+                <th>Emailcanonical</th>
+                <td>{{ siesc_crud_property(entity,"emailCanonical") }}</td>
+            </tr>
+            <tr>
+                <th>Lastlogin</th>
+                <td>{{ siesc_crud_property(entity,"lastLogin") }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>{{ siesc_crud_property(entity,"roles") }}</td>
+            </tr>
+            <tr>
+                <th>Cuil</th>
+                <td>{{ siesc_crud_property(entity,"cuil") }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ siesc_crud_property(entity,"nombre") }}</td>
+            </tr>
+            <tr>
+                <th>Apellido</th>
+                <td>{{ siesc_crud_property(entity,"apellido") }}</td>
+            </tr>
+            <tr>
+                <th>Direccion</th>
+                <td>{{ siesc_crud_property(entity,"direccion") }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ siesc_crud_property(entity,"telefono") }}</td>
+            </tr>
+            <tr>
+                <th>Observaciones</th>
+                <td>{{ siesc_crud_property(entity,"observaciones") }}</td>
+            </tr>
+            <tr>
+                <th>Funcionprincipal</th>
+                <td>{{ siesc_crud_property(entity,"funcionPrincipal") }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

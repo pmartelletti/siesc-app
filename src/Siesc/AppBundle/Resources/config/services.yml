@@ -1,0 +1,20 @@
+parameters:
+#    siesc_app.enabled_systems:
+
+
+services:
+    siesc_app.module_enabler:
+        class: Siesc\AppBundle\Services\ModuleConfiguration
+        arguments: [@templating, %siesc_app.enabled_modules%]
+
+    siesc_app.notifiacion_novedad.factory:
+        class: Siesc\AppBundle\Factory\NotificacionNovedadFactory
+        arguments: [@security.context]
+
+    siesc_app.mandrill_mailer:
+        class: Siesc\AppBundle\Mailer\MandrillMailer
+        arguments: [@hip_mandrill.dispatcher, {institucion: %institucion%, contact_mail: %contact_email%}]
+
+    siesc_app.mailer.notificacion:
+        class: Siesc\AppBundle\Mailer\NotificacionMailer
+        arguments: [@siesc_app.mandrill_mailer, @router]

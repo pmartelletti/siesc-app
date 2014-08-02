@@ -1,0 +1,80 @@
+/* Override some defaults */
+body {
+    font-size: 13px !important;
+}
+.container > footer p {
+text-align: center; /* center align it with the container */
+}
+h1, h2, h3, h4 {
+    color: #DD4B39;
+    border-bottom: 1px solid #EEE;
+    padding-bottom: 10px !important;
+    margin-bottom: 20px !important;
+}
+
+div.brand-nav {
+    background-color: #F5F4FF;
+}
+
+div.brand-nav .logos {
+    height: 90px !important;
+    padding: 15px 0;
+}
+
+.logos div, .logos div a {
+    height: 90px !important;
+    display: inline-block;
+}
+
+.logos a img {
+    vertical-align: bottom !important;
+}
+
+div.system-logo a img {
+    width: 130px;
+    margin-right: 15px;
+    margin-top: 30px;
+}
+
+.user-info div.navbar {
+    margin: 0 !important;
+}
+
+.user-info a.dropdown-toggle, .user-info a:hover.dropdown-toggle {
+    color: #DD4B39 !important;
+}
+
+/** login **/
+.form-signin {
+    max-width: 400px;
+    padding: 19px 29px 29px;
+    margin: 20px auto 20px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+    box-shadow: 0 1px 2px rgba(0,0,0,.05);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+    margin-bottom: 10px;
+}
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
+}
+
+/** main content **/
+div.main-content {
+    margin-top: 20px;
+}
+
+div.fixed-size {
+    max-width: 1170px !important;
+}

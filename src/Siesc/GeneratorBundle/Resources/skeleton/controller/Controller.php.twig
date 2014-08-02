@@ -1,0 +1,29 @@
+<?php
+
+namespace {{ alt_namespace }}\Controller\{{ subdir }}{{ entity_namespace ? '\\' ~ entity_namespace : '' }};
+
+{% block use_statements %}
+use Siesc\GeneratorBundle\Controller\AdminResourceController as BaseController;
+use {{ namespace }}\Factory{{ entity_namespace ? '\\' ~ entity_namespace : '' }}\{{ entity_class }}Factory;
+use {{ alt_namespace }}\Form\{{ subdir }}{{ entity_namespace ? '\\' ~ entity_namespace : '' }}\{{ entity_class }}Type;
+{% endblock use_statements %}
+
+{% block class_definition %}
+class {{ controller_class }} extends BaseController
+{% endblock class_definition %}
+{
+{% block class_body %}
+
+    public function __construct()
+    {
+        $this->setFormType(new {{ entity_class }}Type());
+        $this->setRoutingPrefix('{{ routing_prefix }}');
+        $this->setResourceName('{{ entity_normal_name }}');
+        $this->setTemplatesRoot('{{ 'SiescWebBundle:Data/%s/%s' | format(subdir, entity_class) }}');
+        $this->setFactory(new {{ entity_class }}Factory());
+        $this->setRepository('{{ bundle }}:{{ entity_class }}');
+    }
+
+{% endblock class_body %}
+
+}

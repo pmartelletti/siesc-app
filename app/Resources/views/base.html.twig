@@ -1,0 +1,40 @@
+{% block head_style %}
+    {# Override this block to add your own files! #}
+
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
+    {% endstylesheets %}
+{% endblock head_style %}
+
+{% block title %}SIESC - Sistemas de Gestion Escolar {% endblock %}
+
+{% block body_start %}
+    {% embed 'brand-nav.html.twig' %}
+    {% endembed %}
+{% endblock body_start %}
+
+{% block content %}{% endblock %}
+
+{% block container %}
+
+    {% block system_menu %}{% endblock %}
+
+    {% block flashes %}
+        {% if app.session.flashbag.peekAll|length > 0 %}
+            <div class="row">
+                <div class="col-sm-12">
+                    {{ session_flash() }}
+                </div>
+            </div>
+        {% endif %}
+    {% endblock flashes %}
+    <div class="container main-content">
+        {% block content_row %}
+            <div class="row">
+                <div class="col-md-12">
+                    {% block main_content %}{% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'SiescWebBundle::base.html.twig' %}
+
+{% block page_title %}
+Colegios
+{% endblock %}
+
+{% block current_breadcrumb %}
+<li>
+    <a href="{{ path('data_index') }}">Data</a>
+</li>
+<li>App</li>
+<li class="active">Colegio</li>
+{% endblock %}
+
+{% block page_content -%}
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-right">
+                <a class="btn btn-primary" href="{{ path('data_app_colegio_new') }}">
+                    <i class="icon-plus-circle"></i> Nuevo Colegio
+                </a>
+            </p>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h6 class="panel-title">Colegios</h6>
+                </div>
+                <div class="datatable">
+                    <div class="datatable-header"></div>
+                    <div class="datatable-scroll">
+                        <table class="table table-hover table-condensed dataTable">
+                            <thead>
+                            <tr>                                    <th>Nombre</th>                                    <th>Codigo</th>                                    <th>Porcentajeaporteestatal</th>                                    <th>Telefono</th>                                    <th>Cuit</th>                                    <th>Distrito</th>                                    <th>Funcion</th>                                    <th>Direccion</th>
+                                <th scope="col" class="text-right">Action</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entity in entities %}
+                                <tr class="{% if entity.isOpen is defined and not entity.isOpen %}disabled{% endif %}">
+                                                                                                <td>{{ siesc_crud_property(entity,"nombre") }}</td>
+                                                                                                                                <td>{{ siesc_crud_property(entity,"codigo") }}</td>
+                                                                                                                                <td>{{ siesc_crud_property(entity,"porcentajeAporteEstatal") }}</td>
+                                                                                                                                <td>{{ siesc_crud_property(entity,"telefono") }}</td>
+                                                                                                                                <td>{{ siesc_crud_property(entity,"cuit") }}</td>
+                                                                                                                                <td>{{ siesc_crud_property(entity,"distrito") }}</td>
+                                                                                                                                <td>{{ siesc_crud_property(entity,"funcion") }}</td>
+                                                                                                                                <td>{{ siesc_crud_property(entity,"direccion") }}</td>
+                                                            
+                                    <td class="text-right">
+                                        <a class="btn btn-info btn-xs" href="{{ path('data_app_colegio_show', { 'id': entity.id }) }}"><i class="icon-zoom-in"></i> </a>
+                                        <a class="btn btn-warning btn-xs" href="{{ path('data_app_colegio_edit', { 'id': entity.id }) }}"><i class="icon-pencil3"></i> </a>
+                                                                            </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="datatable-footer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+        {% endblock javascripts %}
+

@@ -1,0 +1,44 @@
+<?php
+
+namespace {{ namespace }}\Factory{{ entity_namespace ? '\\' ~ entity_namespace : '' }};
+
+{% block use_statements %}
+use {{ namespace }}\Entity{{ entity_namespace ? '\\' ~ entity_namespace : '' }}\{{ entity_class }};
+{% endblock use_statements %}
+
+{% block class_definition %}
+class {{ factory_class }}
+{% endblock class_definition %}
+{
+{% block class_body %}
+
+    /**
+     * @param $data
+     * @return {{ entity_class }}
+     */
+    public function createFrom($data)
+    {
+        if ($data instanceof {{ entity_class }}) {
+            $resource = $data;
+        } else {
+            $resource = self::createNew();
+        }
+
+        {%- for field,method in fields_methods %}
+
+        if (isset($data['{{ field }}'])) {
+            $resource->{{ method }}($data['{{ field }}']);
+        }
+
+        {%- endfor %}
+
+        return $resource;
+    }
+
+    public static function createNew()
+    {
+        return new {{ entity_class }}();
+    }
+{% endblock class_body %}
+
+}

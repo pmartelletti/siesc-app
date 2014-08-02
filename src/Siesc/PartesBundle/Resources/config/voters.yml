@@ -1,0 +1,7 @@
+services:
+    security.partes.novedad_voter:
+        class:      Siesc\PartesBundle\Security\Voters\NovedadVoter
+        arguments:  [@service_container]
+        public:     false
+        tags:
+            - { name: security.voter }

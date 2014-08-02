@@ -1,0 +1,38 @@
+{% set current = app.request.attributes.get("_route") %}
+<ul class="navigation">
+    <li>
+        <a href="#" class="expand"><span>Novedades</span> <i class="icon-insert-template"></i></a>
+        <ul>
+            <li {% if "partes_novedad_index" in current %} class="active" {% endif %}>
+                <a href="{{ path('partes_novedad_index') }}">Listado</a>
+            </li>
+            <li {% if "partes_novedad_new" in current %} class="active" {% endif %}>
+                <a href="{{ path('partes_novedad_new') }}">Nueva</a>
+            </li>
+        </ul>
+    </li>
+    {% if is_granted('ROLE_PARTES_RL') %}
+    <li>
+        <a href="#" class="expand"><span>Cierre de Periodo</span> <i class="icon-stack"></i></a>
+        <ul>
+            <li {% if "partes_cierre_novedades_index" in current %} class="active" {% endif %}>
+                <a href="{{ path('partes_cierre_novedades_index') }}">Listado</a>
+            </li>
+            <li {% if "partes_cierre_novedades_new" in current %} class="active" {% endif %}>
+                <a href="{{ path('partes_cierre_novedades_new') }}">Generar</a>
+            </li>
+        </ul>
+    </li>
+    {% endif %}
+    <li>
+        <a href="#" class="expand"><span>Calculo de sueldo</span> <i class="icon-certificate"></i> </a>
+        <ul>
+            <li>
+                <a href="{{ path('partes_calculo_sueldo', {'region': 'capital'}) }}">Capital Federal</a>
+            </li>
+            <li>
+                <a href="{{ path('partes_calculo_sueldo', {'region': 'buenos-aires'}) }}">Buenos Aires</a>
+            </li>
+        </ul>
+    </li>
+</ul>

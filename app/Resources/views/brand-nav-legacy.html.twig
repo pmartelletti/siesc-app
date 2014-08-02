@@ -1,0 +1,30 @@
+<div class="brand-nav">
+    <div class="container">
+        <div class="row logos">
+            <div class="span8 main-logo">
+                <a href="./" class="brand-name">
+                    <img src="images/logo_instituto.gif">
+                </a>
+            </div>
+            <div class="span4 system-logo">
+                {% block system_logo %}
+                    <a class="pull-right" target="_blank" href="http://siesc.com.ar/academico">
+                        <img src="{{ asset('bundles/siescapp/images/siesc-partes.png') }}" alt="Sistema de Seguimiento Academico">
+                    </a>
+                {% endblock system_logo %}
+            </div>
+        </div>
+        {% if  app.user is not null and is_granted('IS_AUTHENTICATED_FULLY') %}
+            {% include 'user-menu-legacy.html.twig' %}
+        {% endif %}
+    </div>
+</div>
+<div class="navbar main-nav">
+    <div class="navbar-inner">
+        <div class="container fixed-size">
+            <div role="navigation">
+                {% block module_menu %}{% endblock %}
+            </div><!--/.nav-collapse -->
+        </div><!-- container-fluid -->
+    </div><!-- navbar-inner -->
+</div>

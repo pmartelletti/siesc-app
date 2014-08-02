@@ -1,0 +1,22 @@
+<script>
+    {% set i = 0 %}
+    {%- for field in doctrine_fields %}
+        {% if field in ['closed_at'] %}
+        // default filter
+        datatable.fnFilter('1', {{ i }}, true);
+
+        $("#showenabled").change(function () {
+            if ($(this).is(':checked')) {
+                datatable.fnFilter('1', {{ i }}, true);
+
+            }
+            else {
+                datatable.fnFilter('', {{ i }}, true);
+            }
+        });
+        {% endif %}
+
+        {%  set i = i + 1 %}
+    {% endfor %}
+
+</script>

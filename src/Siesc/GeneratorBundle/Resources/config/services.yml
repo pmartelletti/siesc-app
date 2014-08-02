@@ -1,0 +1,6 @@
+services:
+    siesc.twig.generator_crud_extension:
+        class: Siesc\GeneratorBundle\Twig\SiescGeneratorCrudExtension
+        tags:
+            - { name: twig.extension }
+        arguments: [@router]

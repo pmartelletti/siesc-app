@@ -1,0 +1,38 @@
+<script>
+
+    var datatable = $('.dataTable').dataTable({
+        "asStripeClasses": [],
+        "iDisplayLength": 10,
+        "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+        "sDom": 'lftrpi',
+        "sPaginationType": "bootstrap",
+        "bProcessing": true,
+        "aaSorting": [[0, "asc"]],
+        "aoColumns": [                { "mData": "username" },
+                            { "mData": "usernameCanonical" },
+                            { "mData": "email" },
+                            { "mData": "emailCanonical" },
+                            { "mData": "enabled" },
+                            { "mData": "salt" },
+                            { "mData": "password" },
+                            { "mData": "lastLogin" },
+                            { "mData": "locked" },
+                            { "mData": "expired" },
+                            { "mData": "expiresAt" },
+                            { "mData": "confirmationToken" },
+                            { "mData": "passwordRequestedAt" },
+                            { "mData": "roles" },
+                            { "mData": "credentialsExpired" },
+                            { "mData": "credentialsExpireAt" },
+                            { "mData": "cuil" },
+                            { "mData": "nombre" },
+                            { "mData": "apellido" },
+                            { "mData": "direccion" },
+                            { "mData": "telefono" },
+                            { "mData": "observaciones" },
+                            { "mData": "funcionPrincipal" },
+                        null
+        ]
+    });
+
+</script>

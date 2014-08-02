@@ -1,0 +1,48 @@
+services:
+    siesc_data.admin.docente:
+            class: Siesc\DataBundle\Admin\DocenteAdmin
+            arguments: [~, Siesc\AppBundle\Entity\Docente, SonataAdminBundle:CRUD]
+            tags:
+                - {name: sonata.admin, manager_type: orm, group: admin, label: Docente}
+
+    siesc_data.admin.seccion:
+        class: Siesc\DataBundle\Admin\SeccionAdmin
+        arguments: [~, Siesc\AppBundle\Entity\Seccion, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Seccion}
+
+    siesc_data.admin.curso:
+        class: Siesc\DataBundle\Admin\CursoAdmin
+        arguments: [~, Siesc\AppBundle\Entity\Curso, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Curso}
+
+    siesc_data.admin.ciclo_lectivo:
+        class: Siesc\DataBundle\Admin\CicloLectivoAdmin
+        arguments: [~, Siesc\AppBundle\Entity\CicloLectivo, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: CicloLectivo}
+
+    siesc_data.admin.tipo_inasistencia:
+        class: Siesc\DataBundle\Admin\TipoInasistenciaAdmin
+        arguments: [~, Siesc\PartesBundle\Entity\TipoInasistencia, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: TipoInasistencia}
+
+    siesc_data.admin.motivo_inasistencia:
+        class: Siesc\DataBundle\Admin\MotivoInasistenciaAdmin
+        arguments: [~, Siesc\PartesBundle\Entity\MotivoInasistencia, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: MotivoInasistencia}
+
+    siesc_data.admin.cargo_docente:
+        class: Siesc\DataBundle\Admin\CargoDocenteAdmin
+        arguments: [~, Siesc\PartesBundle\Entity\CargoDocente, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: CargoDocente}
+
+    siesc_data.admin.cargo:
+        class: Siesc\DataBundle\Admin\CargoAdmin
+        arguments: [~, Siesc\PartesBundle\Entity\Cargo, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Cargo}

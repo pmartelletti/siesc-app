@@ -1,0 +1,23 @@
+data_partes_cargo_docente:
+    pattern:  /
+    defaults: { _controller: "SiescDataBundle:Partes/CargoDocente:index" }
+
+data_partes_cargo_docente_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SiescDataBundle:Partes/CargoDocente:show" }
+
+data_partes_cargo_docente_new:
+    pattern:  /new
+    defaults: { _controller: "SiescDataBundle:Partes/CargoDocente:new" }
+
+data_partes_cargo_docente_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SiescDataBundle:Partes/CargoDocente:edit" }
+
+data_partes_cargo_docente_close:
+    pattern:  /{id}/close
+    defaults: { _controller: "SiescDataBundle:Partes/CargoDocente:close" }
+
+data_partes_cargo_docente_open:
+    pattern:  /{id}/reopen
+    defaults: { _controller: "SiescDataBundle:Partes/CargoDocente:open" }

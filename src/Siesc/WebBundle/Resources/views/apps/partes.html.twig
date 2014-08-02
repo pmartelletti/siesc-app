@@ -1,0 +1,11 @@
+{% extends 'SiescWebBundle::base.html.twig' %}
+
+{% block app_page_logo %}
+    <a href="{{ path('partes_index') }}"><img src="{{ asset('bundles/siescapp/images/siesc-partes.png') | imagine_filter('app_thumb') }}" alt="SIESC Partes"></a>
+{% endblock %}
+
+{% block current_breadcrumb %}
+    <li>
+        <a href="{{ path('partes_index') }}">Partes</a>
+    </li>
+{% endblock %}

@@ -1,0 +1,7 @@
+app_index:
+    pattern:  /
+    defaults: { _controller: "SiescAppBundle:Default:index" }
+
+app_read_notificacion:
+    pattern: /notificaciones/{id}/leer
+    defaults: { _controller: "SiescAppBundle:Default:readNotification"}

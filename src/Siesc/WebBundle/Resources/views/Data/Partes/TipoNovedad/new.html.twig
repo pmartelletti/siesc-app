@@ -1,0 +1,38 @@
+{% extends 'SiescWebBundle::base.html.twig' %}
+{% from 'SiescWebBundle:Macros:form_actions.html.twig' import create %}
+
+{% block page_title %}
+Crear nuevo Tipo Novedad
+{% endblock %}
+
+{% block current_breadcrumb %}
+<li>
+    <span>Admin</span>
+</li>
+<li>
+    <a href="{{ path('data_partes_tipo_novedad') }}">Tipo Novedad</a>
+</li>
+<li>
+    <a href="{{ path('data_partes_tipo_novedad_new') }}">Nuevo</a>
+</li>
+{% endblock %}
+
+{% block page_content -%}
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading">Crear nuevo Tipo Novedad</header>
+                <div class="panel-body">
+                    <form action="{{ path('data_partes_tipo_novedad_new') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+                        <fieldset>
+                            {{ form_widget(form) }}
+                        </fieldset>
+                        {{ form_rest(form) }}
+                        {{ create() }}
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+

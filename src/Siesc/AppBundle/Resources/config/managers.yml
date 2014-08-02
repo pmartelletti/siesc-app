@@ -1,0 +1,4 @@
+services:
+    siesc.app.manager.notificaciones_novedad:
+        class: Siesc\AppBundle\Manager\NotificacionesManager
+        arguments: [@doctrine.orm.entity_manager, @siesc_app.notifiacion_novedad.factory, @siesc_app.mailer.notificacion]

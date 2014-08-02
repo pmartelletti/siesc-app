@@ -1,0 +1,23 @@
+data_app_funcion:
+    pattern:  /
+    defaults: { _controller: "SiescDataBundle:App/Funcion:index" }
+
+data_app_funcion_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SiescDataBundle:App/Funcion:show" }
+
+data_app_funcion_new:
+    pattern:  /new
+    defaults: { _controller: "SiescDataBundle:App/Funcion:new" }
+
+data_app_funcion_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SiescDataBundle:App/Funcion:edit" }
+
+data_app_funcion_close:
+    pattern:  /{id}/close
+    defaults: { _controller: "SiescDataBundle:App/Funcion:close" }
+
+data_app_funcion_open:
+    pattern:  /{id}/reopen
+    defaults: { _controller: "SiescDataBundle:App/Funcion:open" }

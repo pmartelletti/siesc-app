@@ -1,0 +1,46 @@
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Siesc\AppBundle\Entity\User
+    service:
+      user_manager: pugx_user_manager
+
+pugx_multi_user:
+  users:
+    usuario_alumno:
+        entity:
+          class: Siesc\AppBundle\Entity\Alumno
+#          factory:
+        registration:
+          form:
+            type: Acme\UserBundle\Form\Type\RegistrationUserOneFormType
+            name: fos_user_registration_form
+            validation_groups:  [Registration, Default]
+          template: AcmeUserBundle:Registration:user_one.form.html.twig
+        profile:
+          form:
+            type: Acme\UserBundle\Form\Type\ProfileUserOneFormType
+            name: fos_user_profile_form
+            validation_groups:  [Profile, Default]
+    usuario_docente:
+        entity:
+          class: Siesc\AppBundle\Entity\Docente
+        registration:
+          form:
+            type: Acme\UserBundle\Form\Type\RegistrationUserTwoFormType
+          template: AcmeUserBundle:Registration:user_two.form.html.twig
+        profile:
+          form:
+            type: Acme\UserBundle\Form\Type\ProfileUserTwoFormType
+
+bazinga_faker:
+    entities:
+        Siesc\AppBundle\Entity\Docente:
+          number: 100
+          custom_formatters:
+            nombre: { method: firstName }
+            apellido: { method: lastName }
+            email: { method: email }
+            direccion: {method: address }
+            telefono: { method: phoneNumber }
+            roles: { method: null }

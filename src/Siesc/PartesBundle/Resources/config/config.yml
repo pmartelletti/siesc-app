@@ -1,0 +1,56 @@
+winzou_state_machine:
+    partes_novedad:
+      class: Siesc\PartesBundle\Entity\Novedad
+      graph: partes_novedad
+      property_path: estado
+      states:
+          nueva: ~
+          pendiente_aprobacion: ~
+          autorizada: ~
+          desautorizada: ~
+          liquidada: ~
+          pendiente_cambios: ~
+          rechazada: ~
+      transitions:
+          create:
+              from: [nueva]
+              to: pendiente_aprobacion
+          autorizar:
+              from: [pendiente_aprobacion, desautorizada]
+              to: autorizada
+          desautorizar:
+              from: [pendiente_aprobacion, autorizada, pendiente_cambios]
+              to: desautorizada
+          rechazar:
+              from: [desautorizada]
+              to: rechazada
+          pedir_cambios:
+              from: [desautorizada, autorizada, pendiente_aprobacion]
+              to: pendiente_cambios
+          enviar_cambios:
+              from: [pendiente_cambios]
+              to: pendiente_aprobacion
+          generar_reporte:
+              from: [autorizada]
+              to: liquidada
+      callbacks:
+          after:
+              log_activity:
+                  do: [@siesc.app.manager.notificaciones_novedad, 'createNotification']
+                  args: ['event', 'object']
+
+    partes_cierre_novedades:
+          class: Siesc\PartesBundle\Entity\CierreNovedades
+          graph: partes_cierre_novedades
+          property_path: estado
+          states:
+              pendiente_liquidacion: ~
+              liquidacion_parcial: ~
+              liquidacion_total: ~
+          transitions:
+              liquidar_parcialmente:
+                  from: [pendiente_liquidacion, liquidacion_parcial]
+                  to: liquidacion_parcial
+              liquidar_totalmente:
+                  from: [pendiente_liquidacion, liquidacion_parcial]
+                  to: liquidacion_total

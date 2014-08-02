@@ -1,0 +1,208 @@
+{% if form is defined %}
+    {% form_theme form 'SiescWebBundle:Widgets:forms.html.twig' %}
+{% endif %}
+
+{% from 'SiescWebBundle:Macros:flash.html.twig' import session_flash %}
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <title>{% block title %}SIESC - {{ institucion }} {% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+
+    {% block styles %}
+
+        {% stylesheets output='assets/compiled/main-theme.css' filter='cssrewrite'
+            'bundles/siescweb/css/bootstrap.min.css'
+            'bundles/siescweb/css/londinium-theme.css'
+            'bundles/siescweb/css/styles.css'
+            'bundles/siescweb/css/icons.css'
+            '@SiescWebBundle/Resources/public/css/custom.css'
+        %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    {% endblock %}
+    <!-- BEGIN THEME STYLES -->
+    {% block theme_styles %}{% endblock %}
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="favicon.ico"/>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="{% block body_class %}sidebar-wide{% endblock %}">
+    <!-- BEGIN HEADER -->
+    {% block header %}
+        <!-- Navbar -->
+        <div class="navbar navbar-inverse" role="navigation">
+            <div class="navbar-header">
+                {% block app_page_logo %}
+                <a href="{{ path('app_index') }}"><img src="{{ asset('bundles/siescapp/images/siesc.png') | imagine_filter('app_thumb') }}" alt="SIESC"></a>
+                {% endblock %}
+                <a class="sidebar-toggle"><i class="icon-paragraph-justify2"></i></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-icons">
+                    <span class="sr-only">Toggle navbar</span>
+                    <i class="icon-grid3"></i>
+                </button>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="icon-paragraph-justify2"></i>
+                </button>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right collapse" id="navbar-icons">
+
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle">
+                        <i class="icon-grid"></i>
+                    </a>
+                    {% include 'SiescWebBundle:Widgets:change_service_dropdown.html.twig' %}
+                </li>
+                <li class="dropdown">
+                <li class="dropdown">
+                    {{ render(controller('SiescAppBundle:Default:userNotificacions')) }}
+                </li>
+
+                <li class="user dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="http://placehold.it/300" alt="">
+                        <span>{{ app.user.fullName }}</span>
+                        <i class="caret"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right icons-right">
+                        <li><a href="{{ path('fos_user_profile_show') }}"><i class="icon-user"></i> Profile</a></li>
+                        <li><a href="#"><i class="icon-cog"></i> Settings</a></li>
+                        <li><a href="{{ path('fos_user_security_logout') }}"><i class="icon-exit"></i> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /navbar -->
+    {% endblock header %}
+    <!-- Page container -->
+    <div class="page-container {% block container_class %}{% endblock %}">
+        {% block sidebar %}
+            <!-- Sidebar -->
+            <div class="sidebar collapse">
+                <div class="sidebar-content">
+
+                    <!-- User dropdown -->
+                    <div class="user-menu dropdown">
+                        <a href="#">
+                            <img src="http://placehold.it/300" alt="">
+                            <div class="user-info">
+                                {{ institucion }} <span>Web Developer</span>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- /user dropdown -->
+                    {% set url_parts = app.request.requestUri | replace({ (app.request.baseUrl): "" }) | split("/") %}
+                    {% include 'SiescWebBundle:Menu:' ~ url_parts[1] ~'.html.twig' ignore missing %}
+
+                    <!-- Main navigation -->
+                    {% block main_menu %}{% endblock %}
+                    <!-- /main navigation -->
+
+                </div>
+            </div>
+            <!-- /sidebar -->
+        {% endblock sidebar %}
+        {% block main_content %}
+            <!-- Page content -->
+            <div class="page-content">
+
+
+                <!-- Page header -->
+                <div class="page-header">
+                    <div class="page-title">
+                        <h3>{% block page_title %}{% endblock %}</h3>
+                    </div>
+                </div>
+                <!-- /page header -->
+
+                {% block breadcumb %}
+                    <!-- Breadcrumbs line -->
+                    <div class="breadcrumb-line">
+                        <ul class="breadcrumb">
+                            <li><a href="{{ path('app_index') }}">Home</a></li>
+                            {% block current_breadcrumb %}
+                            <li><a href="blank_wide_left.html">Blank pages</a></li>
+                            <li class="active">Wide left sidebar</li>
+                            {% endblock %}
+                        </ul>
+                    </div>
+                    <!-- /breadcrumbs line -->
+                {% endblock breadcumb %}
+
+                {% block flashes %}
+                    {% if app.session.flashbag.peekAll|length > 0 %}
+                        <div class="row">
+                            <div class="col-sm-12">
+                                {{ session_flash() }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endblock flashes %}
+
+                {% block page_content %}{% endblock %}
+
+                {% block footer %}
+                    <!-- Footer -->
+                    <div class="footer clearfix">
+                        <div class="pull-left">&copy; 2012 - {{ "now" | date('Y') }} Sistemas Informáticos para Escuelas (SIESC)</div>
+                    </div>
+                    <!-- /footer -->
+                {% endblock %}
+
+
+            </div>
+            <!-- /page content -->
+        {% endblock main_content %}
+    </div>
+<!-- END FOOTER -->
+{% block javascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script>
+        var swfFile = "{{ asset('bundles/siescweb/media/swf/copy_csv_xls_pdf.swf') }}";
+    </script>
+
+    {% javascripts output='assets/compiled/main-script.js'
+        'bundles/siescweb/js/plugins/interface/datatables.min.js'
+        'bundles/siescweb/js/plugins/interface/tabletools.min.js'
+        'bundles/siescweb/js/plugins/forms/select2.min.js'
+        'bundles/siescweb/js/plugins/forms/listbox.js'
+        'bundles/siescweb/js/plugins/forms/multiselect.js'
+        'bundles/siescweb/js/plugins/interface/collapsible.min.js'
+        'bundles/siescweb/js/bootstrap.min.js'
+        'bundles/siescweb/js/plugins/timeago/jquery.timeago.js'
+        'bundles/siescweb/js/plugins/timeago/jquery.timeago.es.js'
+        'bundles/siescweb/js/jquery.easypiechart.min.js'
+        '@SiescWebBundle/Resources/public/js/application.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+{% block theme_javascripts %}{% endblock %}
+{% block document_javascripts %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("abbr.timeago").timeago();
+        });
+    </script>
+{% endblock %}
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

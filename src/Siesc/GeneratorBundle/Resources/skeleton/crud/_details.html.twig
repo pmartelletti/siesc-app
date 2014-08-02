@@ -1,0 +1,24 @@
+<section class="panel">
+    <header class="panel-heading">
+        <i class="icon-paragraph-justify2"></i>Detalles del {{ entity_normal_name }}
+    </header>
+    <div class="panel-body">
+        <table class="table table-condensed">
+            <tbody>
+            {%- for field in doctrine_fields %}
+                <tr>
+                    {% spaceless %}
+                        <th>{{ field|replace({'_': ' '})|capitalize }}</th>
+                        {%- if field in ['closed_at'] %}
+                            <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d\') }}' }}</td>
+                        {%- else %}
+                            <td>{{ '{{ siesc_crud_property(entity,"' ~ field|replace({'_': ''}) ~ '") }}' }}</td>
+                        {%- endif %}
+                    {% endspaceless %}
+
+                </tr>
+            {%- endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>

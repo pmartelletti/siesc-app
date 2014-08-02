@@ -1,0 +1,62 @@
+{% extends 'SiescWebBundle:apps:partes.html.twig' %}
+
+{% block page_title %}
+    Novedades
+{% endblock %}
+
+{% block current_breadcrumb %}
+    {{ parent() }}
+    <li class="active">Cierre de Novedades</li>
+{% endblock %}
+
+{% block page_content -%}
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-right">
+                <a class="btn btn-primary" href="{{ path('partes_cierre_novedades_new') }}">
+                    <i class="icon-plus-circle"></i> Generar cierre de novedades
+                </a>
+            </p>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h6 class="panel-title">Cierre de Novedades</h6>
+                </div>
+                <div class="datatable-tools">
+                    <div class="datatable-header">
+                    </div>
+                    <div class="datatable-scroll">
+                        <table class="table table-hover table-condensed dataTable">
+                            <thead>
+                            <tr>
+                                <th>Fecha de Cierre</th>
+                                <th>Encargado</th>
+                                <th>Cantidad de novedades</th>
+                                <th>Estado</th>
+                                <th scope="col" class="text-right">Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entity in entities %}
+                                <tr>
+                                    <td>{{ siesc_crud_property(entity,"fechaCierre") }}</td>
+                                    <td>{{ siesc_crud_property(entity,"encargado") }}</td>
+                                    <td>{{ entity.novedades | length }}</td>
+                                    <td class="text-center">{{ siesc_estado_button(entity.estado) }}</td>
+
+                                    <td class="text-right">
+                                        <a class="btn btn-info btn-xs"
+                                           href="{{ path('partes_cierre_novedades_show', { 'id': entity.id }) }}"><i
+                                                    class="icon-zoom-in"></i> </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="datatable-footer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

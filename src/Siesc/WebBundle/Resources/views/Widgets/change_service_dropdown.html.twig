@@ -1,0 +1,31 @@
+<div class="popup dropdown-menu dropdown-menu-right">
+    <div class="popup-header">
+        <span>Modulos del Sistema</span>
+        <a href="#" class="pull-right"><i class="icon-new-tab"></i></a>
+    </div>
+    <div class="row">
+        {#<div class="col-md-6">#}
+            {#<a class="choose-service" href="#">#}
+                {#<img src="{{ asset('bundles/siescapp/images/siesc-academico.png')  | imagine_filter('app_thumb') }}" />#}
+            {#</a>#}
+        {#</div>#}
+        <div class="col-md-6">
+            <a class="choose-service" href="{{ path('data_index') }}">
+                <img src="{{ asset('bundles/siescapp/images/siesc-data.png')  | imagine_filter('app_thumb') }}" />
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a class="choose-service" href="{{ path('partes_index') }}">
+                <img src="{{ asset('bundles/siescapp/images/siesc-partes.png')  | imagine_filter('app_thumb') }}" />
+            </a>
+        </div>
+    </div>
+    {#<div class="row">#}
+        {##}
+        {#<div class="col-md-6">#}
+            {#<a class="choose-service" href="#">#}
+                {#<img src="{{ asset('bundles/siescapp/images/siesc-admisiones.png')  | imagine_filter('app_thumb') }}" />#}
+            {#</a>#}
+        {#</div>#}
+    {#</div>#}
+</div>

@@ -1,0 +1,21 @@
+partes_novedad_index:
+    pattern: /
+    defaults: { _controller: SiescPartesBundle:Novedades:index }
+
+partes_novedad_new:
+    pattern: /new
+    defaults: { _controller: SiescPartesBundle:Novedades:new }
+
+partes_novedad_show:
+    pattern: /{id}/show
+    defaults: { _controller: SiescPartesBundle:Novedades:show }
+    options:
+      expose: true
+
+partes_novedad_edit:
+    pattern: /{id}/edit
+    defaults: { _controller: SiescPartesBundle:Novedades:edit }
+
+partes_novedad_cambiar_estado:
+    pattern: /{id}/{accion}
+    defaults: { _controller: SiescPartesBundle:Novedades:cambiarEstado }

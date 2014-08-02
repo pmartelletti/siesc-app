@@ -1,0 +1,90 @@
+{% extends 'SiescPartesBundle::base.html.twig' %}
+
+{% block main_content %}
+    <h2>Detalle del Parte Diario</h2>
+
+    <table class="record_properties table table-bordered table-striped">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>#{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Fecha</th>
+                <td>{{ entity.fecha|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>{{ entity.estado }}</td>
+            </tr>
+            <tr>
+                <th>Observaciones</th>
+                <td>{{ entity.observaciones }}</td>
+            </tr>
+            <tr>
+                <th>Inasistencias</th>
+                <td>
+                    {% if entity.inasistencias |length > 0 %}
+                     {% for inasistencia in entity.inasistencias %}
+                         <table class="record_properties table table-bordered">
+                             <tbody>
+                                <tr>
+                                    <th>Docente y Cargo:</th>
+                                    <td>{{ inasistencia.cargo }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Motivo:</th>
+                                    <td>{{ inasistencia.motivo }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Horas:</th>
+                                    <td>{{ inasistencia.horas }}</td>
+                                </tr>
+                             </tbody>
+                         </table>
+                     {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Horas Extra</th>
+                <td>
+                    {% if entity.horasExtra | length > 0 %}
+                        {% for he in entity.horasExtra %}
+                            <table class="record_properties table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <th>Docente y Cargo:</th>
+                                    <td>{{ he.cargo }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Horas:</th>
+                                    <td>{{ he.horas }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Observaciones:</th>
+                                    <td>{{ he.observaciones }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('partes_partediario') }}">
+            Volver al Listado
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('partes_partediario_edit', { 'id': entity.id }) }}">
+            Editar
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

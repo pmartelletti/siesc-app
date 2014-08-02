@@ -1,0 +1,12 @@
+siesc_data:
+    resource: "@SiescWebBundle/Resources/config/routing/data/data.yml"
+    prefix:   /configuracion
+
+siesc_partes:
+    resource: "@SiescWebBundle/Resources/config/routing/partes/partes.yml"
+    prefix:   /partes-diarios
+
+siesc_app:
+    resource: "@SiescWebBundle/Resources/config/routing/app/app.yml"
+    prefix:   /
+

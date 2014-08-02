@@ -1,0 +1,284 @@
+<?php
+
+namespace Siesc\PartesBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Siesc\AppBundle\Entity\Docente;
+
+/**
+ * ParteDiario
+ *
+ * @ORM\Table(name="partes_parteDiario")
+ * @ORM\Entity(repositoryClass="Siesc\PartesBundle\Entity\ParteDiarioRepository")
+ * @ORM\HasLifecycleCallbacks()
+ */
+class ParteDiario
+{
+
+    const ESTADO_PENDIENTE = 0;
+    const ESTADO_RECHAZADO = 1;
+    const ESTADO_CORROBORAR = 2;
+    const ESTADO_CONFIRMADO = 3;
+
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Docente")
+     */
+    private $secretario;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha", type="date")
+     */
+    private $fecha;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observaciones", type="text")
+     */
+    private $observaciones;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="estado", type="integer")
+     */
+    private $estado;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Inasistencia", mappedBy="parteDiario", cascade={"all"})
+     **/
+    private $inasistencias;
+
+    /**
+
+     **/
+    private $accidentes;
+
+    /**
+     * @ORM\OneToMany(targetEntity="HorasExtra", mappedBy="parteDiario", cascade={"all"})
+     **/
+    private $horasExtras;
+
+    public function __construct() {
+        $this->inasistencias = new ArrayCollection();
+        $this->accidentes = new ArrayCollection();
+        $this->horasExtra = new ArrayCollection();
+    }
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set secretario
+     *
+     * @param \stdClass $secretario
+     * @return ParteDiario
+     */
+    public function setSecretario($secretario)
+    {
+        $this->secretario = $secretario;
+    
+        return $this;
+    }
+
+    /**
+     * Get secretario
+     *
+     * @return \stdClass 
+     */
+    public function getSecretario()
+    {
+        return $this->secretario;
+    }
+
+    /**
+     * Set fecha
+     *
+     * @param \DateTime $fecha
+     * @return ParteDiario
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+    
+        return $this;
+    }
+
+    /**
+     * Get fecha
+     *
+     * @return \DateTime 
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * Set observaciones
+     *
+     * @param string $observaciones
+     * @return ParteDiario
+     */
+    public function setObservaciones($observaciones)
+    {
+        $this->observaciones = $observaciones;
+    
+        return $this;
+    }
+
+    /**
+     * Get observaciones
+     *
+     * @return string 
+     */
+    public function getObservaciones()
+    {
+        return $this->observaciones;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param integer $estado
+     * @return ParteDiario
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+    
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return integer 
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * Set inasistencias
+     *
+     * @param \stdClass $inasistencias
+     * @return ParteDiario
+     */
+    public function setInasistencias($inasistencias)
+    {
+        $this->inasistencias = $inasistencias;
+    
+        return $this;
+    }
+
+    /**
+     * Get inasistencias
+     *
+     * @return \stdClass 
+     */
+    public function getInasistencias()
+    {
+        return $this->inasistencias;
+    }
+
+    /**
+     * Set accidentes
+     *
+     * @param \stdClass $accidentes
+     * @return ParteDiario
+     */
+    public function setAccidentes($accidentes)
+    {
+        $this->accidentes = $accidentes;
+    
+        return $this;
+    }
+
+    /**
+     * Get accidentes
+     *
+     * @return \stdClass 
+     */
+    public function getAccidentes()
+    {
+        return $this->accidentes;
+    }
+
+    /**
+     * Set horasExtra
+     *
+     * @param \stdClass $horasExtra
+     * @return ParteDiario
+     */
+    public function setHorasExtra($horasExtra)
+    {
+        $this->horasExtra = $horasExtra;
+    
+        return $this;
+    }
+
+    /**
+     * Get horasExtra
+     *
+     * @return \stdClass 
+     */
+    public function getHorasExtra()
+    {
+        return $this->horasExtra;
+    }
+
+    /**
+     * Add inasistencias
+     *
+     * @param \Siesc\PartesBundle\Entity\Inasistencia $inasistencias
+     * @return ParteDiario
+     */
+    public function addInasistencia(\Siesc\PartesBundle\Entity\Inasistencia $inasistencias)
+    {
+        $inasistencias->setParteDiario($this);
+        $this->inasistencias->add($inasistencias);
+    
+        return $this;
+    }
+
+
+    /**
+     * Remove inasistencias
+     *
+     * @param \Siesc\PartesBundle\Entity\Inasistencia $inasistencias
+     */
+    public function removeInasistencia(\Siesc\PartesBundle\Entity\Inasistencia $inasistencias)
+    {
+        $this->inasistencias->removeElement($inasistencias);
+    }
+
+   
+
+    /** @ORM\PrePersist */
+    public function setEstadoInicial() {
+        $this->estado = self::ESTADO_PENDIENTE;
+    }
+}

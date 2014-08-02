@@ -1,0 +1,151 @@
+<?php
+
+namespace Siesc\PartesBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * HorasExtra
+ *
+ * @ORM\Table(name="partes_horasExtra")
+ * @ORM\Entity
+ */
+class HorasExtra
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CargoDocente")
+     */
+    private $cargo;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="horas", type="float")
+     */
+    private $horas;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observaciones", type="text")
+     */
+    private $observaciones;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ParteDiario", inversedBy="horasExtras", cascade={"all"})
+     **/
+    private $parteDiario;
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set cargo
+     *
+     * @param \stdClass $cargo
+     * @return HorasExtra
+     */
+    public function setCargo($cargo)
+    {
+        $this->cargo = $cargo;
+    
+        return $this;
+    }
+
+    /**
+     * Get cargo
+     *
+     * @return \stdClass 
+     */
+    public function getCargo()
+    {
+        return $this->cargo;
+    }
+
+    /**
+     * Set horas
+     *
+     * @param float $horas
+     * @return HorasExtra
+     */
+    public function setHoras($horas)
+    {
+        $this->horas = $horas;
+    
+        return $this;
+    }
+
+    /**
+     * Get horas
+     *
+     * @return float 
+     */
+    public function getHoras()
+    {
+        return $this->horas;
+    }
+
+    /**
+     * Set observaciones
+     *
+     * @param string $observaciones
+     * @return HorasExtra
+     */
+    public function setObservaciones($observaciones)
+    {
+        $this->observaciones = $observaciones;
+    
+        return $this;
+    }
+
+    /**
+     * Get observaciones
+     *
+     * @return string 
+     */
+    public function getObservaciones()
+    {
+        return $this->observaciones;
+    }
+
+    /**
+     * Set parteDiario
+     *
+     * @param \Siesc\PartesBundle\Entity\ParteDiario $parteDiario
+     * @return HorasExtra
+     */
+    public function setParteDiario(\Siesc\PartesBundle\Entity\ParteDiario $parteDiario = null)
+    {
+        $this->parteDiario = $parteDiario;
+    
+        return $this;
+    }
+
+    /**
+     * Get parteDiario
+     *
+     * @return \Siesc\PartesBundle\Entity\ParteDiario 
+     */
+    public function getParteDiario()
+    {
+        return $this->parteDiario;
+    }
+}

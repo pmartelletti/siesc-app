@@ -1,0 +1,23 @@
+data_app_docente:
+    pattern:  /
+    defaults: { _controller: "SiescDataBundle:App/Docente:index" }
+
+data_app_docente_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SiescDataBundle:App/Docente:show" }
+
+data_app_docente_new:
+    pattern:  /new
+    defaults: { _controller: "SiescDataBundle:App/Docente:new" }
+
+data_app_docente_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SiescDataBundle:App/Docente:edit" }
+
+data_app_docente_close:
+    pattern:  /{id}/close
+    defaults: { _controller: "SiescDataBundle:App/Docente:close" }
+
+data_app_docente_open:
+    pattern:  /{id}/reopen
+    defaults: { _controller: "SiescDataBundle:App/Docente:open" }

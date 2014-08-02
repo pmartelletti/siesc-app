@@ -1,0 +1,25 @@
+<a class="dropdown-toggle" data-toggle="dropdown">
+    <i class="icon-paragraph-justify2"></i>
+    {% if unreads > 0 %}
+    <span class="label label-danger">{{ unreads }}</span>
+    {% endif %}
+</a>
+<div class="popup dropdown-menu dropdown-menu-right notifications">
+    <div class="popup-header">
+        <span>Notificaciones</span>
+        <a href="#" class="pull-right"><i class="icon-new-tab"></i></a>
+    </div>
+    <ul class="popup-messages">
+        {% for notificacion in notificaciones %}
+        <li class="{% if not notificacion.leida %} unread {% endif %}">
+            <a href="{{ path('app_read_notificacion', {'id': notificacion.id }) }}" class="notify-notificacion">
+                {% if notificacion.encargado is defined %}
+                <strong>{{ notificacion.encargado }}</strong>
+                {% endif %}
+                <span>{{ notificacion.mensaje }}</span>
+                <abbr class="timeago" title="{{ notificacion.fecha | date('c') }}"></abbr>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

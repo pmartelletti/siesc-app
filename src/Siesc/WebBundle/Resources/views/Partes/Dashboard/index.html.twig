@@ -1,0 +1,92 @@
+{% extends 'SiescWebBundle:apps:partes.html.twig' %}
+
+{% block page_title %}
+    Dashboard
+{% endblock %}
+
+{% block current_breadcrumb %}
+    {{ parent() }}
+    <li class="active">Dashboard</li>
+{% endblock %}
+
+{% block page_content -%}
+<div class="row">
+    <div class="col-md-12">
+        <h3>Resumen de Novedades</h3>
+    </div>
+</div>
+<div class="row">
+    {% set total = stats.total %}
+    {% for stat, value in stats %}
+    {% if stat != 'total' %}
+    <div class="col-md-3">
+        <div class="pie-chart-container">
+            {% set percent = (value * 100) / total %}
+            <span class="pie-chart" data-percent="{{ percent }}">
+                <span class="percent">{{ percent }}</span>
+            </span>
+            <a href="{{ path('partes_novedad_index', {'estado': stat}) }}" class="title">
+                {{ stat | split('_') | join(' ') | capitalize }} <i class="icon-arrow-right10"></i>
+            </a>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="alert alert-info">
+    <strong>Nota:</strong> solo se tienen en cuenta las novedades del ultimo mes.
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Novedades que requieren su atencion</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Docente</th>
+                <th>Secretario</th>
+                <th>Estado</th>
+                <th>-</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for novedad in novedades_requeridas %}
+            <tr>
+                <td>{{ siesc_crud_property(novedad, 'createdAt') }}</td>
+                <td>{{ siesc_crud_property(novedad, 'tipo') }}</td>
+                <td>{{ siesc_crud_property(novedad, 'cargoDocente') }}</td>
+                <td>{{ siesc_crud_property(novedad, 'secretario') }}</td>
+                <td class="text-center">{{ siesc_estado_button(novedad.estado) }}</td>
+                <td>
+                    <a href="{{ path('partes_novedad_show', {'id' : novedad.id}) }}" class="btn btn-info btn-icon">
+                        <i class="icon-search"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block document_javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(function() {
+            $('.pie-chart').easyPieChart({
+                onStep: function(from, to, percent) {
+                    $(this.el).find('.percent').text(Math.round(percent));
+                }
+            });
+        });
+    </script>
+{% endblock %}

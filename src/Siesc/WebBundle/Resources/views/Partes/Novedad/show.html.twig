@@ -1,0 +1,21 @@
+{% extends 'SiescWebBundle:apps:partes.html.twig' %}
+
+{% block current_breadcrumb %}
+<li>
+    <a href="{{ path('partes_novedad_index') }}">Novedades</a>
+</li>
+<li class="active">Detalle</li>
+{% endblock %}
+
+{% block theme_styles %}
+    {{ parent() }}
+    <style type="text/css" media="print">
+        div.transitions, div.breadcrumb-line, div.dropdown {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block page_content %}
+    {% include 'SiescWebBundle:Partes/Novedad:_show.html.twig' with {'entity': entity, 'transitions': transitions} %}
+{% endblock page_content%}

@@ -1,0 +1,47 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+
+    role_hierarchy:
+        ROLE_PARTES: [ROLE_USER_APP]
+        ROLE_PARTES_SECRETARIO: ROLE_PARTES
+        ROLE_PARTES_LIQUIDADOR: [ROLE_PARTES_SECRETARIO, ROLE_PARTES_RL]
+        ROLE_PARTES_ADMIN: [ROLE_PARTES_LIQUIDADOR]
+        ROLE_ADMIN_DATA: ROLE_USER_DATA
+        ROLE_SUPER_ADMIN: [ROLE_PARTES_ADMIN, ROLE_ADMIN_DATA, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+                login_path:  /login
+                check_path:  /login_check
+                default_target_path: /
+            logout:
+                path: /logout
+                target: /
+                invalidate_session: false
+            anonymous:    true
+            switch_user: true
+            
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/assets, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/_wdt, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, role: ROLE_USER_APP }
+        - { path: ^/data, role: ROLE_ADMIN_DATA }
+        - { path: ^/partes/cierre-novedades, role: ROLE_PARTES_RL }
+        - { path: ^/partes, role: ROLE_USER_PARTES }
+        - { path: ^/admin/, role: ROLE_ADMIN }

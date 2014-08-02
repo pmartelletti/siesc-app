@@ -1,0 +1,50 @@
+{% extends 'SiescWebBundle:apps:partes.html.twig' %}
+{% from 'SiescWebBundle:Macros:form_actions.html.twig' import create %}
+
+{% block page_title %}
+    Crear nueva Novedad
+{% endblock %}
+
+{% block current_breadcrumb %}
+    {{ parent() }}
+    <li>
+        <a href="{{ path('partes_novedad_index') }}">Novedades</a>
+    </li>
+    <li class="active">Nueva</li>
+{% endblock %}
+
+
+{% block page_content -%}
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading">Crear nueva Novedad</header>
+                <div class="panel-body">
+                    <form action="{{ path('partes_novedad_new') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+                        <fieldset>
+                            {{ form_widget(form) }}
+                        </fieldset>
+                        {{ form_rest(form) }}
+                        {{ create() }}
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+
+{% block theme_javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        var cargos = $('select[name="siesc_partes_novedad_form[cargoDocente]"]');
+        cargos.empty();
+        $('select[name="siesc_partes_novedad_form[convenio]"]').change(function(){
+            var id = $(this).val();
+            var elem =
+            $.post(Routing.generate('data_partes_convenio_cargos', {'id': id}), function(html_response){
+                cargos.html(html_response).removeClass('form-control');
+                cargos.select2({width: '100%'});
+            });
+        });
+    </script>
+{% endblock %}

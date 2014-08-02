@@ -1,0 +1,9 @@
+admin_crud:
+    resource:
+        create: El %resource% fue creado correctamente.
+        update: El %resource% fue actualizado correctamente.
+        delete: El %resource% fue eliminado correctamente.
+        close: El %resource% fue cerrado correctamente.
+        open: El %resource% fue abierto correctamente.
+        change_state: El %resource% fue %accion% correctamente.
+        change_state_error: Error al intentar %accion% sobre %resource%.

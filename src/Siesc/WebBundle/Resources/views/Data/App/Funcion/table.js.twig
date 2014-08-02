@@ -1,0 +1,17 @@
+<script>
+
+    var datatable = $('.dataTable').dataTable({
+        "asStripeClasses": [],
+        "iDisplayLength": 10,
+        "aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+        "sDom": 'lftrpi',
+        "sPaginationType": "bootstrap",
+        "bProcessing": true,
+        "aaSorting": [[0, "asc"]],
+        "aoColumns": [                { "mData": "nombre" },
+                            { "mData": "codigo" },
+                        null
+        ]
+    });
+
+</script>

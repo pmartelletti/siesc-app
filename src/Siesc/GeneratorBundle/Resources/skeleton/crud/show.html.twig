@@ -1,0 +1,45 @@
+{% block extends %}
+{{ "{% extends 'SiescWebBundle::base.html.twig' %}" }}
+{% endblock %}
+
+{% block body %}
+{{ "{% block page_title %}" }}
+Showing {{ entity_normal_name }}: "{{ "{{ entity }}" }}"
+{{ "{% endblock %}" }}
+
+{{ "{% block current_breadcrumb %}" }}
+<li>
+    <span>Admin</span>
+</li>
+<li>
+    <a href="{{ "{{ path('%s') }}" | format(route_prefix)}}">{{ entity_normal_name }}</a>
+</li>
+<li>
+    <a href="{{ "{{ path('%s_show', {'id': entity.id}) }}" | format(route_prefix)}}">Detalle</a>
+</li>
+{{ "{% endblock %}" }}
+
+{{ "{% block page_content -%}" }}
+    <div class="row">
+        <div class="col-md-9">
+            {{ "{% include '%dir%:_details.html.twig' %}" | replace({'%dir%': template_dir}) }}
+        </div>
+        <div class="col-md-3">
+            <section class="panel">
+                <header class="panel-heading">
+                    Acciones
+                </header>
+                <div class="panel-body">
+                    <a href="{{ "{{ path('%s_edit', {'id': entity.id}) }}" | format(route_prefix)}}" class="btn btn-primary btn-block">
+                        <i class="icon-pencil"></i> Editar {{ entity_normal_name }}
+                    </a>
+                    <a href="{{ "{{ path('%s') }}" | format(route_prefix)}}" class="btn btn-info btn-block">
+                        <i class="icon-list"></i> Volver a la lista
+                    </a>
+                </div>
+            </section>
+        </div>
+    </div>
+{{ "{% endblock page_content -%}" }}
+
+{% endblock %}

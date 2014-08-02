@@ -1,0 +1,23 @@
+{% extends 'SiescWebBundle::base_no_service.html.twig' %}
+
+{% block page_title %}
+    Módulos del Sistema
+{% endblock %}
+
+{% block page_content %}
+    <div class="row">
+        {% for module in modules %}
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="block">
+                <div class="thumbnail">
+                    <div class="thumb text-center">
+                        <a href="{{ path(module.route) }}">
+                            <img src="{{ asset(module.logo) }}" alt="{{ module.name }}" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+data_partes_categoria:
+    pattern:  /
+    defaults: { _controller: "SiescDataBundle:Partes/Categoria:index" }
+
+data_partes_categoria_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SiescDataBundle:Partes/Categoria:show" }
+
+data_partes_categoria_new:
+    pattern:  /new
+    defaults: { _controller: "SiescDataBundle:Partes/Categoria:new" }
+
+data_partes_categoria_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SiescDataBundle:Partes/Categoria:edit" }
+
+data_partes_categoria_close:
+    pattern:  /{id}/close
+    defaults: { _controller: "SiescDataBundle:Partes/Categoria:close" }
+
+data_partes_categoria_open:
+    pattern:  /{id}/reopen
+    defaults: { _controller: "SiescDataBundle:Partes/Categoria:open" }

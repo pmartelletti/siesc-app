@@ -1,0 +1,22 @@
+parameters:
+#    siesc_partes.example.class: Siesc\PartesBundle\Example
+
+services:
+     siesc_partes.estadisticas.manager:
+         class: Siesc\PartesBundle\Services\StatsManager
+         arguments: [@doctrine.orm.entity_manager]
+
+     siesc.twig.transitions_extension:
+         class: Siesc\PartesBundle\Twig\TransitionsExtension
+         tags:
+             - { name: twig.extension }
+
+     siesc.partes.novedad.form:
+        class: Siesc\PartesBundle\Form\NovedadType
+        arguments: [@security.context]
+        tags:
+          - { name: form.type, alias: siesc_partes_novedad_form }
+
+     siesc.partes.manager_novedad:
+        class: Siesc\PartesBundle\Manager\NovedadManager
+        arguments: [@doctrine.orm.entity_manager, @security.context]

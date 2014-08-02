@@ -1,0 +1,42 @@
+{% extends 'SiescPartesBundle::base.html.twig' %}
+
+{% block main_content %}
+    <h2>Listado de Partes ingresado por el usuario</h2>
+
+    <table class="records_list table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Observaciones</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('partes_partediario_show', { 'id': entity.id }) }}">#{{ entity.id }}</a></td>
+                <td>{% if entity.fecha %}{{ entity.fecha|date('d/m/Y') }}{% endif %}</td>
+                <td>{{ entity.observaciones }}</td>
+                <td>{{ entity.estado }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('partes_partediario_show', { 'id': entity.id }) }}">Ver Parte</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('partes_partediario_edit', { 'id': entity.id }) }}">Editar Parte</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p>
+        <a class="btn btn-success" href="{{ path('partes_partediario_new') }}">
+            Crear nuevo Parte Diario
+        </a>
+    </p>
+{% endblock %}

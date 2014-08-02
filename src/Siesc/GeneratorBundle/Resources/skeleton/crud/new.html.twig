@@ -1,0 +1,42 @@
+{% block extends %}
+{{ "{% extends 'SiescWebBundle::base.html.twig' %}" }}
+{{ "{% from 'SiescWebBundle:Macros:form_actions.html.twig' import create %}" }}
+{% endblock %}
+
+{% block body %}
+{{ "{% block page_title %}" }}
+Crear nuevo {{ entity_normal_name }}
+{{ "{% endblock %}" }}
+
+{{ "{% block current_breadcrumb %}" }}
+<li>
+    <span>Admin</span>
+</li>
+<li>
+    <a href="{{ "{{ path('%s') }}" | format(route_prefix)}}">{{ entity_normal_name }}</a>
+</li>
+<li>
+    <a href="{{ "{{ path('%s_new') }}" | format(route_prefix)}}">Nuevo</a>
+</li>
+{{ "{% endblock %}" }}
+
+{{ "{% block page_content -%}" }}
+    <div class="row">
+        <div class="col-md-12">
+            <section class="panel">
+                <header class="panel-heading">Crear nuevo {{ entity_normal_name }}</header>
+                <div class="panel-body">
+                    <form action="{{ "{{ path('%s_new') }}" | format(route_prefix)}}" {{ "{{ form_enctype(form) }}" }} method="POST" class="form-horizontal">
+                        <fieldset>
+                            {{ "{{ form_widget(form) }}" }}
+                        </fieldset>
+                        {{ "{{ form_rest(form) }}" }}
+                        {{ "{{ create() }}" }}
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+{{ "{% endblock %}" }}
+
+{% endblock %}

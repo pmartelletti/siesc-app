@@ -1,0 +1,24 @@
+<section class="panel">
+    <header class="panel-heading">
+        <i class="icon-paragraph-justify2"></i>Detalles del Cargo Docente
+    </header>
+    <div class="panel-body">
+        <table class="table table-condensed">
+            <tbody>                <tr>
+                    <th>Horas</th><td>{{ siesc_crud_property(entity,"horas") }}</td>
+                </tr>                <tr>
+                    <th>Fechaalta</th><td>{{ siesc_crud_property(entity,"fechaAlta") }}</td>
+                </tr>                <tr>
+                    <th>Fechabaja</th><td>{{ siesc_crud_property(entity,"fechaBaja") }}</td>
+                </tr>                <tr>
+                    <th>Docente</th><td>{{ siesc_crud_property(entity,"docente") }}</td>
+                </tr>                <tr>
+                    <th>Convenio</th><td>{{ siesc_crud_property(entity,"convenio") }}</td>
+                </tr>                <tr>
+                    <th>Categoria</th><td>{{ siesc_crud_property(entity,"categoria") }}</td>
+                </tr>                <tr>
+                    <th>Colegio</th><td>{{ siesc_crud_property(entity,"colegio") }}</td>
+                </tr>            </tbody>
+        </table>
+    </div>
+</section>

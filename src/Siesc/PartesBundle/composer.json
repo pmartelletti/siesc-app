@@ -1,0 +1,25 @@
+{
+    "name": "siesc/partes-bundle",
+    "type": "symfony-bundle",
+    "description": "SIESC Partes Bundle",
+    "homepage": "http://code.siesc.com.ar",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pablo Martelletti",
+            "email": "pmartelletti@gmail.com"
+        },
+        {
+            "name": "SIESC Developers Team",
+            "homepage": "code.siesc.com.ar"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "siesc/data-bundle": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Siesc\\PartesBundle": "" }
+    },
+    "target-dir": "Siesc/PartesBundle"
+}

@@ -1,0 +1,91 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h6 class="panel-title"><i class="icon-coin"></i> Novedad</h6>
+        <div class="dropdown pull-right">
+            <a href="#" class="dropdown-toggle panel-icon" data-toggle="dropdown">
+                <i class="icon-cog3"></i>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu icons-right dropdown-menu-right" style="display: none;">
+                <li><a href="{{ path('partes_novedad_edit', {'id': entity.id }) }}"><i class="icon-pencil"></i> Editar</a></li>
+                <li><a href='javascript:window.print();'><i class="icon-print2"></i> Imprimir</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        {# header principal #}
+        <div class="row invoice-header">
+            <div class="col-sm-8">
+                <h3>{{ entity }}</h3>
+                <span>{{ entity.cargoDocente }}</span>
+            </div>
+            <div class="col-sm-4">
+                <ul>
+                    <li>Fecha: {{ siesc_crud_property(entity, 'createdAt') }}</li>
+                    <li>Ulitma modificacion: {{ entity.updatedAt | date('d-m-Y / h:i:s a') }}</li>
+                    <li style="margin-top: 15px">
+                        <strong>Estado actual:</strong> {{ siesc_estado_button(entity.estado) }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {% if not app.request.xmlHttpRequest and is_granted('AUTORIZAR', entity) %}
+        <div class="clearfix transitions">
+            <div class="btn-group pull-right">
+                {% for transition in transitions %}
+                    {{ siesc_transition_button(transition, path('partes_novedad_cambiar_estado', {'id': entity.id,  'accion': transition})) }}
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        <div class="chat-member-heading">
+            <h6>Detalles</h6>
+        </div>
+        <ul class="message-list">
+            <li>
+                <strong>Tipo:</strong> {{ entity.tipo }}
+            </li>
+            <li>
+                <strong>Secretario responsable:</strong> {{ siesc_crud_property(entity, 'secretario') }}
+            </li>
+            <li>
+                <strong>Seccion:</strong> {{ siesc_crud_property(entity, 'funcion') }}
+            </li>
+            <li>
+                <strong>Docente y cargo:</strong> {{ siesc_crud_property(entity, 'cargoDocente') }}
+            </li>
+            <li>
+                <strong>Situacion Revista:</strong> {{ entity.revista }}
+            </li>
+            <li>
+                <strong>Fecha Desde:</strong> {{ siesc_crud_property(entity, 'fechaDesde') }}
+            </li>
+            <li>
+                <strong>Fecha Hasta</strong> {{ siesc_crud_property(entity, 'fechaHasta') }}
+            </li>
+        </ul>
+    </div>
+    <div class="panel-body">
+        {# observaciones #}
+        <h6>Observaciones</h6>
+        {{ entity.observaciones | nl2br }}
+    </div>
+</div>
+
+<div class="block">
+    <h6 class="heading-hr"><i class="icon-file"></i> Historial</h6>
+    <ul class="media-list">
+        {% for evento in entity.eventos | reverse %}
+        <li class="media" id="notificacion-{{ evento.id }}">
+            <div class="media-body">
+                <div class="clearfix">
+                    <a href="#" class="media-heading">{{ evento.encargado }}</a>
+                    <span class="media-notice">{{ evento.fecha | date('d-m-Y / h:i:s a') }}</span>
+                </div>
+                {{ siesc_crud_property(evento, 'mensaje') }}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

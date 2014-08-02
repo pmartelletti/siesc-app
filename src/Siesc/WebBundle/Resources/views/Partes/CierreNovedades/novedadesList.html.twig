@@ -1,0 +1,62 @@
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {% if type is defined and type == 'add' %}
+                <h6 class="panel-title">Novedades aprobadas NO incluidas en el cierre</h6>
+            {% else %}
+                <h6 class="panel-title">Novedades incluidas en el cierre</h6>
+            {% endif %}
+        </div>
+        <table class="table table-hove">
+            <thead>
+            <tr>
+                <th>Cargo Docente</th>
+                <th>Tipo</th>
+                <th>Situacion Revista</th>
+                <th>Fecha Desde</th>
+                <th>Fecha Hasta</th>
+                <th>Estado</th>
+                <th style="width: 15%">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if novedades | length > 0 %}
+            {% for novedad in novedades %}
+                <tr>
+                    <td>{{ siesc_crud_property(novedad, 'cargoDocente') }}</td>
+                    <td>{{ siesc_crud_property(novedad, 'tipo') }}</td>
+                    <td>{{ siesc_crud_property(novedad, 'revista') }}</td>
+                    <td>{{ siesc_crud_property(novedad, 'fechaDesde') }}</td>
+                    <td>{{ siesc_crud_property(novedad, 'fechaHasta') }}</td>
+                    <td>{{ siesc_estado_button(novedad.estado) }}</td>
+                    <td>
+                        <a href="#" class="btn btn-info btn-icon preview-novedad" data-id="{{ novedad.id }}">
+                            <i class="icon-zoom-in"></i>
+                        </a>
+                        {% if type is defined and type == 'add' %}
+                            <a href="#" class="btn btn-success btn-icon" data-id="{{ novedad.id }}">
+                                <i class="icon-plus-circle"></i>
+                            </a>
+                        {% else %}
+                            {% if novedad.estado != 'liquidada' %}
+                            <a href="{{ path('partes_cierre_novedades_liquidar_novedad', {'id': novedad.id, 'novedad_id': novedad.id}) }}" class="btn btn-success btn-icon">
+                                <i class="icon-checkmark"></i>
+                            </a>
+                            {% endif %}
+                            <a href="#" class="btn btn-danger btn-icon" data-id="{{ novedad.id }}">
+                                <i class="icon-close"></i>
+                            </a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            {% else %}
+                <tr class="text-center">
+                    <td colspan="6">No hay novedades en el listado.</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+

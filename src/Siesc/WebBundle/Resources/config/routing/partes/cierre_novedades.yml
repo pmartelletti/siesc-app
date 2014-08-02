@@ -1,0 +1,31 @@
+partes_cierre_novedades_index:
+    pattern: /
+    defaults: { _controller: SiescPartesBundle:CierreNovedades:index }
+
+partes_cierre_novedades_new:
+    pattern: /new
+    defaults: { _controller: SiescPartesBundle:CierreNovedades:new }
+
+partes_cierre_novedades_show:
+    pattern: /{id}/show
+    defaults: { _controller: SiescPartesBundle:CierreNovedades:show }
+
+partes_cierre_novedades_add_novedad:
+    pattern: /{id}/novedades/{novedad_id}/add
+    defaults: { _controller: SiescPartesBundle:CierreNovedades:addNovedad }
+    options:
+      expose: true
+
+partes_cierre_novedades_remove_novedad:
+    pattern: /{id}/novedades/{novedad_id}/remove
+    defaults: { _controller: SiescPartesBundle:CierreNovedades:removeNovedad }
+    options:
+      expose: true
+
+partes_cierre_novedades_liquidar_novedad:
+    pattern: /{id}/novedades/{novedad_id}/liquidar
+    defaults: { _controller: SiescPartesBundle:CierreNovedades:liquidarNovedad }
+
+partes_cierre_novedades_liquidar_novedades:
+    pattern: /{id}/novedades/liquidar
+    defaults: { _controller: SiescPartesBundle:CierreNovedades:liquidarNovedades }

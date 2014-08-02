@@ -1,0 +1,23 @@
+data_partes_situacion_revista:
+    pattern:  /
+    defaults: { _controller: "SiescDataBundle:Partes/SituacionRevista:index" }
+
+data_partes_situacion_revista_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "SiescDataBundle:Partes/SituacionRevista:show" }
+
+data_partes_situacion_revista_new:
+    pattern:  /new
+    defaults: { _controller: "SiescDataBundle:Partes/SituacionRevista:new" }
+
+data_partes_situacion_revista_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "SiescDataBundle:Partes/SituacionRevista:edit" }
+
+data_partes_situacion_revista_close:
+    pattern:  /{id}/close
+    defaults: { _controller: "SiescDataBundle:Partes/SituacionRevista:close" }
+
+data_partes_situacion_revista_open:
+    pattern:  /{id}/reopen
+    defaults: { _controller: "SiescDataBundle:Partes/SituacionRevista:open" }

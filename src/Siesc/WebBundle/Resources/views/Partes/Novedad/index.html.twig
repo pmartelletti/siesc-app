@@ -1,0 +1,91 @@
+{% extends 'SiescWebBundle:apps:partes.html.twig' %}
+{% set request_state = app.request.get('estado') | split('_') | join(' ') | title %}
+
+{% block page_title %}
+    Novedades
+{% endblock %}
+
+{% block current_breadcrumb %}
+    {{ parent() }}
+    <li class="active">Novedades</li>
+{% endblock %}
+
+{% block page_content -%}
+    <div class="row">
+        <div class="col-md-12">
+            <p class="text-right">
+                <a class="btn btn-primary" href="{{ path('partes_novedad_new') }}">
+                    <i class="icon-plus-circle"></i> Nueva Novedad
+                </a>
+            </p>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h6 class="panel-title">Novedades</h6>
+                </div>
+                <div class="datatable-tools">
+                    <div class="datatable-header">
+                    </div>
+                    <div class="datatable-scroll">
+                        <table class="table table-hover table-condensed dataTable">
+                            <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Docente</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                                <th scope="col" class="text-right">Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entity in entities %}
+                                <tr class="{% if entity.isOpen is defined and not entity.isOpen %}disabled{% endif %}">
+                                    <td>{{ entity.tipo }}</td>
+                                    <td>{{ siesc_crud_property(entity, 'cargoDocente') }}</td>
+                                    <td>{{ siesc_crud_property(entity, 'createdAt') }}</td>
+                                    <td>{{ siesc_estado_button(entity.estado) }}</td>
+
+                                    <td class="text-right">
+
+                                        <a class="btn btn-info btn-xs"
+                                           href="{{ path('partes_novedad_show', { 'id': entity.id }) }}"><i
+                                                    class="icon-zoom-in"></i> </a>
+                                        {% if is_granted('EDITAR', entity) %}
+                                        <a class="btn btn-warning btn-xs"
+                                           href="{{ path('partes_novedad_edit', { 'id': entity.id }) }}"><i
+                                                    class="icon-pencil3"></i> </a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="datatable-footer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <label id="estados" class="">
+        <select class="select-search datatable-extra-filter" data-index="3" style="width: 250px !important">
+            <option value="">Todos</option>
+            {% for estado in estados %}
+                <option {% if request_state == estado %} selected="selected" {% endif %} value="{{ estado }}">{{ estado }}</option>
+            {% endfor %}
+        </select>
+    </label>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var filter_container = $('.dataTables_filter');
+            var stateSelect = $("#estados");
+            filter_container.append(stateSelect);
+            // we now filter
+        })
+    </script>
+
+{% endblock javascripts %}
+

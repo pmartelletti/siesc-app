@@ -1,0 +1,7 @@
+parameters:
+#    siesc_web.example.class: Siesc\WebBundle\Example
+
+services:
+#    siesc_web.example:
+#        class: %siesc_web.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
