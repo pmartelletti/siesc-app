@@ -21,7 +21,7 @@
     {% if stat != 'total' %}
     <div class="col-md-3">
         <div class="pie-chart-container">
-            {% set percent = (value * 100) / total %}
+            {% set percent = total > 0 ? (value * 100) / total : 0 %}
             <span class="pie-chart" data-percent="{{ percent }}">
                 <span class="percent">{{ percent }}</span>
             </span>
