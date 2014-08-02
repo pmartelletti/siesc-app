@@ -16,7 +16,7 @@ class LoadSituacionRevista extends AbstractFixture implements OrderedFixtureInte
     public function load(ObjectManager $manager)
     {
         $names = array("Titular", "Suplente", "Contratado a tiempo determinado", "Periodo de prueba");
-        
+
         foreach($names as $name)
         {
             $revista = new SituacionRevista();

@@ -14,8 +14,8 @@ class LoadConvenios extends AbstractFixture implements OrderedFixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $names = ["Planta funcional con Aporte", "Planta funcional sin aporte", "Extraprogramatico"];
-        $funciones = ["EI", "EP", "EM"];
+        $names = array("Planta funcional con Aporte", "Planta funcional sin aporte", "Extraprogramatico");
+        $funciones = array("EI", "EP", "EM");
         foreach($names as $name)
         {
             foreach($funciones as $funcion) {
