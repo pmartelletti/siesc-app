@@ -33,7 +33,7 @@ class AppKernel extends Kernel
             //new Siesc\AcademicoBundle\SiescAcademicoBundle(),
             //new Siesc\AdmisionesBundle\SiescAdmisionesBundle(),
             new Siesc\WebBundle\SiescWebBundle(),
-            new Siesc\CourseManagementBundle\SiescCourseManagementBundle(),
+            //new Siesc\CourseManagementBundle\SiescCourseManagementBundle(),
             new \Siesc\GeneratorBundle\SiescGeneratorBundle()
         );
 
