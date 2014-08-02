@@ -32,15 +32,3 @@ pugx_multi_user:
         profile:
           form:
             type: Acme\UserBundle\Form\Type\ProfileUserTwoFormType
-
-bazinga_faker:
-    entities:
-        Siesc\AppBundle\Entity\Docente:
-          number: 100
-          custom_formatters:
-            nombre: { method: firstName }
-            apellido: { method: lastName }
-            email: { method: email }
-            direccion: {method: address }
-            telefono: { method: phoneNumber }
-            roles: { method: null }
