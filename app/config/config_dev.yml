@@ -28,3 +28,7 @@ assetic:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+
+bazinga_faker:
+    orm: doctrine
+    locale:     es_ES

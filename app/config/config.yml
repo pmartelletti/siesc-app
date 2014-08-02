@@ -85,10 +85,6 @@ sensio_framework_extra:
 siesc_app:
     modules_enabled: ['data', 'partes']
 
-bazinga_faker:
-    orm: doctrine
-    locale:     es_ES
-
 liip_imagine:
     resolvers:
        default:
