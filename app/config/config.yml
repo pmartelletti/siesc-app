@@ -1,0 +1,115 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: @SiescAppBundle/Resources/config/config.yml }
+    - { resource: @SiescDataBundle/Resources/config/config.yml }
+    - { resource: @SiescPartesBundle/Resources/config/config.yml }
+
+framework:
+    #esi:             ~
+    translator:      { fallback: %locale% }
+    secret:          %secret%
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    templating:
+        engines: ['twig']
+        #assets_version: SomeVersionScheme
+    default_locale:  "%locale%"
+    trusted_proxies: ~
+    session:         ~
+    fragments:       ~
+
+# Twig Configuration
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+    globals:
+        institucion: %institucion%
+
+
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: false
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        less:
+            node:       /usr/bin/node
+            node_paths: [/usr/lib/node_modules]
+            apply_to:   "\.less$"
+        #closure:
+        #    jar: %kernel.root_dir%/Resources/java/compiler.jar
+        yui_css:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+        yui_js:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   %database_driver%
+        host:     %database_host%
+        port:     %database_port%
+        dbname:   %database_name%_%project_code%
+        user:     %database_user%
+        password: %database_password%
+        charset:  UTF8
+        # if using pdo_sqlite as your database driver, add the path in parameters.yml
+        # e.g. database_path: %kernel.root_dir%/data/data.db3
+        # path:     %database_path%
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    spool:     { type: memory }
+
+
+sensio_framework_extra:
+    router:  { annotations: true }
+    request: { converters: true }
+    view:    { annotations: true }
+    cache:   { annotations: true }
+
+siesc_app:
+    modules_enabled: ['data', 'partes']
+
+bazinga_faker:
+    orm: doctrine
+    locale:     es_ES
+
+liip_imagine:
+    resolvers:
+       default:
+          web_path: ~
+
+    filter_sets:
+        cache: ~
+        app_thumb:
+            quality: 75
+            filters:
+                thumbnail: { size: [120, 54], mode: inset }
+
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
+
+hip_mandrill:
+    api_key: %mandrill_key%
+    #disable_delivery: true # useful for dev/test environment. Default value is 'false'
+    default:
+        sender: %mandrill_sender_mail%
+        sender_name: SIESC - %institucion%
+        subaccount: %mandrill_subaccount%
