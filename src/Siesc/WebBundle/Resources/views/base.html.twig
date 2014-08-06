@@ -106,8 +106,9 @@
                     </div>
                     <!-- /user dropdown -->
                     {% set url_parts = app.request.requestUri | replace({ (app.request.baseUrl): "" }) | split("/") %}
+                    {% if url_parts | length > 1 %}
                     {% include 'SiescWebBundle:Menu:' ~ url_parts[1] ~'.html.twig' ignore missing %}
-
+                    {% endif %}
                     <!-- Main navigation -->
                     {% block main_menu %}{% endblock %}
                     <!-- /main navigation -->
