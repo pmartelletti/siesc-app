@@ -53,9 +53,7 @@
         "winzou/state-machine-bundle": "~0.1",
         "friendsofsymfony/jsrouting-bundle": "@stable",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
-        "hipaway-travel/mandrill-bundle": "dev-master"
-    },
-    "require-dev": {
+        "hipaway-travel/mandrill-bundle": "dev-master",
         "willdurand/faker-bundle": "@stable"
     },
     "scripts": {
