@@ -91,6 +91,8 @@
             "index-document": "app.php",
             "compile": [
                 "php app/console assetic:dump --env=prod",
+                "php app/console assetic:dump",
+                "php app/console cache:clear --env=prod",
                 "./update-db"
             ]
         }
