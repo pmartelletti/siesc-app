@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f0a4a1dbb4da162a3d0b4938feb4e711",
+    "hash": "d33367745fbfb1cd985f87050d3aa7ab",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -80,12 +80,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "8f8810a67de1e45e1f471c5a93dbd829c4184975"
+                "reference": "72121e68265cd8b37f9b69778308251f6c5133e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/8f8810a67de1e45e1f471c5a93dbd829c4184975",
-                "reference": "8f8810a67de1e45e1f471c5a93dbd829c4184975",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/72121e68265cd8b37f9b69778308251f6c5133e4",
+                "reference": "72121e68265cd8b37f9b69778308251f6c5133e4",
                 "shasum": ""
             },
             "require": {
@@ -141,7 +141,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2014-07-27 17:14:15"
+            "time": "2014-08-05 12:51:19"
         },
         {
             "name": "doctrine/collections",
@@ -344,12 +344,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "11fd2c9a68d4d1db24d598e5d96c0f8c8c73d052"
+                "reference": "1b62e9f76fce135ed1b4c2caca57e2257b0cd651"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/11fd2c9a68d4d1db24d598e5d96c0f8c8c73d052",
-                "reference": "11fd2c9a68d4d1db24d598e5d96c0f8c8c73d052",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/1b62e9f76fce135ed1b4c2caca57e2257b0cd651",
+                "reference": "1b62e9f76fce135ed1b4c2caca57e2257b0cd651",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +399,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-07-29 11:41:43"
+            "time": "2014-08-04 10:25:05"
         },
         {
             "name": "doctrine/doctrine-bundle",
@@ -802,12 +802,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "1fe261de17abde29d6d461b7a93873d48b0efce7"
+                "reference": "27a84cec3ea4daa32cd6fe308c0847ca9644f588"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/1fe261de17abde29d6d461b7a93873d48b0efce7",
-                "reference": "1fe261de17abde29d6d461b7a93873d48b0efce7",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/27a84cec3ea4daa32cd6fe308c0847ca9644f588",
+                "reference": "27a84cec3ea4daa32cd6fe308c0847ca9644f588",
                 "shasum": ""
             },
             "require": {
@@ -861,7 +861,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2014-08-01 02:49:19"
+            "time": "2014-08-04 23:04:17"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1812,6 +1812,54 @@
             "time": "2014-07-22 11:36:49"
         },
         {
+            "name": "sensio/generator-bundle",
+            "version": "dev-master",
+            "target-dir": "Sensio/Bundle/GeneratorBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
+                "reference": "44f23fe619bcea1e85b477f11bfad0b2ad8f5a6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/44f23fe619bcea1e85b477f11bfad0b2ad8f5a6a",
+                "reference": "44f23fe619bcea1e85b477f11bfad0b2ad8f5a6a",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/console": "~2.0",
+                "symfony/framework-bundle": "~2.2"
+            },
+            "require-dev": {
+                "doctrine/orm": "~2.2,>=2.2.3",
+                "symfony/doctrine-bridge": "~2.2",
+                "twig/twig": "~1.11"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Sensio\\Bundle\\GeneratorBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "This bundle generates code for you",
+            "time": "2014-08-05 13:10:20"
+        },
+        {
             "name": "sensiolabs/security-checker",
             "version": "dev-master",
             "source": {
@@ -2206,12 +2254,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "3ee327c5db3eb08d683c2526cc0df4cb4127f7bd"
+                "reference": "98c0621d21ed3107ec7028bd62c9a612d61d99a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/3ee327c5db3eb08d683c2526cc0df4cb4127f7bd",
-                "reference": "3ee327c5db3eb08d683c2526cc0df4cb4127f7bd",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/98c0621d21ed3107ec7028bd62c9a612d61d99a1",
+                "reference": "98c0621d21ed3107ec7028bd62c9a612d61d99a1",
                 "shasum": ""
             },
             "require": {
@@ -2312,7 +2360,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-07-29 11:56:02"
+            "time": "2014-08-05 09:00:40"
         },
         {
             "name": "twig/extensions",
@@ -2320,12 +2368,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig-extensions.git",
-                "reference": "8699f809b53d44c4fda19095b43927c268b7ccd5"
+                "reference": "6af92b642604f560157001bb85b597f70fed640b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/8699f809b53d44c4fda19095b43927c268b7ccd5",
-                "reference": "8699f809b53d44c4fda19095b43927c268b7ccd5",
+                "url": "https://api.github.com/repos/fabpot/Twig-extensions/zipball/6af92b642604f560157001bb85b597f70fed640b",
+                "reference": "6af92b642604f560157001bb85b597f70fed640b",
                 "shasum": ""
             },
             "require": {
@@ -2364,7 +2412,7 @@
                 "i18n",
                 "text"
             ],
-            "time": "2014-07-25 08:23:51"
+            "time": "2014-08-05 11:34:11"
         },
         {
             "name": "twig/twig",
@@ -2372,12 +2420,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "0c508d270328614594b749564f1c52325023dd4a"
+                "reference": "da2d52b0226e2b6dcaf01278de76cf0cb874141d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/0c508d270328614594b749564f1c52325023dd4a",
-                "reference": "0c508d270328614594b749564f1c52325023dd4a",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/da2d52b0226e2b6dcaf01278de76cf0cb874141d",
+                "reference": "da2d52b0226e2b6dcaf01278de76cf0cb874141d",
                 "shasum": ""
             },
             "require": {
@@ -2421,7 +2469,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-08-01 15:28:52"
+            "time": "2014-08-05 12:54:54"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
@@ -2610,54 +2658,6 @@
                 "fixtures"
             ],
             "time": "2014-07-17 07:25:43"
-        },
-        {
-            "name": "sensio/generator-bundle",
-            "version": "dev-master",
-            "target-dir": "Sensio/Bundle/GeneratorBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "5e7f2bb38976cbc91282efe3d1abc1a4701871c0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/5e7f2bb38976cbc91282efe3d1abc1a4701871c0",
-                "reference": "5e7f2bb38976cbc91282efe3d1abc1a4701871c0",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/console": "~2.0",
-                "symfony/framework-bundle": "~2.2"
-            },
-            "require-dev": {
-                "doctrine/orm": "~2.2,>=2.2.3",
-                "symfony/doctrine-bridge": "~2.2",
-                "twig/twig": "~1.11"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Sensio\\Bundle\\GeneratorBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "This bundle generates code for you",
-            "time": "2014-07-28 10:40:05"
         },
         {
             "name": "willdurand/faker-bundle",
