@@ -5,4 +5,4 @@
 ./app/console doctrine:schema:update --force
 ./app/console doctrine:fixtures:load
 # database population
-./app/console faker:populate
+#./app/console faker:populate
