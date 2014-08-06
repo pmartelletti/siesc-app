@@ -93,7 +93,8 @@
                 "php app/console assetic:dump --env=prod",
                 "php app/console assetic:dump",
                 "php app/console cache:clear --env=prod",
-                "./update-db"
+                "./update-db",
+                "chmod -R 777 app/logs app/cache/"
             ]
         }
     }
