@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: parameters.php }
     - { resource: @SiescAppBundle/Resources/config/config.yml }
     - { resource: @SiescDataBundle/Resources/config/config.yml }
     - { resource: @SiescPartesBundle/Resources/config/config.yml }
