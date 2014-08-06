@@ -1,6 +1,6 @@
 <?php
-
 if (isset($_ENV['DB_HOST'])) {
+
 
 
 //    $container->setParameter('sylius.database.driver', 'pdo_pgsql');
