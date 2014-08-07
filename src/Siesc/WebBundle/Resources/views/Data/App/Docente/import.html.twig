@@ -10,7 +10,7 @@
         <span>Admin</span>
     </li>
     <li>
-        <a href="{{ path('data_app_docente') }}">Docente</a>
+        <a href="{{ path('data_app_docente_index') }}">Docente</a>
     </li>
     <li>
         <a href="{{ path('data_app_docente_new') }}">Importar</a>
@@ -20,11 +20,14 @@
 {% block page_content -%}
     <div class="row">
         <div class="col-md-12">
+            <div class="alert alert-info">
+                <strong>Atencion: </strong> Recuerde convertir el archivo .xls en CSV, para poder procesar los dato
+            </div>
             <section class="panel">
                 <header class="panel-heading">Importar Docentes desde archivo CSV</header>
                 <div class="panel-body">
                     <p class="text-right">
-                        <a href="#" class="btn btn-info">
+                        <a href="{{ asset('bundles/siescdata/support-files/docentes_import.xls') }}" class="btn btn-info">
                             <i class="icon-file-download"></i> Bajar Archivo Modelo para cargar datos
                         </a>
                     </p>

@@ -28,9 +28,25 @@ class DocenteController extends BaseController
         $importForm->handleRequest($request);
 
         if ($importForm->isValid()) {
-            $this->get('siesc_data.manager.docente_import')->processUploadedFile($importForm->get('file')->getData());
+            $result = $this->get('siesc_data.manager.docente_import')->processUploadedFile($importForm->get('file')->getData());
 
-            // some flash to say everything was ok
+            $this->get('session')->getBag('flashes')->add('success',
+                sprintf('Se han cargado %d docentes correctamente.', $result['ok'])
+            );
+
+            foreach($result['errores'] as $error) {
+                $data = $error['data'];
+                if (isset($data['APELLIDO'])) {
+                    $this->get('session')->getBag('flashes')->add('danger',
+                        sprintf('%s. La columna del docente %s, %s ha sigo ignorada.', $error['error'], $data['APELLIDO'], $data['NOMBRE'] )
+                    );
+                } else {
+                    $this->get('session')->getBag('flashes')->add('danger',
+                        sprintf('Error al procesar el archivo. Verifique que sea un archivo CSV separado por comas.')
+                    );
+                    break;
+                }
+            }
 
             return $this->redirectToIndex();
         }
@@ -44,6 +60,11 @@ class DocenteController extends BaseController
     {
         /** @var Docente $docente */
         $docente = $this->findOr404($request);
+        if (strpos($docente->getEmail(), '@siesc.com.ar')) {
+            $this->get('session')->getBag('flashes')->add('danger', 'Debe modificar el mail del usuario antes de poder enviarle sus credenciales.');
+
+            return $this->redirectToResource($docente);
+        }
         $tempPassword = md5(uniqid());
         $docente->setPlainPassword($tempPassword);
         $this->get('fos_user.user_manager')->updatePassword($docente);

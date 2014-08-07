@@ -6,6 +6,7 @@ namespace Siesc\DataBundle\Manager;
 use Ddeboer\DataImport\Workflow;
 use Ddeboer\DataImport\Writer\CallbackWriter;
 use Ddeboer\DataImport\Writer\DoctrineWriter;
+use Doctrine\Bundle\DoctrineBundle\Registry;
 use Doctrine\ORM\EntityManager;
 use FOS\UserBundle\Model\UserManager;
 use Siesc\AppBundle\Entity\Docente;
@@ -16,12 +17,16 @@ class DocentesImportManager
 {
 
     private $_em;
+    private $doctrine;
     private $userManager;
+    private $numberProcessed;
 
-    public function __construct(EntityManager $em, UserManager $manager)
+    public function __construct(Registry $doctrine, UserManager $manager)
     {
-        $this->_em = $em;
+        $this->doctrine = $doctrine;
+        $this->_em = $doctrine->getManager();
         $this->userManager = $manager;
+        $this->numberProcessed = 0;
     }
 
     /**
@@ -33,13 +38,21 @@ class DocentesImportManager
         $reader = new CsvReader($file->openFile());
         $reader->setHeaderRowNumber(0);
 
-        $writer = new DoctrineWriter($this->_em, 'SiescAppBundle:Docente');
-
         $workflow = new Workflow($reader);
         $em = $this->_em;
+        $errors = array();
         $result = $workflow
-            ->addWriter(new CallbackWriter(function ($row) {
-                $this->saveDocenteRow($row);
+            ->addWriter(new CallbackWriter(function ($row) use(&$errors) {
+                try {
+                    $this->saveDocenteRow($row);
+                    $this->numberProcessed += 1;
+                } catch(\Exception $e)
+                {
+                    $errors[] = array(
+                        'data' => $row,
+                        'error' => $e->getMessage()
+                    );
+                }
             }))
             ->setSkipItemOnFailure(true)
             ->process()
@@ -47,14 +60,21 @@ class DocentesImportManager
 
         $this->_em->flush();
 
-        return $result;
+        return array(
+            'ok' => $this->numberProcessed,
+            'errores' => $errors
+        );
 
     }
 
     private function saveDocenteRow($row)
     {
+        $cuil = $row['CUIL'];
+        if (null !== $this->_em->getRepository('SiescAppBundle:Docente')->findOneByCuil($cuil)) {
+            throw new \Exception(sprintf('El CUIL %s ya esta en la base de datos.', $cuil));
+        }
         $docente = new Docente();
-        $docente->setCuil($row['CUIL']);
+        $docente->setCuil($cuil);
         $docente->setNombre($row['NOMBRE']);
         $docente->setApellido($row['APELLIDO']);
         //$docente->setUsername(sprintf('%s %s', $docente->getNombre(), $docente->getApellido()));
