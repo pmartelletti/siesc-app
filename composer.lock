@@ -4,8 +4,77 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bbdaedfd31066b47f86a2aa1d2536ec8",
+    "hash": "013bc2d878dabd29e54fd03893677101",
     "packages": [
+        {
+            "name": "ddeboer/data-import",
+            "version": "0.16.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ddeboer/data-import.git",
+                "reference": "72d4f9315600eb2e5ec2b8688b3bdd5e00dc2ef5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ddeboer/data-import/zipball/72d4f9315600eb2e5ec2b8688b3bdd5e00dc2ef5",
+                "reference": "72d4f9315600eb2e5ec2b8688b3bdd5e00dc2ef5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "psr/log": "1.0.0"
+            },
+            "require-dev": {
+                "doctrine/dbal": "*",
+                "doctrine/orm": "*",
+                "ext-iconv": "*",
+                "ext-mbstring": "*",
+                "ext-sqlite3": "*",
+                "phpoffice/phpexcel": "*",
+                "symfony/console": "~2.5.0",
+                "symfony/property-access": "*",
+                "symfony/validator": "~2.3.0"
+            },
+            "suggest": {
+                "doctrine/dbal": "If you want to use the DbalReader",
+                "ext-iconv": "For the CharsetValueConverter",
+                "ext-mbstring": "For the CharsetValueConverter",
+                "phpoffice/phpexcel": "If you want to use the ExcelReader",
+                "symfony/console": "If you want to use the ConsoleProgressWriter",
+                "symfony/property-access": "If you want to use the ObjectConverter",
+                "symfony/validator": "to use the ValidatorFilter"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Ddeboer\\DataImport": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "The community",
+                    "homepage": "https://github.com/ddeboer/data-import/graphs/contributors"
+                },
+                {
+                    "name": "David de Boer",
+                    "email": "david@ddeboer.nl"
+                }
+            ],
+            "description": "Import data from, and export data to, a range of file formats and media",
+            "keywords": [
+                "csv",
+                "data",
+                "doctrine",
+                "excel",
+                "export",
+                "import"
+            ],
+            "time": "2014-07-28 11:57:13"
+        },
         {
             "name": "doctrine/annotations",
             "version": "dev-master",
@@ -1070,12 +1139,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Hipaway-Travel/HipMandrillBundle.git",
-                "reference": "527b499299a6ec9ed6e2dd8cecbaf799c47b693a"
+                "reference": "e12f7105cf94ca0ff31954d817b46f2555f73d24"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Hipaway-Travel/HipMandrillBundle/zipball/527b499299a6ec9ed6e2dd8cecbaf799c47b693a",
-                "reference": "527b499299a6ec9ed6e2dd8cecbaf799c47b693a",
+                "url": "https://api.github.com/repos/Hipaway-Travel/HipMandrillBundle/zipball/e12f7105cf94ca0ff31954d817b46f2555f73d24",
+                "reference": "e12f7105cf94ca0ff31954d817b46f2555f73d24",
                 "shasum": ""
             },
             "require": {
@@ -1113,7 +1182,7 @@
                 "transaction mail",
                 "transactional"
             ],
-            "time": "2014-08-01 12:58:41"
+            "time": "2014-08-06 08:00:46"
         },
         {
             "name": "imagine/imagine",
@@ -1660,24 +1729,19 @@
         },
         {
             "name": "psr/log",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "a78d6504ff5d4367497785ab2ade91db3a9fbe11"
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/a78d6504ff5d4367497785ab2ade91db3a9fbe11",
-                "reference": "a78d6504ff5d4367497785ab2ade91db3a9fbe11",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
                 "shasum": ""
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
             "autoload": {
                 "psr-0": {
                     "Psr\\Log\\": ""
@@ -1699,7 +1763,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2014-01-18 15:33:09"
+            "time": "2012-12-21 11:40:51"
         },
         {
             "name": "pugx/multi-user-bundle",
@@ -1760,12 +1824,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "7fc58bee6244b774f7992eb185dce80b9a412530"
+                "reference": "df82b1ee2b833be97677c0b95fca27e68fd4a344"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/7fc58bee6244b774f7992eb185dce80b9a412530",
-                "reference": "7fc58bee6244b774f7992eb185dce80b9a412530",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/df82b1ee2b833be97677c0b95fca27e68fd4a344",
+                "reference": "df82b1ee2b833be97677c0b95fca27e68fd4a344",
                 "shasum": ""
             },
             "require": {
@@ -1804,7 +1868,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2014-07-25 05:58:26"
+            "time": "2014-08-06 09:24:35"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -2304,12 +2368,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "98c0621d21ed3107ec7028bd62c9a612d61d99a1"
+                "reference": "6b8fe14f3c6a8e0bff63c7cd03b9a44e80b7885f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/98c0621d21ed3107ec7028bd62c9a612d61d99a1",
-                "reference": "98c0621d21ed3107ec7028bd62c9a612d61d99a1",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/6b8fe14f3c6a8e0bff63c7cd03b9a44e80b7885f",
+                "reference": "6b8fe14f3c6a8e0bff63c7cd03b9a44e80b7885f",
                 "shasum": ""
             },
             "require": {
@@ -2410,7 +2474,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-08-05 09:00:40"
+            "time": "2014-08-07 13:09:54"
         },
         {
             "name": "twig/extensions",
@@ -2470,12 +2534,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "da2d52b0226e2b6dcaf01278de76cf0cb874141d"
+                "reference": "e2d2a250d963dd5bba4ad23fc01c7282fc042946"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/da2d52b0226e2b6dcaf01278de76cf0cb874141d",
-                "reference": "da2d52b0226e2b6dcaf01278de76cf0cb874141d",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/e2d2a250d963dd5bba4ad23fc01c7282fc042946",
+                "reference": "e2d2a250d963dd5bba4ad23fc01c7282fc042946",
                 "shasum": ""
             },
             "require": {
@@ -2519,7 +2583,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-08-05 12:54:54"
+            "time": "2014-08-06 06:46:32"
         },
         {
             "name": "willdurand/faker-bundle",
@@ -2725,7 +2789,8 @@
         "friendsofsymfony/jsrouting-bundle": 0,
         "stof/doctrine-extensions-bundle": 20,
         "hipaway-travel/mandrill-bundle": 20,
-        "willdurand/faker-bundle": 0
+        "willdurand/faker-bundle": 0,
+        "ddeboer/data-import": 0
     },
     "platform": {
         "php": ">=5.3.3"

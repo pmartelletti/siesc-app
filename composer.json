@@ -54,7 +54,8 @@
         "friendsofsymfony/jsrouting-bundle": "@stable",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "hipaway-travel/mandrill-bundle": "dev-master",
-        "willdurand/faker-bundle": "@stable"
+        "willdurand/faker-bundle": "@stable",
+        "ddeboer/data-import": "@stable"
     },
     "scripts": {
         "post-install-cmd": [

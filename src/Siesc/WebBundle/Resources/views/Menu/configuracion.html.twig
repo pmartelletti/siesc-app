@@ -4,7 +4,7 @@
         <a href="#" class="expand"><span>Configuracion General</span> <i class="icon-insert-template"></i></a>
         <ul>
             <li {% if "data_app_docente" in current %} class="active" {% endif %}>
-                <a href="{{ path('data_app_docente') }}">Usuarios (Docentes)</a>
+                <a href="{{ path('data_app_docente_index') }}">Usuarios (Docentes)</a>
             </li>
             <li {% if "data_app_colegio" in current %} class="active" {% endif %}>
                 <a href="{{ path('data_app_colegio') }}">Colegios</a>

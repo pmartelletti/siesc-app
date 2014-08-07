@@ -5,11 +5,15 @@ namespace Siesc\AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping\AttributeOverrides;
+use Doctrine\ORM\Mapping\AttributeOverride;
+
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="user_docente")
  * @UniqueEntity(fields = "email", targetClass = "Siesc\AppBundle\Entity\User", message="fos_user.email.already_used")
+ *
  */
 class Docente extends User
 {
@@ -22,7 +26,7 @@ class Docente extends User
     protected $id;
     
     /**
-     * @ORM\Column(type="integer", unique=true)
+     * @ORM\Column(type="string", length=11, unique=true)
      * @Assert\Regex(pattern="/^[0-9]{11}$/", message="siesc.docente.cuit.invalida", groups={"new", "update"})
      */
     protected $cuil;

@@ -3,6 +3,7 @@
 namespace Siesc\DataBundle\Controller\App;
 
 use Siesc\AppBundle\Entity\Docente;
+use Siesc\DataBundle\Form\App\DocenteImportType;
 use Siesc\GeneratorBundle\Controller\AdminResourceController as BaseController;
 use Siesc\AppBundle\Factory\DocenteFactory;
 use Siesc\DataBundle\Form\App\DocenteType;
@@ -19,6 +20,24 @@ class DocenteController extends BaseController
         $this->setTemplatesRoot('SiescWebBundle:Data/App/Docente');
         $this->setFactory(new DocenteFactory());
         $this->setRepository('SiescAppBundle:Docente');
+    }
+
+    public function importDocentesAction(Request $request)
+    {
+        $importForm = $this->createForm(new DocenteImportType());
+        $importForm->handleRequest($request);
+
+        if ($importForm->isValid()) {
+            $this->get('siesc_data.manager.docente_import')->processUploadedFile($importForm->get('file')->getData());
+
+            // some flash to say everything was ok
+
+            return $this->redirectToIndex();
+        }
+
+        return $this->render(sprintf('%s:import.html.twig', $this->templatesRoot), array(
+            'form' => $importForm->createView()
+        ));
     }
 
     public function sendCredentialsEmailAction(Request $request)

@@ -1,4 +1,4 @@
-data_app_docente:
+data_app_docente_index:
     pattern:  /
     defaults: { _controller: "SiescDataBundle:App/Docente:index" }
 
@@ -25,3 +25,7 @@ data_app_docente_open:
 data_app_docente_send_credentials:
     pattern: /{id}/enviar-credenciales
     defaults: { _controller: "SiescDataBundle:App/Docente:sendCredentialsEmail" }
+
+data_app_docente_import:
+    pattern: /importar-docentes
+    defaults: { _controller: "SiescDataBundle:App/Docente:importDocentes" }

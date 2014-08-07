@@ -4,4 +4,8 @@ services:
         tags:
             - { name: kernel.event_listener, event: siesc.docente.pre_create, method: onPreCreate }
 
+    siesc_data.manager.docente_import:
+        class: Siesc\DataBundle\Manager\DocentesImportManager
+        arguments: [@doctrine.orm.entity_manager, @fos_user.user_manager]
+
 
