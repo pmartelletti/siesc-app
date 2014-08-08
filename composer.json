@@ -95,11 +95,11 @@
                 "php app/console assetic:dump",
                 "./update-db",
                 "mkdir -p web/media/cache",
-                "chmod -R 777 app/logs app/cache/",
                 "rm -rf app/logs/*",
                 "chmod -R 777 web/media/",
                 "php app/console cache:clear --env=prod",
-                "php app/console cache:clear"
+                "php app/console cache:clear",
+                "chmod -R 777 app/logs/ app/cache/"
             ]
         }
     }
