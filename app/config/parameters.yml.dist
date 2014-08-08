@@ -14,8 +14,8 @@ parameters:
     locale:            en
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    institucion: "Escuela Paula Albaraccín"
-    project_code: 'paula'
+    institucion: "Escuela Demo Siesc"
+    project_code: 'demo'
 
     mandrill_key: 2767832a-3594-4647-90d5-316377ad0cd8
     mandrill_subaccount: demo.siesc.com.ar
