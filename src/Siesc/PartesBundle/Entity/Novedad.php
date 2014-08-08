@@ -104,7 +104,7 @@ class Novedad
     /**
      * @var CargoDocente
      *
-     * @ORM\ManyToOne(targetEntity="CargoDocente", fetch="EAGER")
+     * @ORM\ManyToOne(targetEntity="CargoDocente", fetch="EAGER", cascade={"all"})
      */
     private $cargoDocente;
 

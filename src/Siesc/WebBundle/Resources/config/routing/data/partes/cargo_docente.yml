@@ -9,6 +9,8 @@ data_partes_cargo_docente_show:
 data_partes_cargo_docente_new:
     pattern:  /new
     defaults: { _controller: "SiescDataBundle:Partes/CargoDocente:new" }
+    options:
+      expose: true
 
 data_partes_cargo_docente_edit:
     pattern:  /{id}/edit

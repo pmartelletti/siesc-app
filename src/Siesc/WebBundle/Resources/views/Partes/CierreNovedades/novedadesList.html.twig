@@ -16,20 +16,20 @@
                 <th>Fecha Desde</th>
                 <th>Fecha Hasta</th>
                 <th>Estado</th>
-                <th style="width: 15%">Acciones</th>
+                <th class="no-print" style="width: 15%">Acciones</th>
             </tr>
             </thead>
             <tbody>
             {% if novedades | length > 0 %}
             {% for novedad in novedades %}
                 <tr>
-                    <td>{{ siesc_crud_property(novedad, 'cargoDocente') }}</td>
-                    <td>{{ siesc_crud_property(novedad, 'tipo') }}</td>
-                    <td>{{ siesc_crud_property(novedad, 'revista') }}</td>
-                    <td>{{ siesc_crud_property(novedad, 'fechaDesde') }}</td>
-                    <td>{{ siesc_crud_property(novedad, 'fechaHasta') }}</td>
+                    <td>{{ novedad.cargoDocente }}</td>
+                    <td>{{ novedad.tipo}}</td>
+                    <td>{{ novedad.revista }}</td>
+                    <td>{{ novedad.fechaDesde | date('d/m/Y') }}</td>
+                    <td>{{ novedad.fechaHasta | date('d/m/Y') }}</td>
                     <td>{{ siesc_estado_button(novedad.estado) }}</td>
-                    <td>
+                    <td class="no-print">
                         <a href="#" class="btn btn-info btn-icon preview-novedad" data-id="{{ novedad.id }}">
                             <i class="icon-zoom-in"></i>
                         </a>

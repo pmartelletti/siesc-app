@@ -4,11 +4,14 @@ namespace Siesc\PartesBundle\Form;
 
 use Doctrine\ORM\EntityRepository;
 use Siesc\AppBundle\Entity\Docente;
+use Siesc\DataBundle\Form\Partes\CargoDocenteType;
 use Siesc\PartesBundle\Entity\Novedad;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\Security\Core\SecurityContextInterface;
@@ -16,10 +19,14 @@ use Symfony\Component\Security\Core\SecurityContextInterface;
 class NovedadType extends AbstractType
 {
     protected $security;
+    protected $request;
+    protected $router;
 
-    public function __construct(SecurityContextInterface $security)
+    public function __construct(ContainerInterface $container)
     {
-        $this->security = $security;
+        $this->security = $container->get('security.context');
+        $this->request = $container->get('request');
+        $this->router = $container->get('router');
     }
 
     /**
@@ -59,10 +66,19 @@ class NovedadType extends AbstractType
             ));
         }
 
+        if ($this->request->get('allowed_add', false)) {
+            $builder
+                ->add('cargoDocente', new CargoDocenteType(), array(
+                    'attr' => array('id' => 'cargo-docente')
+                ));
+        } else {
+            $builder
+                ->add('cargoDocente', null, array(
+                    'attr' => array('id' => 'cargo-docente')
+                ));
+        }
+
         $builder
-            ->add('cargoDocente', null, array(
-                'attr' => array('id' => 'cargo-docente')
-            )) // we clean in the JS file
             ->add('revista')
             ->add('fechaDesde', null, array(
                 'widget' => 'single_text',
@@ -81,7 +97,13 @@ class NovedadType extends AbstractType
                 if ($novedad->getId()) {
                     $event->getForm()->get('convenio')->setData($novedad->getCargoDocente()->getConvenio());
                 }
-            })
+            });
+
+        $params = ($this->request->get('allowed_add', false)) ? array('allowed_add' => true) : array();
+
+        $builder
+            ->setAction($this->router->generate('partes_novedad_new', $params))
+            ->setMethod('POST')
         ;
     }
     

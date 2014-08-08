@@ -31,7 +31,7 @@ class ConvenioController extends BaseController
         $convenio = $this->findOr404($request);
 
         return new Response(
-            FormHelper::collectionToOptions($convenio->getCargos())
+            FormHelper::collectionToOptions($convenio->getCargos(), true)
         );
     }
 

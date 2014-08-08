@@ -13,7 +13,7 @@ services:
 
      siesc.partes.novedad.form:
         class: Siesc\PartesBundle\Form\NovedadType
-        arguments: [@security.context]
+        arguments: [@service_container]
         tags:
           - { name: form.type, alias: siesc_partes_novedad_form }
 

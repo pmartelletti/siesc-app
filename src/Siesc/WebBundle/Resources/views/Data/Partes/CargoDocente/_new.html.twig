@@ -1,0 +1,9 @@
+{% from 'SiescWebBundle:Macros:form_actions.html.twig' import create %}
+
+<form action="{{ path('data_partes_cargo_docente_new') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+    <fieldset>
+        {{ form_widget(form) }}
+    </fieldset>
+    {{ form_rest(form) }}
+    {{ create() }}
+</form>

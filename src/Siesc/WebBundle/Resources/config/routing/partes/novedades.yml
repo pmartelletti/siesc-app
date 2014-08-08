@@ -5,6 +5,8 @@ partes_novedad_index:
 partes_novedad_new:
     pattern: /new
     defaults: { _controller: SiescPartesBundle:Novedades:new }
+    options:
+      expose: true
 
 partes_novedad_show:
     pattern: /{id}/show

@@ -13,13 +13,25 @@
     <li class="active">Nueva</li>
 {% endblock %}
 
+{% block theme_styles %}
+    {{ parent() }}
+    <style type="text/css" media="print">
+        div.transitions, div.breadcrumb-line, div.dropdown, .no-print {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
 
 {% block page_content -%}
 
-    <div class="row" style="margin-bottom: 10px">
+    <div class="row no-print" style="margin-bottom: 10px">
         <div class="col-md-12 clearfix">
             <a href="{{ path('partes_cierre_novedades_liquidar_novedades', {'id': entity.id}) }}" class="btn btn-success pull-right">
                 <i class="icon-checkmark"></i> Marcar todas las novedades incluidas como liquidadas
+            </a>
+            <a class="btn btn-info" href='javascript:window.print();'>
+                <i class="icon-print2"></i> Imprimir
             </a>
         </div>
     </div>
@@ -28,22 +40,25 @@
         {% include 'SiescWebBundle:Partes/CierreNovedades:novedadesList.html.twig' with {'novedades': entity.novedades, 'type': 'remove'} %}
     </div>
 
-    {% if entity.estado not in ['liquidacion_parcial', 'liquidacion_total'] %}
-    {# solo se muestra si no hay ninguna liquidada todavia #}
-    <div class="alert alert-info" style="margin: 8px 0">
-        <strong>Nota:</strong> solo se muestran las novedades que estan autorizadas.
-    </div>
+    <div class="no-print">
 
-    <div class="row cierre-add">
-        {% include 'SiescWebBundle:Partes/CierreNovedades:novedadesList.html.twig' with {'novedades': novedades, 'type': 'add'} %}
-    </div>
+        {% if entity.estado not in ['liquidacion_parcial', 'liquidacion_total'] %}
+        {# solo se muestra si no hay ninguna liquidada todavia #}
+        <div class="alert alert-info" style="margin: 8px 0">
+            <strong>Nota:</strong> solo se muestran las novedades que estan autorizadas.
+        </div>
 
-    {% else %}
-    <div class="alert alert-danger" style="margin: 8px 0">
-        <strong>Nota:</strong> este cierre ya se encuentrar parcial o totalmente liquidado, por lo que no se pueden agregar
-        nuevas novedades.
+        <div class="row cierre-add">
+            {% include 'SiescWebBundle:Partes/CierreNovedades:novedadesList.html.twig' with {'novedades': novedades, 'type': 'add'} %}
+        </div>
+
+        {% else %}
+        <div class="alert alert-danger" style="margin: 8px 0">
+            <strong>Nota:</strong> este cierre ya se encuentrar parcial o totalmente liquidado, por lo que no se pueden agregar
+            nuevas novedades.
+        </div>
+        {% endif %}
     </div>
-    {% endif %}
 
     <div id="novedad_modal" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-lg">

@@ -168,7 +168,9 @@ class AdminResourceController extends Controller
             return $this->redirectToResource($resource);
         }
 
-        return $this->render(sprintf('%s:new.html.twig', $this->templatesRoot), array(
+        $template = $request->isXmlHttpRequest() ? '_new' : 'new';
+
+        return $this->render(sprintf('%s:%s.html.twig', $this->templatesRoot, $template), array(
             'form' => $form->createView()
         ));
     }

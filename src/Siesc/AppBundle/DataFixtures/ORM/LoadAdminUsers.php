@@ -48,6 +48,7 @@ class LoadAdminUsers implements FixtureInterface, ContainerAwareInterface, Order
         # persist the user
         $userManager->updateUser($admin, true);
 
+        $admin = $userManager->createUser();
         $admin->setNombre("Enrique Carlos")
             ->setApellido("Garcia")
             ->setCuil('23')
