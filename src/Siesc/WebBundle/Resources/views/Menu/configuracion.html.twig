@@ -9,12 +9,13 @@
             <li {% if "data_app_colegio" in current %} class="active" {% endif %}>
                 <a href="{{ path('data_app_colegio') }}">Colegios</a>
             </li>
-            <li {% if "data_app_funcion" in current %} class="active" {% endif %}>
-                <a href="{{ path('data_app_funcion') }}">Funciones</a>
-            </li>
-            <li {% if "data_app_distrito" in current %} class="active" {% endif %}>
-                <a href="{{ path('data_app_distrito') }}">Distritos</a>
-            </li>
+            {# solo PARA ADMINS #}
+            {#<li {% if "data_app_funcion" in current %} class="active" {% endif %}>#}
+                {#<a href="{{ path('data_app_funcion') }}">Funciones</a>#}
+            {#</li>#}
+            {#<li {% if "data_app_distrito" in current %} class="active" {% endif %}>#}
+                {#<a href="{{ path('data_app_distrito') }}">Distritos</a>#}
+            {#</li>#}
 
         </ul>
     </li>
