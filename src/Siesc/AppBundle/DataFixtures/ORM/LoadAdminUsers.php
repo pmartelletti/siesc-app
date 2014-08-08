@@ -41,7 +41,19 @@ class LoadAdminUsers implements FixtureInterface, ContainerAwareInterface, Order
             ->setCuil('2')
             ->setEmail("pmartelletti@gmail.com")
             ->setDireccion("Vidal 3628")
-            ->setPlainPassword("0220404")
+            ->setPlainPassword("admin")
+            ->setTelefono("470120246")
+            ->setEnabled(true)
+            ->addRole('ROLE_SUPER_ADMIN');
+        # persist the user
+        $userManager->updateUser($admin, true);
+
+        $admin->setNombre("Enrique Carlos")
+            ->setApellido("Garcia")
+            ->setCuil('23')
+            ->setEmail("mail@enriquecgarcia.com.ar")
+            ->setDireccion("Holmberg 4102, 2do B")
+            ->setPlainPassword("admin")
             ->setTelefono("470120246")
             ->setEnabled(true)
             ->addRole('ROLE_SUPER_ADMIN');
