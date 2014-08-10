@@ -89,7 +89,6 @@
         "heroku": {
             "framework": "symfony2",
             "document-root": "web",
-            "index-document": "app_dev.php",
             "compile": [
                 "php app/console assetic:dump --env=prod",
                 "php app/console assetic:dump",
