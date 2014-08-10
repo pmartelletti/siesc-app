@@ -93,7 +93,7 @@
                 "./update-db",
                 "mkdir -p web/media/cache",
                 "chmod -R 777 web/media/",
-                "chmod -R 777 app/logs/ app/cache/"
+                "chmod -R 777 app/cache"
             ]
         }
     }
