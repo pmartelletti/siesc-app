@@ -90,13 +90,13 @@
             "framework": "symfony2",
             "document-root": "web",
             "compile": [
-                "php app/console assetic:dump --env=prod",
                 "./update-db",
                 "mkdir -p web/media/cache",
-                "rm -rf app/logs/* app/cache/*",
                 "chmod -R 777 web/media/",
+                "rm -rf app/logs/* app/cache/*",
+                "chmod -R 777 app/logs/ app/cache/",
                 "php app/console cache:clear --env=prod",
-                "chmod -R 777 app/logs/ app/cache/"
+                "php app/console assetic:dump --env=prod"
             ]
         }
     }
