@@ -90,8 +90,9 @@
             "framework": "symfony2",
             "document-root": "web",
             "compile": [
-		"php app/console cache:clear -e prod",
-		"php app/console assetic:dump -e prod",
+                "php app/console cache:clear -e prod",
+                "php app/console assetic:dump -e prod",
+                "php app/console assetic:dump",
                 "./update-db",
                 "mkdir -p web/media/cache",
                 "chmod -R 777 web/media/"

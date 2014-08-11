@@ -16,4 +16,4 @@ web/assets/compiled/*
 web/media/*
 web/compiled/*
 
-support-files/
+/support-files
