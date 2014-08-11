@@ -94,9 +94,7 @@
 		"php app/console assetic:dump -e prod",
                 "./update-db",
                 "mkdir -p web/media/cache",
-                "chmod -R 777 web/media/",
-                "chmod -R 777 app/cache",
-		"ls -la app/cache"
+                "chmod -R 777 web/media/"
             ]
         }
     }
