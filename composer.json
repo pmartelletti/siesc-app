@@ -90,12 +90,10 @@
             "framework": "symfony2",
             "document-root": "web",
             "compile": [
-                "chmod -R a+rwx app/cache app/logs",
-                "php app/console cache:clear -e prod",
-                "php app/console assetic:dump -e prod",
                 "php app/console assetic:dump",
                 "mkdir -p web/media/cache",
-                "chmod -R 777 web/media/"
+                "chmod -R 777 web/media/",
+                "rm -rf app/cache/*"
             ]
         }
     }
