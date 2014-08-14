@@ -90,7 +90,7 @@
             "framework": "symfony2",
             "document-root": "web",
             "compile": [
-                "whoami",
+                "chmod -R a+rwx app/cache app/logs",
                 "php app/console cache:clear -e prod",
                 "php app/console assetic:dump -e prod",
                 "php app/console assetic:dump",
