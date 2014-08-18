@@ -94,7 +94,8 @@
                 "mkdir -p web/media/cache",
                 "chmod -R 777 web/media/",
                 "rm -rf app/cache/*"
-            ]
+            ],
+            "newrelic": true
         }
     }
 }

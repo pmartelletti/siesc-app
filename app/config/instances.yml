@@ -1,0 +1,6 @@
+instances:
+  demo:
+    url: http://demo.siesc.com.ar
+    name: Demo
+    code: demo
+    deploy_date: date

@@ -95,6 +95,12 @@ class CreateInstanceCommand extends Command
 
         $this->executeLinuxCommand(sprintf('ssh root@siesc.com.ar dokku config:set %s %s', $instanceName, $configs), true, 'comment');
 
+        // set new relic KEY and name
+        $this->output->writeln('<comment>Setting new relic config...</comment>');
+        $newRelicId = 'd7d790f1c5628f7920aaef78ad6eafbbdc0d8d08';
+        $this->executeLinuxCommand(sprintf('ssh root@siesc.com.ar dokku config:set %s NEW_RELIC_LICENSE_KEY=%s', $instanceName, $newRelicId), true, 'comment');
+        $this->executeLinuxCommand(sprintf('ssh root@siesc.com.ar dokku config:set %s NEW_RELIC_APP_NAME=%s', $instanceName, $instanceName), true, 'comment');
+
         $this->output->writeln('<info>Done!</info>');
 
     }
