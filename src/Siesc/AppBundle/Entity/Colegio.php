@@ -35,8 +35,13 @@ class Colegio
      */
     private $codigo;
 
+//    /**
+//     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Distrito", cascade={"all"})
+//     */
+//    private $distrito;
+
     /**
-     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Distrito", cascade={"all"})
+     * @ORM\Column(type="string", length=255)
      */
     private $distrito;
 
