@@ -23,8 +23,8 @@ class DocenteMailer
     public function sendCredentialsEmail(Docente $docente, $tempPassword)
     {
         //$toEmail = $notificacion->getDestinatario()->getEmail();
-        //$toEmail = $docente->getEmail();
-        $toEmail = 'pmartelletti@gmail.com';
+        $toEmail = $docente->getEmail();
+        //$toEmail = 'pmartelletti@gmail.com';
         if (!empty($toEmail)) {
             $message = $this->mailer->createMessage();
             $message

@@ -26,6 +26,12 @@ data_app_docente_send_credentials:
     pattern: /{id}/enviar-credenciales
     defaults: { _controller: "SiescDataBundle:App/Docente:sendCredentialsEmail" }
 
+data_app_docente_manage_role:
+    pattern: /{docente}/roles
+    defaults: { _controller: "SiescDataBundle:App/Docente:manageRole" }
+    requirements:
+      docente: \d+
+
 data_app_docente_import:
     pattern: /importar-docentes
     defaults: { _controller: "SiescDataBundle:App/Docente:importDocentes" }

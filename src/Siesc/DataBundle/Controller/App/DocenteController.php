@@ -4,6 +4,7 @@ namespace Siesc\DataBundle\Controller\App;
 
 use Siesc\AppBundle\Entity\Docente;
 use Siesc\DataBundle\Form\App\DocenteImportType;
+use Siesc\DataBundle\Form\App\DocenteRoleType;
 use Siesc\GeneratorBundle\Controller\AdminResourceController as BaseController;
 use Siesc\AppBundle\Factory\DocenteFactory;
 use Siesc\DataBundle\Form\App\DocenteType;
@@ -67,6 +68,7 @@ class DocenteController extends BaseController
         }
         $tempPassword = md5(uniqid());
         $docente->setPlainPassword($tempPassword);
+        $docente->setEnabled(true);
         $this->get('fos_user.user_manager')->updatePassword($docente);
 
         $this->get('doctrine.orm.entity_manager')->flush();
@@ -77,5 +79,26 @@ class DocenteController extends BaseController
 
         return $this->redirect($this->generateUrl('data_app_docente_show', array('id' => $docente->getId())));
 
+    }
+
+    public function manageRoleAction(Request $request, Docente $docente)
+    {
+        $form = $this->createForm(new DocenteRoleType(), $docente);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $rol = $form->get('role')->getData();
+            $docente->addRole($rol);
+            $this->get('doctrine.orm.entity_manager')->flush();
+
+            $this->get('session')->getBag('flashes')->add('success', 'El rol del usuario se cambio con exito.');
+
+            return $this->redirectToResource($docente);
+        }
+
+        return $this->render('SiescWebBundle:Data/App/Docente:roles.html.twig', array(
+            'entity' =>  $docente,
+            'form' => $form->createView()
+        ));
     }
 }

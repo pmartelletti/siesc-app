@@ -23,28 +23,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RegistrationController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/RegistrationController.php">
+      <file leaf-file-name="DocenteController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Siesc/DataBundle/Controller/App/DocenteController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="6" selection-start="1001" selection-end="1001" vertical-scroll-proportion="-6.740741" vertical-offset="70" max-vertical-offset="2556">
+            <state line="70" column="35" selection-start="2777" selection-end="2777" vertical-scroll-proportion="-8.37037" vertical-offset="926" max-vertical-offset="1872">
+              <folding>
+                <element signature="e#3828#3877#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DefaultController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Siesc/CourseManagementBundle/Controller/DefaultController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="533">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.twig" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Data/App/Docente/show.html.twig">
+      <file leaf-file-name="DocenteMailer.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Siesc/AppBundle/Mailer/DocenteMailer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="24" selection-start="503" selection-end="503" vertical-scroll-proportion="-6.0" vertical-offset="216" max-vertical-offset="846">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_details.html.twig" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Data/App/Docente/_details.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="17" selection-start="794" selection-end="794" vertical-scroll-proportion="0.67542213" vertical-offset="54" max-vertical-offset="1098">
+            <state line="25" column="8" selection-start="625" selection-end="625" vertical-scroll-proportion="-8.740741" vertical-offset="160" max-vertical-offset="1296">
               <folding />
             </state>
           </provider>
@@ -69,22 +71,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Partes/Dashboard/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Siesc/AppBundle/Services/ModuleConfiguration.php" />
-        <option value="$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Widgets/change_service_dropdown.html.twig" />
-        <option value="$PROJECT_DIR$/src/Siesc/DataBundle/Controller/DefaultController.php" />
-        <option value="$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/apps/data.html.twig" />
-        <option value="$PROJECT_DIR$/src/Siesc/WebBundle/Resources/config/routing/partes/partes.yml" />
-        <option value="$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Menu/partes-diarios.html.twig" />
-        <option value="$PROJECT_DIR$/src/Siesc/PartesBundle/Controller/DashboardController.php" />
-        <option value="$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Partes/Dashboard/calculo_sueldo.html.twig" />
-        <option value="$PROJECT_DIR$/app/config/config.yml" />
-        <option value="$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Menu/configuracion.html.twig" />
-        <option value="$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Data/App/Docente/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Siesc/AppBundle/Helper/StringUtils.php" />
-        <option value="$PROJECT_DIR$/src/Siesc/GeneratorBundle/Twig/SiescGeneratorCrudExtension.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/Siesc/AppBundle/Command/InstallCommand.php" />
+        <option value="$PROJECT_DIR$/app/config/parameters.php" />
+        <option value="$PROJECT_DIR$/app/config/instances.yml" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/src/Siesc/AppBundle/Command/CreateInstanceCommand.php" />
+        <option value="$PROJECT_DIR$/src/Siesc/AppBundle/DataFixtures/ORM/LoadAdminUsers.php" />
+        <option value="$PROJECT_DIR$/src/Siesc/AppBundle/Entity/Colegio.php" />
+        <option value="$PROJECT_DIR$/src/Siesc/WebBundle/Resources/config/routing/data/app/docente.yml" />
         <option value="$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Data/App/Docente/show.html.twig" />
-        <option value="$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Data/App/Docente/_details.html.twig" />
+        <option value="$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Data/App/Docente/roles.html.twig" />
+        <option value="$PROJECT_DIR$/src/Siesc/DataBundle/Form/App/DataTransformer/RoleToArrayTransformer.php" />
+        <option value="$PROJECT_DIR$/src/Siesc/DataBundle/Form/App/DocenteType.php" />
+        <option value="$PROJECT_DIR$/src/Siesc/DataBundle/Form/App/DocenteRoleType.php" />
+        <option value="$PROJECT_DIR$/src/Siesc/AppBundle/Mailer/DocenteMailer.php" />
+        <option value="$PROJECT_DIR$/src/Siesc/DataBundle/Controller/App/DocenteController.php" />
       </list>
     </option>
   </component>
@@ -136,6 +138,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -264,6 +280,134 @@
               <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Siesc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Docente" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Siesc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Siesc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PartesBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Siesc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PartesBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Form" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -323,7 +467,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
+              <option name="myItemId" value="DataBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Form" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -345,11 +493,63 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="AppBundle" />
+              <option name="myItemId" value="DataBundle" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Helper" />
+              <option name="myItemId" value="Form" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="App" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Siesc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CourseManagementBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siesc-project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Siesc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CourseManagementBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -366,9 +566,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../teamsport" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig" serverName="siesc" serverId="4ee05384-7f9a-4873-824e-b3d965c80133">
     <servers>
@@ -462,20 +662,20 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18712121" sideWeight="0.6706282" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Symfony2" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22121212" sideWeight="0.6706282" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -494,131 +694,119 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Partes/Dashboard/calculo_sueldo.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Siesc/AppBundle/Entity/Colegio.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="42" selection-start="358" selection-end="358" vertical-scroll-proportion="0.4727955" vertical-offset="0" max-vertical-offset="533">
-          <folding>
-            <element signature="e#12#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="4" selection-start="2530" selection-end="2530" vertical-scroll-proportion="0.0" vertical-offset="1452" max-vertical-offset="2160">
+        <state line="35" column="20" selection-start="577" selection-end="577" vertical-scroll-proportion="-5.888889" vertical-offset="471" max-vertical-offset="4572">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+    <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
+        <state line="29" column="0" selection-start="790" selection-end="790" vertical-scroll-proportion="0.033771105" vertical-offset="504" max-vertical-offset="1926">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/apps/data.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Siesc/WebBundle/Resources/config/routing/data/app/docente.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="32" selection-start="106" selection-end="106" vertical-scroll-proportion="0.103846155" vertical-offset="0" max-vertical-offset="520">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Siesc/AppBundle/Entity/Docente.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="20" selection-start="1777" selection-end="1777" vertical-scroll-proportion="0.39962476" vertical-offset="1173" max-vertical-offset="4770">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Siesc/AppBundle/Helper/StringUtils.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="27" selection-start="928" selection-end="928" vertical-scroll-proportion="0.7524558" vertical-offset="427" max-vertical-offset="990">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Data/App/Docente/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="66" selection-start="2446" selection-end="2446" vertical-scroll-proportion="0.5304519" vertical-offset="702" max-vertical-offset="1494">
-          <folding>
-            <element signature="e#12#42#0" expanded="true" />
-            <element signature="e#166#176#0" expanded="true" />
-            <element signature="e#444#464#0" expanded="true" />
-            <element signature="e#2705#2726#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Menu/configuracion.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="78" selection-start="292" selection-end="292" vertical-scroll-proportion="0.16885553" vertical-offset="0" max-vertical-offset="828">
-          <folding>
-            <element signature="e#331#347#0" expanded="true" />
-            <element signature="e#513#529#0" expanded="true" />
-            <element signature="e#684#700#0" expanded="true" />
-            <element signature="e#857#874#0" expanded="true" />
-            <element signature="e#1192#1217#0" expanded="true" />
-            <element signature="e#1383#1403#0" expanded="true" />
-            <element signature="e#1564#1585#0" expanded="true" />
-            <element signature="e#1755#1784#0" expanded="true" />
-            <element signature="e#1956#1980#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Siesc/DataBundle/Controller/App/DocenteController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Siesc/GeneratorBundle/Twig/SiescGeneratorCrudExtension.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="9" selection-start="2194" selection-end="2194" vertical-scroll-proportion="0.5192308" vertical-offset="774" max-vertical-offset="1674">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Controller/RegistrationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="6" selection-start="1001" selection-end="1001" vertical-scroll-proportion="-6.740741" vertical-offset="70" max-vertical-offset="2556">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Siesc/DataBundle/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="536">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="114" selection-end="114" vertical-scroll-proportion="0.25714287" vertical-offset="0" max-vertical-offset="560">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Siesc/DataBundle/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="23" selection-start="374" selection-end="374" vertical-scroll-proportion="0.4390244" vertical-offset="0" max-vertical-offset="533">
+        <state line="32" column="18" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0" vertical-offset="88" max-vertical-offset="756">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Data/App/Docente/show.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="24" selection-start="503" selection-end="503" vertical-scroll-proportion="-6.0" vertical-offset="216" max-vertical-offset="846">
+        <state line="35" column="91" selection-start="0" selection-end="1749" vertical-scroll-proportion="-11.333333" vertical-offset="324" max-vertical-offset="954">
+          <folding>
+            <element signature="e#12#42#0" expanded="false" />
+            <element signature="e#509#559#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Data/App/Docente/roles.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="34" selection-start="919" selection-end="919" vertical-scroll-proportion="-7.259259" vertical-offset="272" max-vertical-offset="792">
+          <folding>
+            <element signature="e#12#42#0" expanded="false" />
+            <element signature="e#56#100#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="936">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Data/App/Docente/_details.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Siesc/WebBundle/Resources/views/Data/App/Docente/new.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="17" selection-start="794" selection-end="794" vertical-scroll-proportion="0.67542213" vertical-offset="54" max-vertical-offset="1098">
+        <state line="1" column="71" selection-start="47" selection-end="118" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="792">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/DataTransformerInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="6" selection-start="2117" selection-end="2117" vertical-scroll-proportion="0.92927307" vertical-offset="373" max-vertical-offset="1368">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/FOS/UserBundle/Model/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="20" selection-start="2365" selection-end="2365" vertical-scroll-proportion="-6.5925927" vertical-offset="2090" max-vertical-offset="10638">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Siesc/DataBundle/Form/App/DocenteType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="35" selection-start="626" selection-end="626" vertical-scroll-proportion="-8.666667" vertical-offset="162" max-vertical-offset="990">
+          <folding>
+            <element signature="e#45#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Siesc/DataBundle/Form/App/DocenteRoleType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="13" selection-start="1105" selection-end="1105" vertical-scroll-proportion="-10.185185" vertical-offset="319" max-vertical-offset="1098">
+          <folding>
+            <element signature="e#45#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="468">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Siesc/AppBundle/Mailer/DocenteMailer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="8" selection-start="625" selection-end="625" vertical-scroll-proportion="-8.740741" vertical-offset="160" max-vertical-offset="1296">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Siesc/DataBundle/Controller/App/DocenteController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="35" selection-start="2777" selection-end="2777" vertical-scroll-proportion="-8.37037" vertical-offset="926" max-vertical-offset="1872">
+          <folding>
+            <element signature="e#3828#3877#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Siesc/CourseManagementBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="560">
           <folding />
         </state>
       </provider>

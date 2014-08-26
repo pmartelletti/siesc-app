@@ -19,7 +19,9 @@ class DocenteType extends AbstractType
             ->add('apellido')
             ->add('cuil', 'text')
             ->add('email')
-            ->add('enabled')
+            ->add('enabled', null, array(
+                'required' => false
+            ))
             ->add('direccion')
             ->add('telefono')
             ->add('observaciones')

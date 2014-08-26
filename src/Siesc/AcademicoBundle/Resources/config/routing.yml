@@ -1,0 +1,3 @@
+siesc_academico_homepage:
+    path:  /hello/{name}
+    defaults: { _controller: SiescAcademicoBundle:Default:index }
