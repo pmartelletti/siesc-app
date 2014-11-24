@@ -4,6 +4,7 @@ namespace Siesc\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Tahoe\Bundle\MultiTenancyBundle\Model\MultiTenantUserInterface;
 
 /**
  * @ORM\Entity
@@ -13,7 +14,7 @@ use FOS\UserBundle\Model\User as BaseUser;
  * @ORM\DiscriminatorMap({"usuario_alumno" = "Alumno", "usuario_docente" = "Docente"})
  *
  */
-abstract class User extends BaseUser
+abstract class User extends BaseUser implements MultiTenantUserInterface
 {
     /**
      * @ORM\Id

@@ -67,6 +67,17 @@ doctrine:
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
+        
+        #resolve_target_entities:
+        #    Tahoe\Bundle\MultiTenancyBundle\Model\MultiTenantUserInterface: %tahoe_multi_tenancy.user.class%
+        #    Tahoe\Bundle\MultiTenancyBundle\Model\MultiTenantAlumnoInterface: %tahoe_multi_tenancy.Alumno.class%
+        #    Tahoe\Bundle\MultiTenancyBundle\Model\MultiTenantTenantInterface: %tahoe_multi_tenancy.tenant.class%
+        #entity_managers:
+        #    default:
+        #        filters:
+        #            tenantAware:
+        #                class: Tahoe\Bundle\MultiTenancyBundle\Query\Filter\SQLFilter\TenantAwareFilter
+        #                enabled: true
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -110,3 +121,7 @@ hip_mandrill:
         sender: %mandrill_sender_mail%
         sender_name: SIESC - %institucion%
         subaccount: %mandrill_subaccount%
+        
+tahoe_multi_tenancy:
+    subdomain_strategy: tenant_aware
+    account_prefix: siesc    

@@ -1,10 +1,9 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
-        "This file is @generated automatically"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "013bc2d878dabd29e54fd03893677101",
+    "hash": "94468fcbb73b35541ebeb681a49010fe",
     "packages": [
         {
             "name": "ddeboer/data-import",
@@ -1139,18 +1138,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Hipaway-Travel/HipMandrillBundle.git",
-                "reference": "e12f7105cf94ca0ff31954d817b46f2555f73d24"
+                "reference": "889d39046af94608c7c4aa9440bf52388f6b4cd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Hipaway-Travel/HipMandrillBundle/zipball/e12f7105cf94ca0ff31954d817b46f2555f73d24",
-                "reference": "e12f7105cf94ca0ff31954d817b46f2555f73d24",
+                "url": "https://api.github.com/repos/Hipaway-Travel/HipMandrillBundle/zipball/889d39046af94608c7c4aa9440bf52388f6b4cd6",
+                "reference": "889d39046af94608c7c4aa9440bf52388f6b4cd6",
                 "shasum": ""
             },
             "require": {
                 "mandrill/mandrill": "1.*",
-                "symfony/config": ">=2.1,<2.6-dev",
-                "symfony/http-foundation": ">=2.1,<2.6-dev"
+                "symfony/config": ">=2.1,<2.7-dev",
+                "symfony/http-foundation": ">=2.1,<2.7-dev"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -1182,7 +1181,7 @@
                 "transaction mail",
                 "transactional"
             ],
-            "time": "2014-08-06 08:00:46"
+            "time": "2014-10-06 11:29:26"
         },
         {
             "name": "imagine/imagine",
@@ -1818,6 +1817,51 @@
             "time": "2014-05-12 11:31:17"
         },
         {
+            "name": "recurly/recurly-client",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/recurly/recurly-client-php.git",
+                "reference": "fedc4032da929753b4e6d1f4f07f779b202bfa9e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/recurly/recurly-client-php/zipball/fedc4032da929753b4e6d1f4f07f779b202bfa9e",
+                "reference": "fedc4032da929753b4e6d1f4f07f779b202bfa9e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">= 5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.2.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "lib"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "The PHP client library for the Recurly API",
+            "homepage": "https://github.com/recurly/recurly-client-php",
+            "keywords": [
+                "pay",
+                "payments",
+                "recurly"
+            ],
+            "time": "2014-11-13 21:16:51"
+        },
+        {
             "name": "sensio/distribution-bundle",
             "version": "dev-master",
             "target-dir": "Sensio/Bundle/DistributionBundle",
@@ -2364,23 +2408,22 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "2.5.x-dev",
+            "version": "2.6.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "6b8fe14f3c6a8e0bff63c7cd03b9a44e80b7885f"
+                "reference": "31792b01f1d3d2e66b9606476120d2cc1926fe92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/6b8fe14f3c6a8e0bff63c7cd03b9a44e80b7885f",
-                "reference": "6b8fe14f3c6a8e0bff63c7cd03b9a44e80b7885f",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/31792b01f1d3d2e66b9606476120d2cc1926fe92",
+                "reference": "31792b01f1d3d2e66b9606476120d2cc1926fe92",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "~2.2",
                 "php": ">=5.3.3",
                 "psr/log": "~1.0",
-                "symfony/icu": "~1.0",
                 "twig/twig": "~1.12"
             },
             "replace": {
@@ -2390,6 +2433,7 @@
                 "symfony/console": "self.version",
                 "symfony/css-selector": "self.version",
                 "symfony/debug": "self.version",
+                "symfony/debug-bundle": "self.version",
                 "symfony/dependency-injection": "self.version",
                 "symfony/doctrine-bridge": "self.version",
                 "symfony/dom-crawler": "self.version",
@@ -2424,23 +2468,25 @@
                 "symfony/twig-bridge": "self.version",
                 "symfony/twig-bundle": "self.version",
                 "symfony/validator": "self.version",
+                "symfony/var-dumper": "self.version",
                 "symfony/web-profiler-bundle": "self.version",
                 "symfony/yaml": "self.version"
             },
             "require-dev": {
                 "doctrine/data-fixtures": "1.0.*",
                 "doctrine/dbal": "~2.2",
+                "doctrine/doctrine-bundle": "~1.2",
                 "doctrine/orm": "~2.2,>=2.2.3",
-                "egulias/email-validator": "1.1.0",
+                "egulias/email-validator": "~1.2",
                 "ircmaxell/password-compat": "1.0.*",
-                "monolog/monolog": "~1.3",
+                "monolog/monolog": "~1.11",
                 "ocramius/proxy-manager": ">=0.3.1,<0.6-dev",
-                "propel/propel1": "1.6.*"
+                "propel/propel1": "~1.6"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5-dev"
+                    "dev-master": "2.6-dev"
                 }
             },
             "autoload": {
@@ -2474,7 +2520,65 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-08-07 13:09:54"
+            "time": "2014-11-21 16:08:03"
+        },
+        {
+            "name": "tahoelimited/multi-tenancy-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tahoelimited/multi-tenancy-bundle.git",
+                "reference": "e2b2f9ab49c421a74f9d089a5f8e05664f0d97a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tahoelimited/multi-tenancy-bundle/zipball/e2b2f9ab49c421a74f9d089a5f8e05664f0d97a9",
+                "reference": "e2b2f9ab49c421a74f9d089a5f8e05664f0d97a9",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "~1.2",
+                "doctrine/orm": "~2.2,>=2.2.3",
+                "friendsofsymfony/user-bundle": "~2.0@dev",
+                "php": ">=5.5",
+                "recurly/recurly-client": "2.3.*",
+                "symfony/form": "~2.3",
+                "symfony/framework-bundle": "~2.3",
+                "symfony/security-bundle": "~2.3",
+                "symfony/twig-bundle": "~2.3"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Tahoe\\Bundle\\MultiTenancyBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konrad Podgorski",
+                    "email": "konrad.podgorski@gmail.com"
+                },
+                {
+                    "name": "Pablo Martelletti",
+                    "email": "pmartelletti@gmail.com"
+                },
+                {
+                    "name": "Steve Gill",
+                    "email": "steve.gill@tahoelimited.com"
+                }
+            ],
+            "description": "A multi tenancy bundle for symfony 2 apps",
+            "homepage": "https://github.com/tahoelimited/multi-tenancy-bundle",
+            "keywords": [
+                "tenancy",
+                "tenant",
+                "user"
+            ],
+            "time": "2014-11-19 16:41:21"
         },
         {
             "name": "twig/extensions",
@@ -2779,7 +2883,6 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "symfony/symfony": 20,
         "sensio/distribution-bundle": 20,
         "knplabs/knp-menu-bundle": 20,
         "friendsofsymfony/user-bundle": 20,
@@ -2790,7 +2893,8 @@
         "stof/doctrine-extensions-bundle": 20,
         "hipaway-travel/mandrill-bundle": 20,
         "willdurand/faker-bundle": 0,
-        "ddeboer/data-import": 0
+        "ddeboer/data-import": 0,
+        "tahoelimited/multi-tenancy-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

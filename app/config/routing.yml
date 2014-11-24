@@ -1,6 +1,6 @@
-siesc_web:
-    resource: "@SiescWebBundle/Resources/config/routing.yml"
-    prefix:   /
+#siesc_web:
+#    resource: "@SiescWebBundle/Resources/config/routing.yml"
+#    prefix:   /
 
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"
@@ -23,3 +23,7 @@ fos_user_change_password:
 # app/config/routing.yml
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    
+tahoe_multi_tenancy:
+    resource: "@TahoeMultiTenancyBundle/Resources/config/routing.yml"
+    prefix:   /    

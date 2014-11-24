@@ -33,7 +33,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.5.*@dev",
+        "symfony/symfony": "~2.6",
         "sensio/generator-bundle": "2.3.*",
         "doctrine/orm": "~2.2,>=2.2.3",
         "doctrine/doctrine-bundle": "~1.2",
@@ -55,7 +55,8 @@
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "hipaway-travel/mandrill-bundle": "dev-master",
         "willdurand/faker-bundle": "@stable",
-        "ddeboer/data-import": "@stable"
+        "ddeboer/data-import": "@stable",
+        "tahoelimited/multi-tenancy-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
