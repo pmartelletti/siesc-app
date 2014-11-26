@@ -3,6 +3,8 @@
 namespace Siesc\PartesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantAwareInterface;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
 
 /**
  * Categoria
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="partes_categoria")
  * @ORM\Entity
  */
-class Categoria
+class Categoria implements TenantAwareInterface
 {
     /**
      * @var integer
@@ -61,6 +63,12 @@ class Categoria
      */
     private $requiereAsignatura;
 
+    /**
+     * @var MultiTenantTenantInterface
+     *
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
+     */
+    protected $tenant;
 
     /**
      * Get id
@@ -228,5 +236,25 @@ class Categoria
     public function __toString()
     {
         return sprintf('%s (%s)', $this->getNombre(), $this->getFuncion());
+    }
+    
+    /**
+     * @return Siesc\AppBundle\Entity\Tenant
+     */
+    public function getTenant()
+    {
+        return $this->tenant;
+    }
+
+    /**
+     * @param Siesc\AppBundle\Entity\Tenant $tenant
+     *
+     * @return $this
+     */
+    public function setTenant($tenant)
+    {
+        $this->tenant = $tenant;
+
+        return $this;
     }
 }

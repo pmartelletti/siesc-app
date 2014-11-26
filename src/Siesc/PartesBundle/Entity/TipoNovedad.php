@@ -3,6 +3,8 @@
 namespace Siesc\PartesBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantAwareInterface;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
 
 /**
  * TipoNovedad
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="partes_tipo_novedad")
  * @ORM\Entity
  */
-class TipoNovedad
+class TipoNovedad implements TenantAwareInterface
 {
     /**
      * @var integer
@@ -27,7 +29,13 @@ class TipoNovedad
      * @ORM\Column(name="nombre", type="string", length=255)
      */
     private $nombre;
-
+    
+    /**
+     * @var MultiTenantTenantInterface
+     *
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
+     */
+    protected $tenant;
 
     /**
      * Get id
@@ -65,5 +73,25 @@ class TipoNovedad
     public function __toString()
     {
         return $this->getNombre();
+    }
+       
+    /**
+     * @return Siesc\AppBundle\Entity\Tenant
+     */
+    public function getTenant()
+    {
+        return $this->tenant;
+    }
+
+    /**
+     * @param Siesc\AppBundle\Entity\Tenant $tenant
+     *
+     * @return $this
+     */
+    public function setTenant($tenant)
+    {
+        $this->tenant = $tenant;
+
+        return $this;
     }
 }

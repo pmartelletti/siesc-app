@@ -5,6 +5,8 @@ namespace Siesc\PartesBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Siesc\AppBundle\Entity\Docente;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantAwareInterface;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
 
 /**
  * CierreNovedades
@@ -12,7 +14,7 @@ use Siesc\AppBundle\Entity\Docente;
  * @ORM\Table(name="partes_cierre_novedades")
  * @ORM\Entity
  */
-class CierreNovedades
+class CierreNovedades implements TenantAwareInterface
 {
     /**
      * @var integer
@@ -43,6 +45,13 @@ class CierreNovedades
      * @ORM\Column(name="estado", type="string", length=255)
      */
     private $estado;
+    
+    /**
+     * @var MultiTenantTenantInterface
+     *
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
+     */
+    protected $tenant;
 
     /**
      * @var Novedad[]
@@ -171,5 +180,25 @@ class CierreNovedades
     public function hasNovedad(Novedad $novedad)
     {
         return $this->novedades->contains($novedad);
+    }
+          
+    /**
+     * @return Siesc\AppBundle\Entity\Tenant
+     */
+    public function getTenant()
+    {
+        return $this->tenant;
+    }
+
+    /**
+     * @param Siesc\AppBundle\Entity\Tenant $tenant
+     *
+     * @return $this
+     */
+    public function setTenant($tenant)
+    {
+        $this->tenant = $tenant;
+
+        return $this;
     }
 }

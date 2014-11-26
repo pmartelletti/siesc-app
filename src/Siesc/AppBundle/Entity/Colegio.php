@@ -3,6 +3,8 @@
 namespace Siesc\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantAwareInterface;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
 
 /**
  * Colegio
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="app_colegio")
  * @ORM\Entity
  */
-class Colegio
+class Colegio implements TenantAwareInterface
 {
     /**
      * @var integer
@@ -70,6 +72,14 @@ class Colegio
      * @ORM\Column(type="string", length=255)
      */
     private $cuit;
+       
+    /**
+     * @var MultiTenantTenantInterface
+     *
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
+     */
+    protected $tenant;
+    
 
     public  function __toString() {
         $nombre = $this->getNombre();
@@ -245,5 +255,25 @@ class Colegio
     public function getTelefono()
     {
         return $this->telefono;
+    }
+                 
+    /**
+     * @return Siesc\AppBundle\Entity\Tenant
+     */
+    public function getTenant()
+    {
+        return $this->tenant;
+    }
+
+    /**
+     * @param Siesc\AppBundle\Entity\Tenant $tenant
+     *
+     * @return $this
+     */
+    public function setTenant($tenant)
+    {
+        $this->tenant = $tenant;
+
+        return $this;
     }
 }

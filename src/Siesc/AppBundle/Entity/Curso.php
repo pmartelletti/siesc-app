@@ -3,6 +3,9 @@
 namespace Siesc\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantAwareInterface;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
+
 
 /**
  * Curso
@@ -10,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Curso
+class Curso implements TenantAwareInterface
 {
     /**
      * @var integer
@@ -39,7 +42,14 @@ class Curso
      * @ORM\Column(name="habilitado", type="boolean")
      */
     private $habilitado;
-
+    
+    /**
+     * @var MultiTenantTenantInterface
+     *
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
+     */
+    protected $tenant;
+    
     public  function __toString() {
         $nombre = $this->getNombre();
 
@@ -124,5 +134,25 @@ class Curso
     public function getHabilitado()
     {
         return $this->habilitado;
+    }
+                   
+    /**
+     * @return Siesc\AppBundle\Entity\Tenant
+     */
+    public function getTenant()
+    {
+        return $this->tenant;
+    }
+
+    /**
+     * @param Siesc\AppBundle\Entity\Tenant $tenant
+     *
+     * @return $this
+     */
+    public function setTenant($tenant)
+    {
+        $this->tenant = $tenant;
+
+        return $this;
     }
 }

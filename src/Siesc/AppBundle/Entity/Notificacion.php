@@ -3,6 +3,8 @@
 namespace Siesc\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantAwareInterface;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
 
 
 /**
@@ -18,7 +20,7 @@ use Doctrine\ORM\Mapping as ORM;
  * })
  *
  */
-class Notificacion
+class Notificacion implements TenantAwareInterface
 {
     /**
      * @var integer
@@ -55,6 +57,13 @@ class Notificacion
      * @ORM\Column(type="boolean")
      */
     protected $leida;
+    
+    /**
+     * @var MultiTenantTenantInterface
+     *
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
+     */
+    protected $tenant;
 
     public function __construct()
     {
@@ -161,6 +170,26 @@ class Notificacion
     public function marcarComoLeida()
     {
         $this->setLeida(true);
+
+        return $this;
+    }
+                                
+    /**
+     * @return Siesc\AppBundle\Entity\Tenant
+     */
+    public function getTenant()
+    {
+        return $this->tenant;
+    }
+
+    /**
+     * @param Siesc\AppBundle\Entity\Tenant $tenant
+     *
+     * @return $this
+     */
+    public function setTenant($tenant)
+    {
+        $this->tenant = $tenant;
 
         return $this;
     }

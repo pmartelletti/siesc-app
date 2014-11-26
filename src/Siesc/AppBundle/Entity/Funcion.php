@@ -3,6 +3,8 @@
 namespace Siesc\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantAwareInterface;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
 
 /**
  * Funcion
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="app_funcion")
  * @ORM\Entity
  */
-class Funcion
+class Funcion implements TenantAwareInterface
 {
     /**
      * @var integer
@@ -34,7 +36,13 @@ class Funcion
      * @ORM\Column(name="codigo", type="string", length=255)
      */
     private $codigo;
-
+    
+    /**
+     * @var MultiTenantTenantInterface
+     *
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
+     */
+    protected $tenant;
 
     /**
      * Get id
@@ -91,5 +99,25 @@ class Funcion
     public function __toString()
     {
         return $this->getNombre();
+    }
+                            
+    /**
+     * @return Siesc\AppBundle\Entity\Tenant
+     */
+    public function getTenant()
+    {
+        return $this->tenant;
+    }
+
+    /**
+     * @param Siesc\AppBundle\Entity\Tenant $tenant
+     *
+     * @return $this
+     */
+    public function setTenant($tenant)
+    {
+        $this->tenant = $tenant;
+
+        return $this;
     }
 }

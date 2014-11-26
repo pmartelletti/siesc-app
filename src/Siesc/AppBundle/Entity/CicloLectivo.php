@@ -3,6 +3,8 @@
 namespace Siesc\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantAwareInterface;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
 
 /**
  * CicloLectivo
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class CicloLectivo
+class CicloLectivo implements TenantAwareInterface
 {
     /**
      * @var integer
@@ -33,8 +35,15 @@ class CicloLectivo
      *
      * @ORM\Column(name="actual", type="boolean")
      */
-    private $actual;
-
+    private $actual;    
+       
+    /**
+     * @var MultiTenantTenantInterface
+     *
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
+     */
+    protected $tenant;
+    
     public function __toString() {
         $nombre = $this->getNombre();
 
@@ -96,5 +105,25 @@ class CicloLectivo
     public function getActual()
     {
         return $this->actual;
+    }
+              
+    /**
+     * @return Siesc\AppBundle\Entity\Tenant
+     */
+    public function getTenant()
+    {
+        return $this->tenant;
+    }
+
+    /**
+     * @param Siesc\AppBundle\Entity\Tenant $tenant
+     *
+     * @return $this
+     */
+    public function setTenant($tenant)
+    {
+        $this->tenant = $tenant;
+
+        return $this;
     }
 }

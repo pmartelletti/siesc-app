@@ -8,6 +8,9 @@ use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Siesc\AppBundle\Entity\Docente;
 use Siesc\AppBundle\Entity\NotificacionNovedad;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantAwareInterface;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
+
 
 /**
  * Novedad
@@ -15,9 +18,9 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Table(name="partes_novedad")
  * @ORM\Entity
  */
-class Novedad
+class Novedad implements TenantAwareInterface
 {
-
+    
     /**
      * @var integer
      *
@@ -155,14 +158,21 @@ class Novedad
      * @ORM\OneToMany(targetEntity="Siesc\AppBundle\Entity\NotificacionNovedad", mappedBy="novedad")
      */
     private $eventos;
+    
+    /**
+     * @var MultiTenantTenantInterface
+     *
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
+     */
+    protected $tenant;
 
+    
     public function __construct()
     {
         // default state
         $this->estado = "nueva";
         $this->eventos = new ArrayCollection();
     }
-
 
     /**
      * Get id
@@ -381,5 +391,23 @@ class Novedad
         return $this->eventos;
     }
 
+    /**
+     * @return Siesc\AppBundle\Entity\Tenant
+     */
+    public function getTenant()
+    {
+        return $this->tenant;
+    }
 
+    /**
+     * @param Siesc\AppBundle\Entity\Tenant $tenant
+     *
+     * @return $this
+     */
+    public function setTenant($tenant)
+    {
+        $this->tenant = $tenant;
+
+        return $this;
+    }
 }

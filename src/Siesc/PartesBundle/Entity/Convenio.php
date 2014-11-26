@@ -4,6 +4,8 @@ namespace Siesc\PartesBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantAwareInterface;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
 
 /**
  * Convenio
@@ -11,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="partes_convenio")
  * @ORM\Entity
  */
-class Convenio
+class Convenio implements TenantAwareInterface
 {
     /**
      * @var integer
@@ -45,6 +47,13 @@ class Convenio
      * @ORM\OneToMany(targetEntity="CargoDocente", mappedBy="convenio")
      */
     private $cargos;
+    
+    /**
+     * @var MultiTenantTenantInterface
+     *
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
+     */
+    protected $tenant;
 
     public function __construct()
     {
@@ -152,5 +161,25 @@ class Convenio
     public function getCargos()
     {
         return $this->cargos;
+    }
+          
+    /**
+     * @return Siesc\AppBundle\Entity\Tenant
+     */
+    public function getTenant()
+    {
+        return $this->tenant;
+    }
+
+    /**
+     * @param Siesc\AppBundle\Entity\Tenant $tenant
+     *
+     * @return $this
+     */
+    public function setTenant($tenant)
+    {
+        $this->tenant = $tenant;
+
+        return $this;
     }
 }

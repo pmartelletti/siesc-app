@@ -6,6 +6,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Siesc\AppBundle\Entity\Colegio;
 use Siesc\AppBundle\Entity\Docente,
     Siesc\AppBundle\Entity\Seccion;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantAwareInterface;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
 
 /**
  * CargoDocente
@@ -13,7 +15,7 @@ use Siesc\AppBundle\Entity\Docente,
  * @ORM\Table(name="partes_cargo_docente")
  * @ORM\Entity
  */
-class CargoDocente
+class CargoDocente implements TenantAwareInterface
 {
     /**
      * @var integer
@@ -65,6 +67,12 @@ class CargoDocente
      */
     private $fechaBaja;
 
+    /**
+     * @var MultiTenantTenantInterface
+     *
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
+     */
+    protected $tenant;
 
     /**
      * Get id
@@ -296,5 +304,25 @@ class CargoDocente
     public function getConvenio()
     {
         return $this->convenio;
+    }
+    
+    /**
+     * @return Siesc\AppBundle\Entity\Tenant
+     */
+    public function getTenant()
+    {
+        return $this->tenant;
+    }
+
+    /**
+     * @param Siesc\AppBundle\Entity\Tenant $tenant
+     *
+     * @return $this
+     */
+    public function setTenant($tenant)
+    {
+        $this->tenant = $tenant;
+
+        return $this;
     }
 }

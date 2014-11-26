@@ -7,6 +7,9 @@ use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping\AttributeOverrides;
 use Doctrine\ORM\Mapping\AttributeOverride;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantAwareInterface;
+use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
+
 
 
 /**
@@ -15,7 +18,7 @@ use Doctrine\ORM\Mapping\AttributeOverride;
  * @UniqueEntity(fields = "email", targetClass = "Siesc\AppBundle\Entity\User", message="fos_user.email.already_used")
  *
  */
-class Docente extends User
+class Docente extends User implements TenantAwareInterface
 {
     
     /**
@@ -24,6 +27,13 @@ class Docente extends User
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    
+    /**
+     * @var MultiTenantTenantInterface
+     *
+     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
+     */
+    protected $tenant;
     
     /**
      * @ORM\Column(type="string", length=11, unique=true)
@@ -262,5 +272,25 @@ class Docente extends User
     public function getFuncionPrincipal()
     {
         return $this->funcionPrincipal;
+    }
+                                       
+    /**
+     * @return Siesc\AppBundle\Entity\Tenant
+     */
+    public function getTenant()
+    {
+        return $this->tenant;
+    }
+
+    /**
+     * @param Siesc\AppBundle\Entity\Tenant $tenant
+     *
+     * @return $this
+     */
+    public function setTenant($tenant)
+    {
+        $this->tenant = $tenant;
+
+        return $this;
     }
 }
