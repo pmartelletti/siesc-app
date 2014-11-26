@@ -21,3 +21,7 @@ parameters:
     mandrill_subaccount: demo.siesc.com.ar
     mandrill_sender_mail: notificaciones@siesc.com.ar
     contact_email: info@siesc.com.ar
+
+    tahoe_multi_tenancy.user.class: Siesc\AppBundle\Entity\User
+    tahoe_multi_tenancy.tenant.class: Siesc\AppBundle\Entity\Tenant
+    domain: yourdomain.com

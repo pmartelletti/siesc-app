@@ -22,6 +22,13 @@ abstract class User extends BaseUser implements MultiTenantUserInterface
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    
+    protected $activeTenant;
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
     /**
      * Get id
@@ -31,5 +38,24 @@ abstract class User extends BaseUser implements MultiTenantUserInterface
     public function getId()
     {
         return $this->id;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getActiveTenant()
+    {
+        return $this->activeTenant;
+    }
+
+    /**
+     * @param mixed $activeTenant
+     *
+     * @return $this
+     */
+    public function setActiveTenant($activeTenant)
+    {
+        $this->activeTenant = $activeTenant;
+        return $this;
     }
 }

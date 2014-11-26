@@ -65,14 +65,14 @@ doctrine:
         # path:     %database_path%
 
     orm:
-        #auto_generate_proxy_classes: %kernel.debug%
-        #auto_mapping: true
+        auto_generate_proxy_classes: %kernel.debug%
         
         resolve_target_entities:
             Tahoe\Bundle\MultiTenancyBundle\Model\MultiTenantUserInterface: %tahoe_multi_tenancy.user.class%
             Tahoe\Bundle\MultiTenancyBundle\Model\MultiTenantTenantInterface: %tahoe_multi_tenancy.tenant.class%
         entity_managers:
             default:
+                auto_mapping: true
                 filters:
                     tenantAware:
                         class: Tahoe\Bundle\MultiTenancyBundle\Query\Filter\SQLFilter\TenantAwareFilter
@@ -120,6 +120,11 @@ hip_mandrill:
         sender: %mandrill_sender_mail%
         sender_name: SIESC - %institucion%
         subaccount: %mandrill_subaccount%
+
+fos_user:
+    registration:
+        form:
+            type: tahoe_multitenancy_user_registration
         
 tahoe_multi_tenancy:
     subdomain_strategy: tenant_aware
