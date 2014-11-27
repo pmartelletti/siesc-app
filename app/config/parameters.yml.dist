@@ -24,4 +24,4 @@ parameters:
 
     tahoe_multi_tenancy.user.class: Siesc\AppBundle\Entity\User
     tahoe_multi_tenancy.tenant.class: Siesc\AppBundle\Entity\Tenant
-    domain: yourdomain.com
+    domain: siesc.com.ar

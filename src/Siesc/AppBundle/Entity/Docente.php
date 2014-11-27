@@ -7,8 +7,7 @@ use PUGX\MultiUserBundle\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping\AttributeOverrides;
 use Doctrine\ORM\Mapping\AttributeOverride;
-use Tahoe\Bundle\MultiTenancyBundle\Model\TenantAwareInterface;
-use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
+use Tahoe\Bundle\MultiTenancyBundle\Model\MultiTenantUserInterface;
 
 
 
@@ -18,7 +17,7 @@ use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
  * @UniqueEntity(fields = "email", targetClass = "Siesc\AppBundle\Entity\User", message="fos_user.email.already_used")
  *
  */
-class Docente extends User implements TenantAwareInterface
+class Docente extends User implements MultiTenantUserInterface
 {
     
     /**
@@ -28,12 +27,7 @@ class Docente extends User implements TenantAwareInterface
      */
     protected $id;
     
-    /**
-     * @var MultiTenantTenantInterface
-     *
-     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
-     */
-    protected $tenant;
+    protected $activeTenant;
     
     /**
      * @ORM\Column(type="string", length=11, unique=true)
@@ -274,23 +268,22 @@ class Docente extends User implements TenantAwareInterface
         return $this->funcionPrincipal;
     }
                                        
-    /**
-     * @return Siesc\AppBundle\Entity\Tenant
+     /**
+     * @return mixed
      */
-    public function getTenant()
+    public function getActiveTenant()
     {
-        return $this->tenant;
+        return $this->activeTenant;
     }
 
     /**
-     * @param Siesc\AppBundle\Entity\Tenant $tenant
+     * @param mixed $activeTenant
      *
      * @return $this
      */
-    public function setTenant($tenant)
+    public function setActiveTenant($activeTenant)
     {
-        $this->tenant = $tenant;
-
+        $this->activeTenant = $activeTenant;
         return $this;
     }
 }
