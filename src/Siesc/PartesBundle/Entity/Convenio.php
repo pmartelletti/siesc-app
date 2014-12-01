@@ -13,7 +13,7 @@ use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
  * @ORM\Table(name="partes_convenio")
  * @ORM\Entity
  */
-class Convenio implements TenantAwareInterface
+class Convenio
 {
     /**
      * @var integer
@@ -47,13 +47,6 @@ class Convenio implements TenantAwareInterface
      * @ORM\OneToMany(targetEntity="CargoDocente", mappedBy="convenio")
      */
     private $cargos;
-    
-    /**
-     * @var MultiTenantTenantInterface
-     *
-     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
-     */
-    protected $tenant;
 
     public function __construct()
     {
@@ -161,25 +154,5 @@ class Convenio implements TenantAwareInterface
     public function getCargos()
     {
         return $this->cargos;
-    }
-          
-    /**
-     * @return Siesc\AppBundle\Entity\Tenant
-     */
-    public function getTenant()
-    {
-        return $this->tenant;
-    }
-
-    /**
-     * @param Siesc\AppBundle\Entity\Tenant $tenant
-     *
-     * @return $this
-     */
-    public function setTenant($tenant)
-    {
-        $this->tenant = $tenant;
-
-        return $this;
     }
 }

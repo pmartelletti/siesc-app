@@ -12,7 +12,7 @@ use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
  * @ORM\Table(name="app_funcion")
  * @ORM\Entity
  */
-class Funcion implements TenantAwareInterface
+class Funcion
 {
     /**
      * @var integer
@@ -36,13 +36,6 @@ class Funcion implements TenantAwareInterface
      * @ORM\Column(name="codigo", type="string", length=255)
      */
     private $codigo;
-    
-    /**
-     * @var MultiTenantTenantInterface
-     *
-     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
-     */
-    protected $tenant;
 
     /**
      * Get id
@@ -99,25 +92,5 @@ class Funcion implements TenantAwareInterface
     public function __toString()
     {
         return $this->getNombre();
-    }
-                            
-    /**
-     * @return Siesc\AppBundle\Entity\Tenant
-     */
-    public function getTenant()
-    {
-        return $this->tenant;
-    }
-
-    /**
-     * @param Siesc\AppBundle\Entity\Tenant $tenant
-     *
-     * @return $this
-     */
-    public function setTenant($tenant)
-    {
-        $this->tenant = $tenant;
-
-        return $this;
     }
 }

@@ -17,3 +17,4 @@ web/media/*
 web/compiled/*
 
 /support-files
+.idea/

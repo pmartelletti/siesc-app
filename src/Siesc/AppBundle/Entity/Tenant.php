@@ -8,7 +8,7 @@ use Tahoe\Bundle\MultiTenancyBundle\Model\MultiTenantTenantInterface;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="tenant")
+ * @ORM\Table(name="app_tenant")
  *
  */
 class Tenant extends BaseTenant implements MultiTenantTenantInterface

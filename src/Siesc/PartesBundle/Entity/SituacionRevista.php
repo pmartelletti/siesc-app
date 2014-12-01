@@ -12,7 +12,7 @@ use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
  * @ORM\Table("partes_situacion_revista")
  * @ORM\Entity
  */
-class SituacionRevista implements TenantAwareInterface
+class SituacionRevista
 {
     /**
      * @var integer
@@ -29,14 +29,6 @@ class SituacionRevista implements TenantAwareInterface
      * @ORM\Column(name="nombre", type="string", length=255)
      */
     private $nombre;
-    
-    /**
-     * @var MultiTenantTenantInterface
-     *
-     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
-     */
-    protected $tenant;
-
 
     /**
      * Get id
@@ -74,25 +66,5 @@ class SituacionRevista implements TenantAwareInterface
     public function __toString()
     {
         return $this->getNombre();
-    }
-       
-    /**
-     * @return Siesc\AppBundle\Entity\Tenant
-     */
-    public function getTenant()
-    {
-        return $this->tenant;
-    }
-
-    /**
-     * @param Siesc\AppBundle\Entity\Tenant $tenant
-     *
-     * @return $this
-     */
-    public function setTenant($tenant)
-    {
-        $this->tenant = $tenant;
-
-        return $this;
     }
 }

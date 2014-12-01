@@ -12,7 +12,7 @@ use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
  * @ORM\Table()
  * @ORM\Entity
  */
-class CicloLectivo implements TenantAwareInterface
+class CicloLectivo
 {
     /**
      * @var integer
@@ -35,14 +35,7 @@ class CicloLectivo implements TenantAwareInterface
      *
      * @ORM\Column(name="actual", type="boolean")
      */
-    private $actual;    
-       
-    /**
-     * @var MultiTenantTenantInterface
-     *
-     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
-     */
-    protected $tenant;
+    private $actual;
     
     public function __toString() {
         $nombre = $this->getNombre();
@@ -105,25 +98,5 @@ class CicloLectivo implements TenantAwareInterface
     public function getActual()
     {
         return $this->actual;
-    }
-              
-    /**
-     * @return Siesc\AppBundle\Entity\Tenant
-     */
-    public function getTenant()
-    {
-        return $this->tenant;
-    }
-
-    /**
-     * @param Siesc\AppBundle\Entity\Tenant $tenant
-     *
-     * @return $this
-     */
-    public function setTenant($tenant)
-    {
-        $this->tenant = $tenant;
-
-        return $this;
     }
 }

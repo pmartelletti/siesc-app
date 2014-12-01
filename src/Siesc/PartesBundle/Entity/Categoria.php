@@ -12,7 +12,7 @@ use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
  * @ORM\Table(name="partes_categoria")
  * @ORM\Entity
  */
-class Categoria implements TenantAwareInterface
+class Categoria
 {
     /**
      * @var integer
@@ -62,13 +62,6 @@ class Categoria implements TenantAwareInterface
      * @ORM\Column(name="requireAsignatura", type="boolean")
      */
     private $requiereAsignatura;
-
-    /**
-     * @var MultiTenantTenantInterface
-     *
-     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
-     */
-    protected $tenant;
 
     /**
      * Get id
@@ -236,25 +229,5 @@ class Categoria implements TenantAwareInterface
     public function __toString()
     {
         return sprintf('%s (%s)', $this->getNombre(), $this->getFuncion());
-    }
-    
-    /**
-     * @return Siesc\AppBundle\Entity\Tenant
-     */
-    public function getTenant()
-    {
-        return $this->tenant;
-    }
-
-    /**
-     * @param Siesc\AppBundle\Entity\Tenant $tenant
-     *
-     * @return $this
-     */
-    public function setTenant($tenant)
-    {
-        $this->tenant = $tenant;
-
-        return $this;
     }
 }
