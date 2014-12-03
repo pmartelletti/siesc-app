@@ -1,6 +1,6 @@
 <?php
 
-namespace Siesc\AppBundle\Form;
+namespace Siesc\DataBundle\Form\App;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

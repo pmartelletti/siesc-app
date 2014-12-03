@@ -44,5 +44,9 @@
             Editar
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
+    <li>
+        <a href="{{ path('siesc_docente_delete', { 'id': entity.id }) }}">
+            Eliminar
+        </a>
+    </li>
 </ul>

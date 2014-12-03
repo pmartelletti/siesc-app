@@ -1,10 +1,23 @@
-    <h2>Crear Organizacion</h2>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
+{% from 'SiescWebBundle:Macros:form_actions.html.twig' import create %}
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">Crear nueva Organización</header>
+            <div class="panel-body">
+                <form action="{{ path('siesc_tenant_new') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+                    <fieldset>
+                        {{ form_widget(form) }}
+                    </fieldset>
+                    {{ form_rest(form) }}
+                    {{ create() }}
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+<ul class="record_actions">
     <li>
-        <a href="{{ path('siesc_tenant_index') }}">
+        <a href="{{ path('siesc_tenant') }}">
             Back to the list
         </a>
     </li>

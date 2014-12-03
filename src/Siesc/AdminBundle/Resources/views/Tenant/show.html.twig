@@ -19,7 +19,7 @@
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('siesc_tenant_index') }}">
+        <a href="{{ path('siesc_tenant') }}">
             Volver al Listado
         </a>
     </li>
@@ -28,5 +28,9 @@
             Editar
         </a>
     </li>
-    <li>{{ form(delete_form) }}</li>
+    <li>
+        <a href="{{ path('siesc_tenant_delete', { 'id': entity.id }) }}">
+            Eliminar
+        </a>
+    </li>
 </ul>
