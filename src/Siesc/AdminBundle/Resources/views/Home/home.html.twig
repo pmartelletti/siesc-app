@@ -1,0 +1,16 @@
+{% if user|length > 0 %}
+    <span class="badge">{{ user|length }}</span> Total Usuarios
+{% else %}
+    <span class="badge">0</span> No hay usuarios agregados
+{% endif %} 
+<br/>
+{% if tenant|length > 0 %}
+    <span class="badge">{{ tenant|length }}</span> Total Organizaciones
+{% else %}
+    <span class="badge">0</span> No hay usuarios agregados
+{% endif %} 
+
+<br/>
+<a href="{{ path('siesc_tenant_index') }}">Organizaciones</a>
+<br/>
+<a href="{{ path('siesc_user_index') }}">Usuarios</a>

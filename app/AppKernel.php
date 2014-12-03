@@ -42,6 +42,7 @@ class AppKernel extends Kernel
             //new Siesc\CourseManagementBundle\SiescCourseManagementBundle(),
             new \Siesc\GeneratorBundle\SiescGeneratorBundle(),
             new Tahoe\Bundle\MultiTenancyBundle\TahoeMultiTenancyBundle(),
+            new Siesc\AdminBundle\SiescAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

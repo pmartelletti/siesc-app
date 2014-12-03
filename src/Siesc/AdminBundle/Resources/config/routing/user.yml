@@ -1,0 +1,3 @@
+siesc_user_index:
+    path:     /
+    defaults: { _controller: SiescAdminBundle:User:index }

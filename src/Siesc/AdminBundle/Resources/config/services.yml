@@ -1,0 +1,4 @@
+services:
+#    siesc_admin.example:
+#        class: Siesc\AdminBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

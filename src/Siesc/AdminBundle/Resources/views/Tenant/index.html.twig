@@ -1,0 +1,36 @@
+<h2>Listado de Organizacion</h2>
+
+    <table class="records_list table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Sub-domain</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('siesc_tenant_show', { 'id': entity.id }) }}">#{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.subdomain }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('siesc_tenant_show', { 'id': entity.id }) }}">Ver</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('siesc_tenant_edit', { 'id': entity.id }) }}">Editar</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p>
+        <a class="btn btn-success" href="{{ path('siesc_tenant_new') }}">
+            Crear nueva organizacion
+        </a>
+    </p>

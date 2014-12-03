@@ -1,0 +1,33 @@
+siesc_tenant_index:
+    path:     /
+    defaults: { _controller: SiescAdminBundle:Tenant:index }  
+    
+siesc_tenant_create:   
+    path:     /create
+    defaults: { _controller: SiescAdminBundle:Tenant:create }  
+    methods:   [POST]
+
+siesc_tenant_new: 
+    path:     /new
+    defaults: { _controller: SiescAdminBundle:Tenant:new }
+    methods:   [GET]
+    
+siesc_tenant_show:  
+    path:     /{id}
+    defaults: { _controller: SiescAdminBundle:Tenant:show }
+    methods:   [GET]
+    
+siesc_tenant_edit: 
+    path:     /{id}/edit
+    defaults: { _controller: SiescAdminBundle:Tenant:edit }
+    methods:   [GET]    
+    
+siesc_tenant_update:
+    path:    /{id}
+    defaults: { _controller: SiescAdminBundle:Tenant:update }
+    methods:   [PUT]
+    
+siesc_tenant_delete:
+    path:    /{id}
+    defaults: { _controller: SiescAdminBundle:Tenant:delete }
+    methods:   [DELETE]

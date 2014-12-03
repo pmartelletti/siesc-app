@@ -15,7 +15,21 @@ security:
             id: fos_user.user_provider.username
 
     firewalls:
-        main:
+        admin_secured_area:
+            pattern: /admin/.*
+            form_login:
+                provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+                check_path: /admin/login_check
+                login_path: /admin/login
+                default_target_path: /admin/
+            logout:
+                path:   /admin/logout
+                target: /admin/login
+                invalidate_session: false
+            anonymous:    true
+            switch_user: true
+        members_secured_area:
             pattern: ^/
             form_login:
                 provider: fos_userbundle
@@ -36,6 +50,7 @@ security:
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/assets, role: IS_AUTHENTICATED_ANONYMOUSLY }
@@ -44,4 +59,5 @@ security:
         - { path: ^/data, role: ROLE_ADMIN_DATA }
         - { path: ^/partes/cierre-novedades, role: ROLE_PARTES_RL }
         - { path: ^/partes, role: ROLE_USER_PARTES }
-        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: /admin/.*, role: ROLE_SUPER_ADMIN }
+        

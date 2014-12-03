@@ -1,0 +1,29 @@
+siesc_docente_create:   
+    path:     /create
+    defaults: { _controller: SiescAdminBundle:Docente:create }  
+    methods:   [POST]
+
+siesc_docente_new: 
+    path:     /new
+    defaults: { _controller: SiescAdminBundle:Docente:new }
+    methods:   [GET]
+    
+siesc_docente_show:  
+    path:     /{id}
+    defaults: { _controller: SiescAdminBundle:Docente:show }
+    methods:   [GET]
+    
+siesc_docente_edit: 
+    path:     /{id}/edit
+    defaults: { _controller: SiescAdminBundle:Docente:edit }
+    methods:   [GET]    
+    
+siesc_docente_update:
+    path:    /{id}
+    defaults: { _controller: SiescAdminBundle:Docente:update }
+    methods:   [PUT]
+    
+siesc_docente_delete:
+    path:    /{id}
+    defaults: { _controller: SiescAdminBundle:Docente:delete }
+    methods:   [DELETE]
