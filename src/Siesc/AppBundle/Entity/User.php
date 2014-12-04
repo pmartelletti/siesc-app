@@ -7,7 +7,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Tahoe\Bundle\MultiTenancyBundle\Model\MultiTenantUserInterface;
 
 /**
- * @ORM\Entity
+  @ORM\Entity(repositoryClass="Siesc\AppBundle\Entity\Repository\UserRepository")
  * @ORM\Table(name="user")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="type", type="string")

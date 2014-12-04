@@ -57,7 +57,7 @@ class LoadAdminUsers implements FixtureInterface, ContainerAwareInterface, Order
             ->setPlainPassword("admin")
             ->setTelefono("470120246")
             ->setEnabled(true)
-            ->addRole('ROLE_SUPER_ADMIN');
+            ->addRole('ROLE_ADMIN_DATA');
         # persist the user
         $userManager->updateUser($admin, true);
 

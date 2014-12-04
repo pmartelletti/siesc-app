@@ -17,3 +17,15 @@ siesc_tenant_edit:
 siesc_tenant_delete:
     path:    /{id}/delete
     defaults: { _controller: SiescAdminBundle:Tenant:delete }
+    
+siesc_tenant_user_tenant:
+    path:     /{id}/user-tenant
+    defaults: { _controller: SiescAdminBundle:Tenant:userTenant }    
+    
+siesc_tenant_add_user_tenant:
+    path:     /{id_tenant}/{id_user}/add-user-tenant
+    defaults: { _controller: SiescAdminBundle:Tenant:addUserTenant }
+    
+siesc_tenant_delete_user_tenant:
+    path:     /{id_tenant}/{id_user}/delete-user-tenant
+    defaults: { _controller: SiescAdminBundle:Tenant:deleteUserTenant }    
