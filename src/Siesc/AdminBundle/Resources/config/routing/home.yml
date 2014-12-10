@@ -1,0 +1,13 @@
+siesc_admin_login:
+    path:     /login
+    defaults: { _controller: SiescAdminBundle:Home:index }
+    
+siesc_admin_login_check:
+    pattern:   /login_check  
+    
+siesc_admin_logout:
+    pattern:   /logout
+    
+siesc_admin_home:
+    path:     /
+    defaults: { _controller: SiescAdminBundle:Home:home }    

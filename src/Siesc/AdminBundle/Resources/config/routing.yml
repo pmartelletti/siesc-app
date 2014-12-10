@@ -1,0 +1,16 @@
+siesc_admin_homepage:
+    resource: "@SiescAdminBundle/Resources/config/routing/home.yml"
+    prefix:   /
+    
+siesc_admin_tenant:
+    resource: "@SiescAdminBundle/Resources/config/routing/tenant.yml"
+    prefix:   /tenant    
+    
+siesc_admin_docente:
+    resource: "@SiescAdminBundle/Resources/config/routing/docente.yml"
+    prefix:   /docente  
+    
+siesc_admin_user:
+    resource: "@SiescAdminBundle/Resources/config/routing/user.yml"
+    prefix:   /user      
+    

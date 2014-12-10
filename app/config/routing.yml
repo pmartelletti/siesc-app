@@ -1,3 +1,7 @@
+siesc_admin:
+    resource: "@SiescAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+
 siesc_web:
     resource: "@SiescWebBundle/Resources/config/routing.yml"
     prefix:   /

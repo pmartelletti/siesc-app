@@ -1,0 +1,16 @@
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+        {{ tenant.name }}
+        <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-right">
+        {% for tenantUser in tenantUsers %}
+            <li {% if tenant == tenantUser.tenant %}class="active" {% endif %}>
+                <a href="{{ path('switch_tenant', {subdomain: tenantUser.tenant.subdomain}) }}">{{ tenantUser.tenant.name }}</a>
+            </li>
+        {% endfor %}
+        <li>
+            <a href="#">Add tenant</a>
+        </li>
+    </ul>
+</li>

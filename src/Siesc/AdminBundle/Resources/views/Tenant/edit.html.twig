@@ -1,0 +1,30 @@
+{% extends '@SiescWeb/base_admin.html.twig' %}
+
+{% block content %}
+
+{% from 'SiescWebBundle:Macros:form_actions.html.twig' import update %}
+<div class="row">
+    <div class="col-md-12">
+        <section class="panel">
+            <header class="panel-heading">Editar Organización: "{{ entity }}"</header>
+            <div class="panel-body">
+                <form action="{{ path('siesc_tenant_edit', {'id': entity.id}) }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
+                    <fieldset>
+                        {{ form_widget(form) }}
+                    </fieldset>
+                    {{ form_rest(form) }}
+                    {{ update() }}
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('siesc_tenant') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+
+{% endblock %}

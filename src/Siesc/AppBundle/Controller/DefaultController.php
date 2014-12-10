@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class DefaultController extends Controller
 {
+
     public function indexAction()
     {
         return $this->get('siesc_app.module_enabler')->renderAvailableServices();

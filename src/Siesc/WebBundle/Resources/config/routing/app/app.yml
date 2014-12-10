@@ -1,5 +1,5 @@
-app_index:
-    pattern:  /
+dashboard_index:
+    pattern:  /choose_service
     defaults: { _controller: "SiescAppBundle:Default:index" }
 
 app_read_notificacion:

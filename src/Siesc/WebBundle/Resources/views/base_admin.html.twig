@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8"/>
+    <title>SIESC</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description"/>
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css">
+
+    {% stylesheets output='assets/compiled/admin.css' filter='cssrewrite'
+        'bundles/siescadmin/plugins/font-awesome/css/font-awesome.min.css'
+        'bundles/siescadmin/plugins/simple-line-icons/simple-line-icons.min.css'
+        'bundles/siescadmin/plugins/bootstrap/css/bootstrap.min.css'
+        'bundles/siescadmin/plugins/uniform/css/uniform.default.css'
+        'bundles/siescadmin/plugins/bootstrap-switch/css/bootstrap-switch.min.css'
+        'bundles/siescadmin/css/components.css'
+        'bundles/siescadmin/css/plugins.css'
+        'bundles/siescadmin/css/layout.css'
+        'bundles/siescadmin/default.css'
+        'bundles/siescadmin/css/custom.css'
+    %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}
+</head>
+<body class="page-boxed page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo">
+<!-- BEGIN HEADER -->
+    <div class="page-header navbar navbar-fixed-top">
+        <!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner container">
+            <!-- BEGIN LOGO -->
+            <div class="page-logo">
+                <a href="{{ path('siesc_admin_home') }}">
+                    <img src="{{ asset('bundles/siescapp/images/siesc.png') | imagine_filter('app_thumb') }}" alt="SIESC">
+                </a>
+                <div class="menu-toggler sidebar-toggler">
+                    <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+                </div>
+            </div>
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+            </a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN PAGE TOP -->
+            <div class="page-top">
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <!-- BEGIN NOTIFICATION DROPDOWN -->
+                        <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <i class="icon-bell"></i>
+						<span class="badge badge-default">7 </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="external">
+                                    <h3><span class="bold">12 pending</span> notifications</h3>
+                                    <a href="extra_profile.html">view all</a>
+                                </li>
+                                <li>
+                                    <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- BEGIN USER LOGIN DROPDOWN -->
+                        <li class="dropdown dropdown-user">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <img alt="" class="img-circle" src="../../assets/admin/layout2/img/avatar3_small.jpg"/>
+						        <span class="username username-hide-on-mobile">{{ app.user }}</span>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-default">
+                                <li>
+                                    <a href="{{ path('siesc_admin_logout') }}">
+                                        <i class="icon-key"></i> Cerrar Session
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- END USER LOGIN DROPDOWN -->
+                    </ul>
+                </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+        </div>
+    </div>
+    <!-- END HEADER -->
+    <div class="clearfix">
+    </div>
+    <div class="container">
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+        <!-- BEGIN SIDEBAR -->
+        <div class="page-sidebar-wrapper">
+        <div class="page-sidebar navbar-collapse collapse">
+        <!-- BEGIN SIDEBAR MENU -->
+        <ul class="page-sidebar-menu page-sidebar-menu-hover-submenu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+            <li class="start ">
+                <a href="{{ path('siesc_admin_home') }}">
+                    <i class="icon-home"></i>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="icon-graduation"></i>
+                    <span class="title">Instituciones</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{{ path('siesc_tenant') }}">Listar</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('siesc_tenant_new') }}">Nueva</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="icon-users"></i>
+                    <span class="title">Usuarios</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="{{ path('siesc_user_index') }}">Listar</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('siesc_docente_new') }}">Nuevo Docente</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <i class="icon-settings"></i>
+                    <span class="title">Configuracion General</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="#">Editar</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+        <!-- END SIDEBAR MENU -->
+        </div>
+        </div>
+        <!-- END SIDEBAR -->
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper">
+            <div class="page-content">
+                <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+                <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                <h4 class="modal-title">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                Widget settings form goes here
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn blue">Save changes</button>
+                                <button type="button" class="btn default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+                <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+                <!-- BEGIN PAGE HEADER-->
+                <h3 class="page-title">
+                    {% block page_title %}Blank Page <small>blank page</small>{% endblock %}
+                </h3>
+                <div class="page-bar">
+                    <ul class="page-breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>
+                            <a href="{{ path('siesc_admin_home') }}">Admin</a>
+                            <i class="fa fa-angle-right"></i>
+                        </li>
+                        {% block page_breadcumb %}{% endblock %}
+                    </ul>
+                </div>
+                <!-- END PAGE HEADER-->
+                <!-- BEGIN PAGE CONTENT-->
+                <div class="row">
+                    {% block content %}
+                    {% endblock %}
+                <!-- END PAGE CONTENT-->
+            </div>
+        </div>
+        <!-- END CONTENT -->
+        <!-- BEGIN QUICK SIDEBAR -->
+        <!--Cooming Soon...-->
+        <!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- BEGIN FOOTER -->
+        <div class="page-footer">
+            <div class="page-footer-inner">
+                2012 - {{ date() | date('Y') }} &copy; SIESC.
+            </div>
+            <div class="scroll-to-top">
+                <i class="icon-arrow-up"></i>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+    </div>
+
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <!--[if lt IE 9]>
+    <script src="{{ asset('bundles/siescadmin/js/respond.min.js') }}"></script>
+    <script src="{{ asset('bundles/siescadmin/js/excanvas.min.js') }}"></script>
+    <![endif]-->
+    {% javascripts output='assets/compiled/admin-script.js'
+        'bundles/siescadmin/js/jquery.min.js'
+        'bundles/siescadmin/js/jquery-migrate.min.js'
+        'bundles/siescadmin/js/jquery-ui/jquery-ui-1.10.3.custom.min.js'
+        'bundles/siescadmin/js/bootstrap/js/bootstrap.min.js'
+        'bundles/siescadmin/js/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js'
+        'bundles/siescadmin/js/jquery-slimscroll/jquery.slimscroll.min.js'
+        'bundles/siescadmin/js/jquery.blockui.min.js'
+        'bundles/siescadmin/js/jquery.cokie.min.js'
+        'bundles/siescadmin/js/uniform/jquery.uniform.min.js'
+        'bundles/siescadmin/js/bootstrap-switch/js/bootstrap-switch.min.js'
+        'bundles/siescadmin/js/datatable.js'
+        'bundles/siescadmin/js/metronic.js'
+        'bundles/siescadmin/js/layout.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    <script>
+        jQuery(document).ready(function() {
+            Metronic.init(); // init metronic core components
+            Layout.init(); // init current layout
+            $('.datatable-simple').DataTable();
+        });
+    </script>
+    <!-- END JAVASCRIPTS -->
+</body>
+</html>
