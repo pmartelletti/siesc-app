@@ -1,16 +1,67 @@
-{% if user|length > 0 %}
-    <span class="badge">{{ user|length }}</span> Total Usuarios
-{% else %}
-    <span class="badge">0</span> No hay usuarios agregados
-{% endif %} 
-<br/>
-{% if tenant|length > 0 %}
-    <span class="badge">{{ tenant|length }}</span> Total Organizaciones
-{% else %}
-    <span class="badge">0</span> No hay usuarios agregados
-{% endif %} 
+{% extends '@SiescWeb/base_admin.html.twig' %}
+{% block page_title %}
+    Dashboard
+{% endblock %}
 
-<br/>
-<a href="{{ path('siesc_tenant') }}">Organizaciones</a>
-<br/>
-<a href="{{ path('siesc_user_index') }}">Usuarios</a>
+{% block content %}
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-light blue-soft" href="{{ path('siesc_tenant') }}">
+            <div class="visual">
+                <i class="fa fa-institution"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    {{ instituciones | length }}
+                </div>
+                <div class="desc">
+                    Instituciones
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-light red-soft" href="{{ path('siesc_user_index') }}">
+            <div class="visual">
+                <i class="fa fa-users"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    {{ staff | length }}
+                </div>
+                <div class="desc">
+                    Docentes y Directivos
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-light green-soft" href="#">
+            <div class="visual">
+                <i class="fa fa-graduation-cap"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    {{ alumnos | length }}
+                </div>
+                <div class="desc">
+                    Alumnos
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-light purple-soft" href="#">
+            <div class="visual">
+                <i class="fa fa-money"></i>
+            </div>
+            <div class="details">
+                <div class="number">
+                    $0.00
+                </div>
+                <div class="desc">
+                    Facturacion Mensual
+                </div>
+            </div>
+        </a>
+    </div>
+{% endblock %}

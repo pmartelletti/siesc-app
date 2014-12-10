@@ -37,8 +37,9 @@ class HomeController extends Controller
     public function homeAction()
     {
         $em     = $this->getDoctrine()->getManager();
-        $user   = $em->getRepository('SiescAppBundle:User')->findAll();
+        $staff   = $em->getRepository('SiescAppBundle:Docente')->findAll();
+        $alumnos = $em->getRepository('SiescAppBundle:Alumno')->findAll();
         $tenant = $em->getRepository('SiescAppBundle:Tenant')->findAll();
-        return $this->render('SiescAdminBundle:Home:home.html.twig', ['user'=>$user, 'tenant'=>$tenant]);
+        return $this->render('SiescAdminBundle:Home:home.html.twig', ['alumnos'=>$alumnos, 'staff' => $staff, 'instituciones'=>$tenant]);
     }
 }
