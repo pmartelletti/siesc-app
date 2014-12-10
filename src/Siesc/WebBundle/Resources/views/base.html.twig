@@ -46,7 +46,7 @@
         <div class="navbar navbar-inverse" role="navigation">
             <div class="navbar-header">
                 {% block app_page_logo %}
-                <a href="{{ path('app_index') }}"><img src="{{ asset('bundles/siescapp/images/siesc.png') | imagine_filter('app_thumb') }}" alt="SIESC"></a>
+                <a href="{{ path('dashboard_index') }}"><img src="{{ asset('bundles/siescapp/images/siesc.png') | imagine_filter('app_thumb') }}" alt="SIESC"></a>
                 {% endblock %}
                 <a class="sidebar-toggle"><i class="icon-paragraph-justify2"></i></a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-icons">
@@ -68,9 +68,11 @@
                     {% include 'SiescWebBundle:Widgets:change_service_dropdown.html.twig' %}
                 </li>
                 <li class="dropdown">
-                <li class="dropdown">
                     {{ render(controller('SiescAppBundle:Default:userNotificacions')) }}
                 </li>
+
+
+                {{ render(controller('TahoeMultiTenancyBundle:Tenant:switchDropdown')) }}
 
                 <li class="user dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown">
@@ -134,7 +136,7 @@
                     <!-- Breadcrumbs line -->
                     <div class="breadcrumb-line">
                         <ul class="breadcrumb">
-                            <li><a href="{{ path('app_index') }}">Home</a></li>
+                            <li><a href="{{ path('dashboard_index') }}">Home</a></li>
                             {% block current_breadcrumb %}
                             <li><a href="blank_wide_left.html">Blank pages</a></li>
                             <li class="active">Wide left sidebar</li>
