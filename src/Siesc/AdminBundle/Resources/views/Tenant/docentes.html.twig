@@ -21,20 +21,14 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for user in user_tenant %}
+                    {% for docente in docentes %}
+                        {% set user = docente.user %}
                         <tr>
                             <td>#{{ user.id }}</td>
                             <td>{{ user.cuil }}</td>
                             <td>{{ user.nombre }}</td>
                             <td>{{ user.apellido }}</td>
                             <td>{{ user.telefono }}</td>
-                            <td>
-                                <ul>
-                                    <li>
-                                        <a href="{{ path('siesc_tenant_delete_user_tenant',{'id_tenant': tenant.id, 'id_user':user.id}) }}">Eliminar</a>
-                                    </li>
-                                </ul>
-                            </td>
                         </tr>
                     {% endfor %}
                     </tbody>

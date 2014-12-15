@@ -15,8 +15,22 @@ class TenantType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('subdomain');
+            ->add('name', null, array(
+                'label' => 'Nombre'
+            ))
+            ->add('subdomain', null, array(
+                'label' => "Subdominio"
+            ))
+            ->add('contactEmail', null, array(
+                'label' => 'Email de contacto'
+            ))
+            ->add('contactName', null, array(
+                'label' => 'Nombre de contacto'
+            ))
+            ->add('contactPhone', null, [
+                'label' => 'Telefono'
+            ])
+        ;
     }
     
     /**

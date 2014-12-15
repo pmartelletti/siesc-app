@@ -15,139 +15,83 @@ Institucion: "{{ entity.name}}"
 {% endblock %}
 
 {% block content %}
-    <div class="col-md-12">
-        <div class="portlet light">
-            <div class="portlet-title">
-                <div class="caption">
-                    <i class="icon-graduation font-green-sharp"></i>
-                    <span class="caption-subject font-green-sharp bold uppercase">{{ entity.name }}</span>
-                </div>
-                <div class="actions">
-                    <a href="#" class="btn btn-default btn-circle">
-                        <i class="fa fa-angle-left"></i>
-                        <span class="hidden-480">Volver </span>
-                    </a>
-                    <div class="btn-group">
-                        <a class="btn btn-default btn-circle" href="#" data-toggle="dropdown">
-                            <i class="fa fa-cog"></i>
-							<span class="hidden-480">Acciones </span>
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu pull-right">
-                            <li>
-                                <a href="#">
+    {% embed '@SiescAdmin/Widget/admin_show.html.twig' %}
+        {% block title %}
+            {{ entity.name }}
+        {% endblock %}
+        {% block acciones %}
+            <li>
+                <a href="{{ path('siesc_tenant_edit', {'id': entity.id}) }}">
+                    <i class="fa fa-pencil"></i> Editar
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-trash"></i> Eliminar <span class="label label-danger label-sm">Peligroso </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-barcode"></i> Imprimir / Enviar Factura </a>
+            </li>
+        {% endblock %}
+        {% block tabs %}
+            <li class="active">
+                <a href="#tab1" data-toggle="tab">Detalles</a>
+            </li>
+            <li>
+                <a href="#tab2" data-toggle="tab">Staff Administrativo</a>
+            </li>
+            <li>
+                <a href="#tab3" data-toggle="tab">Docentes</a>
+            </li>
+            <li>
+                <a href="#tab4" data-toggle="tab">Alumnos</a>
+            </li>
+            <li>
+                <a href="#tab5" data-toggle="tab">Historial</a>
+            </li>
+        {% endblock %}
+        {% block tabs_content %}
+            <div class="tab-pane active" id="tab1">
+                <div class="row">
+                    <div class="col-md-6">
+                        {% embed '@SiescAdmin/Widget/admin_show_portlet.html.twig' %}
+                            {% block portlet_title %}
+                                <i class="fa fa-cogs"></i> Informacion
+                            {% endblock %}
+                            {% block portlet_actions %}
+                                <a href="{{ path('siesc_tenant_edit', {'id': entity.id}) }}" class="btn btn-default btn-sm">
                                     <i class="fa fa-pencil"></i> Editar
                                 </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-trash"></i> Eliminar <span class="label label-danger label-sm">Peligroso </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fa fa-barcode"></i> Imprimir / Enviar Factura </a>
-                            </li>
-                        </ul>
+                            {% endblock %}
+                            {% block portlet_body %}
+                                {% set rows = {
+                                'Nombre': entity.name,
+                                'URL': '<a href="http://' ~ entity.subdomain ~'.siesc.com.ar">' ~ entity.subdomain ~'.siesc.com.ar</a>',
+                                'Contacto': entity.contactName,
+                                'Email': entity.contactEmail,
+                                'Telefono de Contacto': entity.contactPhone
+                                } %}
+                                {{ parent() }}
+                            {% endblock %}
+                        {% endembed %}
+                    </div>
+                    <div class="col-md-6">
+                        {% embed '@SiescAdmin/Widget/admin_show_portlet.html.twig' %}
+                            {% block portlet_title %}
+                                Detalles de Facturacion
+                            {% endblock %}
+                        {% endembed %}
                     </div>
                 </div>
             </div>
-            <div class="portlet-body">
-                <div class="tabbable">
-                    <ul class="nav nav-tabs nav-tabs-lg">
-                        <li class="active">
-                            <a href="#tab1" data-toggle="tab">Detalles</a>
-                        </li>
-                        <li>
-                            <a href="#tab2" data-toggle="tab">Staff Administrativo</a>
-                        </li>
-                        <li>
-                            <a href="#tab3" data-toggle="tab">Docentes</a>
-                        </li>
-                        <li>
-                            <a href="#tab4" data-toggle="tab">Alumnos</a>
-                        </li>
-                        <li>
-                            <a href="#tab5" data-toggle="tab">Historial</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tab1">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="portlet blue-hoki box">
-                                        <div class="portlet-title">
-                                            <div class="caption">
-                                                <i class="fa fa-cogs"></i>Informacion
-                                            </div>
-                                            <div class="actions">
-                                                <a href="#" class="btn btn-default btn-sm">
-                                                    <i class="fa fa-pencil"></i> Editar </a>
-                                            </div>
-                                        </div>
-                                        <div class="portlet-body">
-                                            <div class="row static-info">
-                                                <div class="col-md-5 name">
-                                                    Nombre:
-                                                </div>
-                                                <div class="col-md-7 value">
-                                                    {{ entity.name }}
-                                                </div>
-                                            </div>
-                                            <div class="row static-info">
-                                                <div class="col-md-5 name">
-                                                    URL:
-                                                </div>
-                                                <div class="col-md-7 value">
-                                                    {% set url = "http://" ~ entity.subdomain ~ ".siesc.com.ar" %}
-                                                    <a href="{{ url }}">{{ url }}</a>
-                                                </div>
-                                            </div>
-                                            <div class="row static-info">
-                                                <div class="col-md-5 name">
-                                                    Email:
-                                                </div>
-                                                <div class="col-md-7 value">
-                                                    -
-                                                </div>
-                                            </div>
-                                            <div class="row static-info">
-                                                <div class="col-md-5 name">
-                                                    Contacto:
-                                                </div>
-                                                <div class="col-md-7 value">
-                                                    -
-                                                </div>
-                                            </div>
-                                            <div class="row static-info">
-                                                <div class="col-md-5 name">
-                                                    Numero de Telefono:
-                                                </div>
-                                                <div class="col-md-7 value">
-                                                    -
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="portlet blue-hoki box">
-                                        <div class="portlet-title">
-                                            <div class="caption">
-                                                <i class="fa fa-cogs"></i>Facturacion
-                                            </div>
-                                        </div>
-                                        <div class="portlet-body">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tab2"></div>
-                    </div>
-                </div>
+            <div class="tab-pane" id="tab2">
+                {{ render(controller('SiescAdminBundle:Tenant:userTenant', {'id': entity.id})) }}
             </div>
-        </div>
-    </div>
+            <div class="tab-pane" id="tab3">
+                {{ render(controller('SiescAdminBundle:Tenant:docentes', {'id': entity.id})) }}
+            </div>
+        {% endblock %}
+    {% endembed %}
 {% endblock %}

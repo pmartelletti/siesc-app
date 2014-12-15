@@ -1,0 +1,38 @@
+<div class="col-md-12">
+    <div class="portlet light">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-graduation font-green-sharp"></i>
+                <span class="caption-subject font-green-sharp bold uppercase">
+                    {% block title %}{% endblock %}
+                </span>
+            </div>
+            <div class="actions">
+                <a href="#" class="btn btn-default btn-circle">
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hidden-480">Volver </span>
+                </a>
+                <div class="btn-group">
+                    <a class="btn btn-default btn-circle" href="#" data-toggle="dropdown">
+                        <i class="fa fa-cog"></i>
+                        <span class="hidden-480">Acciones </span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        {% block acciones %}{% endblock %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="tabbable">
+                <ul class="nav nav-tabs nav-tabs-lg">
+                    {% block tabs %}{% endblock %}
+                </ul>
+                <div class="tab-content">
+                    {% block tabs_content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

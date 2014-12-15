@@ -12,7 +12,7 @@ use Tahoe\Bundle\MultiTenancyBundle\Model\MultiTenantUserInterface;
 
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Siesc\AppBundle\Entity\Repository\DocenteRepository")
  * @ORM\Table(name="user_docente")
  * @UniqueEntity(fields = "email", targetClass = "Siesc\AppBundle\Entity\User", message="fos_user.email.already_used")
  *

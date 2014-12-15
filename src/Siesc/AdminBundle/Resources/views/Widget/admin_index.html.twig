@@ -1,0 +1,15 @@
+<div class="col-md-12">
+    <div class="portlet box red">
+        <div class="portlet-title">
+            <div class="caption">{% block portlet_title %}{% endblock %}</div>
+            <div class="actions">
+                {% block portlet_actions %}{% endblock %}
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="table-scrollable">
+                {% block portlet_table %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -76,6 +76,21 @@ class TenantController extends BaseController
          
         return $this->render('SiescAdminBundle:Tenant:user_tenant.html.twig',['user_tenant'=>$query_user, 'user_not_tenat'=>$user_not_tenat, 'tenant'=>$tenant]);
     }
+
+    public function docentesAction(Request $request, $id)
+    {
+        $tenant = $this->findOr404($request);
+        $docentes = $this->get('doctrine.orm.entity_manager')->getRepository('SiescAppBundle:Docente')->findForTenant($tenant);
+
+        return $this->render('@SiescAdmin/Tenant/docentes.html.twig',[
+            'docentes' => $docentes
+        ]);
+    }
+
+    public function alumnosAction(Request $request, $id)
+    {
+
+    }
     
     public function addUserTenantAction(Request $request, $id_tenant, $id_user)
     {

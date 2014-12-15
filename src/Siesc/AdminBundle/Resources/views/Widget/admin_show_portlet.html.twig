@@ -1,0 +1,26 @@
+<div class="portlet {% block portlet_color %}blue-hoki{% endblock %} box">
+    <div class="portlet-title">
+        <div class="caption">
+            {% block portlet_title %}{% endblock %}
+        </div>
+        <div class="actions">
+            {% block portlet_actions %}{% endblock %}
+        </div>
+    </div>
+    <div class="portlet-body">
+        {% block portlet_body %}
+            {% if rows is defined %}
+                {% for title, data in rows %}
+                <div class="row static-info">
+                    <div class="col-md-5 name">
+                        {{ title }}
+                    </div>
+                    <div class="col-md-7 value">
+                        {{ data | raw }}
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endblock %}
+    </div>
+</div>

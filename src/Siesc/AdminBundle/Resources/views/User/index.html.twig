@@ -1,66 +1,51 @@
 {% extends '@SiescWeb/base_admin.html.twig' %}
 
+{% block page_title %}
+    Staff Administrativo
+{% endblock %}
+
+{% block page_breadcrumb %}
+    <li>Staff Administrativo</li>
+{% endblock %}
+
+
 {% block content %}
 
-<h2>Listado de Alumnos</h2>
-<table class="records_list table table-bordered">
-    <thead>
-        <tr>
-            <th>Id</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for alumno in alumnos %}
-        <tr>
-            <td>#{{ alumno.id }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-<p>
-    <a class="btn btn-success" href="">
-        Crear nuevo alumno
-    </a>
-</p>
-<br/>
-<br/>
-<h2>Listado de Docentes</h2>
-
-    <table class="records_list table table-bordered">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Cuil</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Teléfono</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for docente in docentes %}
-            <tr>
-                <td><a href="{{ path('siesc_docente_show', { 'id': docente.id }) }}">#{{ docente.id }}</a></td>
-                <td>{{ docente.cuil }}</td>
-                <td>{{ docente.nombre }}</td>
-                <td>{{ docente.apellido }}</td>
-                <td>{{ docente.telefono }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('siesc_docente_show', { 'id': docente.id }) }}">Ver</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('siesc_docente_edit', { 'id': docente.id }) }}">Editar</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    <p>
-        <a class="btn btn-success" href="{{ path('siesc_docente_new') }}">
-            Crear nuevo docente
-        </a>
-    </p>
+    {% embed '@SiescAdmin/Widget/admin_index.html.twig' %}
+        {% block portlet_title %}
+            Staff Administrativo
+        {% endblock %}
+        {% block portlet_actions %}
+            <a href="{{ path('siesc_docente_new') }}" class="btn btn-default btn-sm">
+                <i class="fa fa-plus"></i> Agregar
+            </a>
+        {% endblock %}
+        {% block portlet_table %}
+            <table class="records_list table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Cuil</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Instituciones</th>
+                        <th>-</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for docente in docentes %}
+                    <tr>
+                        <td>{{ docente.cuil }}</td>
+                        <td>{{ docente.nombre }}</td>
+                        <td>{{ docente.apellido }}</td>
+                        <td>-</td>
+                        <td>
+                            <a href="{{ path('siesc_docente_show', { 'id': docente.id }) }}" class="btn btn-xs green">Ver</a>
+                            <a href="{{ path('siesc_docente_edit', { 'id': docente.id }) }}" class="btn btn-xs yellow">Editar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endblock %}
+    {% endembed %}
 {% endblock %}

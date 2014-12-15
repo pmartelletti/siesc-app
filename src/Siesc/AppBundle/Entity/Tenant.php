@@ -13,5 +13,69 @@ use Tahoe\Bundle\MultiTenancyBundle\Model\MultiTenantTenantInterface;
  */
 class Tenant extends BaseTenant implements MultiTenantTenantInterface
 {
-    
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $contactEmail;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $contactName;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @var string
+     */
+    private $contactPhone;
+
+    /**
+     * @return string
+     */
+    public function getContactPhone()
+    {
+        return $this->contactPhone;
+    }
+
+    /**
+     * @param string $contactPhone
+     */
+    public function setContactPhone($contactPhone)
+    {
+        $this->contactPhone = $contactPhone;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContactEmail()
+    {
+        return $this->contactEmail;
+    }
+
+    /**
+     * @param string $contactEmail
+     */
+    public function setContactEmail($contactEmail)
+    {
+        $this->contactEmail = $contactEmail;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContactName()
+    {
+        return $this->contactName;
+    }
+
+    /**
+     * @param string $contactName
+     */
+    public function setContactName($contactName)
+    {
+        $this->contactName = $contactName;
+    }
 }

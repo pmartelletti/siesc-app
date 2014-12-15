@@ -1,3 +1,9 @@
+{% if form is defined %}
+    {% form_theme form 'SiescWebBundle:Widgets:forms.html.twig' %}
+{% endif %}
+
+{% from 'SiescWebBundle:Macros:flash.html.twig' import session_flash %}
+
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
@@ -197,6 +203,15 @@
                         {% block page_breadcrumb %}{% endblock %}
                     </ul>
                 </div>
+                {% block flashes %}
+                    {% if app.session.flashbag.peekAll|length > 0 %}
+                        <div class="row">
+                            <div class="col-sm-12">
+                                {{ session_flash() }}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endblock flashes %}
                 <!-- END PAGE HEADER-->
                 <!-- BEGIN PAGE CONTENT-->
                 <div class="row">

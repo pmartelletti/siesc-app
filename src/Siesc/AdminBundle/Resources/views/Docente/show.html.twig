@@ -1,58 +1,75 @@
 {% extends '@SiescWeb/base_admin.html.twig' %}
 
+{% block page_title %}
+    Staff Administrativo: "{{ entity}}"
+{% endblock %}
+
+{% block page_breadcrumb %}
+    <li>
+        <a href="{{ path('siesc_user_index') }}">Staff Administrativo</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+        Detalle
+    </li>
+{% endblock %}
+
 {% block content %}
-
-    <h2>Detalle del Docente</h2>
-
-    <table class="record_properties table table-bordered table-striped">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>#{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Cuil</th>
-                <td>{{ entity.cuil }}</td>
-            </tr>
-            <tr>
-                <th>Nombre</th>
-                <td>{{ entity.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Apellido</th>
-                <td>{{ entity.nombre }}</td>
-            </tr>
-            <tr>
-                <th>Teléfono</th>
-                <td>{{ entity.telefono }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ entity.email }}</td>
-            </tr>
-            <tr>
-                <th>Direccion</th>
-                <td>{{ entity.direccion }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('siesc_user_index') }}">
-            Volver al Listado
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('siesc_docente_edit', { 'id': entity.id }) }}">
-            Editar
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('siesc_docente_delete', { 'id': entity.id }) }}">
-            Eliminar
-        </a>
-    </li>
-</ul>
-
+    {% embed '@SiescAdmin/Widget/admin_show.html.twig' %}
+        {% block title %}
+            {{ entity }}
+        {% endblock %}
+        {% block acciones %}
+            <li>
+                <a href="{{ path('siesc_docente_edit', {'id': entity.id}) }}">
+                    <i class="fa fa-pencil"></i> Editar
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('siesc_docente_delete', {'id': entity.id}) }}">
+                    <i class="fa fa-trash"></i> Eliminar <span class="label label-danger label-sm">Peligroso </span>
+                </a>
+            </li>
+        {% endblock %}
+        {% block tabs %}
+            <li class="active">
+                <a href="#tab1" data-toggle="tab">Detalles</a>
+            </li>
+            <li>
+                <a href="#tab2" data-toggle="tab">Instituciones</a>
+            </li>
+        {% endblock %}
+        {% block tabs_content %}
+            <div class="tab-pane active" id="tab1">
+                <div class="row">
+                    <div class="col-md-12">
+                        {% embed '@SiescAdmin/Widget/admin_show_portlet.html.twig' %}
+                            {% block portlet_title %}
+                                <i class="fa fa-cogs"></i> Informacion
+                            {% endblock %}
+                            {% block portlet_actions %}
+                                <a href="{{ path('siesc_tenant_edit', {'id': entity.id}) }}" class="btn btn-default btn-sm">
+                                    <i class="fa fa-pencil"></i> Editar
+                                </a>
+                            {% endblock %}
+                            {% block portlet_body %}
+                                {% set rows = {
+                                'CUIL': entity.cuil,
+                                'Nombre': entity.nombre,
+                                'Apellido': entity.apellido,
+                                'Telefono': entity.telefono,
+                                'Email': entity.email,
+                                'Direccion': entity.direccion
+                                } %}
+                                {{ parent() }}
+                            {% endblock %}
+                        {% endembed %}
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab2">
+                TODO
+            </div>
+        {% endblock %}
+    {% endembed %}
 {% endblock %}

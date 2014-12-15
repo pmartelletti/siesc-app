@@ -1,30 +1,28 @@
 {% extends '@SiescWeb/base_admin.html.twig' %}
 
-{% block content %}
+{% block page_title %}
+    Institucion
+{% endblock %}
 
-{% from 'SiescWebBundle:Macros:form_actions.html.twig' import create %}
-<div class="row">
-    <div class="col-md-12">
-        <section class="panel">
-            <header class="panel-heading">Crear nueva Organización</header>
-            <div class="panel-body">
-                <form action="{{ path('siesc_tenant_new') }}" {{ form_enctype(form) }} method="POST" class="form-horizontal">
-                    <fieldset>
-                        {{ form_widget(form) }}
-                    </fieldset>
-                    {{ form_rest(form) }}
-                    {{ create() }}
-                </form>
-            </div>
-        </section>
-    </div>
-</div>
-<ul class="record_actions">
+{% block page_breadcrumb %}
     <li>
-        <a href="{{ path('siesc_tenant') }}">
-            Back to the list
-        </a>
+        <a href="{{ path('siesc_tenant') }}">Instituciones</a>
+        <i class="fa fa-angle-right"></i>
     </li>
-</ul>
+    <li>
+        Nueva
+    </li>
+{% endblock %}
 
+{% block content %}
+    <div class="col-md-12">
+        {% embed '@SiescAdmin/Widget/admin_form.html.twig' %}
+            {% block form_title %}
+                Crear nueva institucion
+            {% endblock %}
+            {% block form_url %}
+                {{ path('siesc_tenant_new') }}
+            {% endblock %}
+        {% endembed %}
+    </div>
 {% endblock %}
