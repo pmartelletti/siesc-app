@@ -1,0 +1,33 @@
+{% extends '@SiescWeb/base_admin.html.twig' %}
+
+{% block page_title %}
+    Detalles de Facturacion: "{{ tenant.name}}"
+{% endblock %}
+
+{% block page_breadcrumb %}
+    <li>
+        <a href="{{ path('siesc_tenant') }}">Instituciones</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+        <a href="{{ path('siesc_tenant_show', {'id': tenant.id}) }}">{{ tenant }}</a>
+        <i class="fa fa-angle-right"></i>
+    </li>
+    <li>
+        Detalles de Facturacion
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="col-md-12">
+        {% embed '@SiescAdmin/Widget/admin_form.html.twig' %}
+            {% block form_title %}
+                Detalles de Facturacion: "{{ tenant }}"
+            {% endblock %}
+            {% block form_url %}
+                {{ path('siesc_tenant_edit_billing_information', {'id': tenant.id}) }}
+            {% endblock %}
+        {% endembed %}
+    </div>
+
+{% endblock %}

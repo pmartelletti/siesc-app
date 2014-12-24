@@ -2,6 +2,9 @@
 
 namespace Siesc\AdminBundle\Controller;
 
+use Siesc\AppBundle\Entity\DetallesFacturacion;
+use Siesc\AppBundle\Entity\Tenant;
+use Siesc\AppBundle\Form\DetallesFacturacionType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -23,6 +26,37 @@ class TenantController extends BaseController
         $this->setTemplatesRoot('SiescAdminBundle:Tenant');
         $this->setFactory(new TenantFactory());
         $this->setRepository('SiescAppBundle:Tenant');
+    }
+
+    public function editBillingInformationAction(Request $request)
+    {
+        /** @var Tenant $tenant */
+        $tenant = $this->findOr404($request);
+        $billingInformation = $tenant->getDetallesFacturacion();
+        $em = $this->getDoctrine()->getManager();
+        if (!$billingInformation) {
+            $billingInformation = new DetallesFacturacion();
+            $tenant->setDetallesFacturacion($billingInformation);
+        }
+
+        $form = $this->createForm(new DetallesFacturacionType(), $billingInformation);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $em->flush();
+
+            $this->get('session')->getFlashBag()->add('success', 'La informacion de facturacion fue actualizada correctamente.');
+
+            return $this->redirectToResource($tenant);
+        }
+
+        return $this->render('@SiescAdmin/Tenant/detalles_facturacion.html.twig', array(
+            'tenant' => $tenant,
+            'form' => $form->createView(),
+            'entity' => $billingInformation
+        ));
+
+
     }
     
     /**

@@ -2,11 +2,12 @@
 
 namespace Siesc\AppBundle\Form;
 
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class DireccionType extends AbstractType
+class DetallesFacturacionType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,21 +16,27 @@ class DireccionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('calle')
-            ->add('altura')
-            ->add('localidad')
-            ->add('codigoPostal')
-            ->add('provincia')
+            ->add('razonSocial')
+            ->add('cuit')
+            ->add('domicilio', new DireccionType())
+            ->add('condicionIva', 'choice', array(
+                'choices' => array(
+                    'excento' => 'Excento',
+                    'inscripto' => 'Resp. Inscripto',
+                    'monotributo' => 'Resp. Monotributo',
+                    'consumidor' => 'Consumidor Final'
+                )
+            ))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Siesc\AppBundle\Entity\Direccion'
+            'data_class' => 'Siesc\AppBundle\Entity\DetallesFacturacion'
         ));
     }
 
@@ -38,6 +45,6 @@ class DireccionType extends AbstractType
      */
     public function getName()
     {
-        return 'siesc_appbundle_direccion';
+        return 'siesc_appbundle_detalles_facturacion';
     }
 }

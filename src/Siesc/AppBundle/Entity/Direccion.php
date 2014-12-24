@@ -12,7 +12,7 @@ use Tahoe\Bundle\MultiTenancyBundle\Model\TenantTrait;
  * @ORM\Table(name="app_direccion")
  * @ORM\Entity
  */
-class Direccion implements TenantAwareInterface
+class Direccion
 {
     /**
      * @var integer
@@ -57,13 +57,6 @@ class Direccion implements TenantAwareInterface
      * @ORM\Column(name="provincia", type="string", length=255)
      */
     private $provincia;
-    
-    /**
-     * @var MultiTenantTenantInterface
-     *
-     * @ORM\ManyToOne(targetEntity="Siesc\AppBundle\Entity\Tenant")
-     */
-    protected $tenant;
 
     /**
      * Get id

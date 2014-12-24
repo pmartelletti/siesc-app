@@ -28,4 +28,8 @@ siesc_tenant_add_user_tenant:
     
 siesc_tenant_delete_user_tenant:
     path:     /{id_tenant}/{id_user}/delete-user-tenant
-    defaults: { _controller: SiescAdminBundle:Tenant:deleteUserTenant }    
+    defaults: { _controller: SiescAdminBundle:Tenant:deleteUserTenant }
+
+siesc_tenant_edit_billing_information:
+    path: /{id}/detalles-facturacion
+    defaults: { _controller: SiescAdminBundle:Tenant:editBillingInformation}

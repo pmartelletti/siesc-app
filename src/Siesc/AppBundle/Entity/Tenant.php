@@ -32,6 +32,13 @@ class Tenant extends BaseTenant implements MultiTenantTenantInterface
     private $contactPhone;
 
     /**
+     * @var DetallesFacturacion
+     * @ORM\ManyToOne(targetEntity="DetallesFacturacion", cascade={"all"})
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $detallesFacturacion;
+
+    /**
      * @return string
      */
     public function getContactPhone()
@@ -77,5 +84,21 @@ class Tenant extends BaseTenant implements MultiTenantTenantInterface
     public function setContactName($contactName)
     {
         $this->contactName = $contactName;
+    }
+
+    /**
+     * @return DetallesFacturacion
+     */
+    public function getDetallesFacturacion()
+    {
+        return $this->detallesFacturacion;
+    }
+
+    /**
+     * @param DetallesFacturacion $detallesFacturacion
+     */
+    public function setDetallesFacturacion($detallesFacturacion)
+    {
+        $this->detallesFacturacion = $detallesFacturacion;
     }
 }

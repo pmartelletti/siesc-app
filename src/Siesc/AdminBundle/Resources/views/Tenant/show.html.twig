@@ -80,7 +80,24 @@ Institucion: "{{ entity.name}}"
                     <div class="col-md-6">
                         {% embed '@SiescAdmin/Widget/admin_show_portlet.html.twig' %}
                             {% block portlet_title %}
-                                Detalles de Facturacion
+                                <i class="fa fa-money"></i> Detalles de Facturacion
+                            {% endblock %}
+                            {% block portlet_actions %}
+                                <a href="{{ path('siesc_tenant_edit_billing_information', {'id': entity.id}) }}" class="btn btn-default btn-sm">
+                                    <i class="fa fa-pencil"></i> Editar
+                                </a>
+                            {% endblock %}
+                            {% block portlet_body %}
+                                {% if entity.detallesFacturacion %}
+                                {% set detalles = entity.detallesFacturacion %}
+                                {% set rows = {
+                                'Razon Social': detalles.razonSocial,
+                                'CUIT': detalles.cuit,
+                                'Domicilio': detalles.domicilio,
+                                'I.V.A.': detalles.condicionIva
+                                } %}
+                                {{ parent() }}
+                                {% endif %}
                             {% endblock %}
                         {% endembed %}
                     </div>

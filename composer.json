@@ -56,7 +56,8 @@
         "hipaway-travel/mandrill-bundle": "dev-master",
         "willdurand/faker-bundle": "@stable",
         "ddeboer/data-import": "@stable",
-        "tahoelimited/multi-tenancy-bundle": "dev-master"
+        "tahoelimited/multi-tenancy-bundle": "dev-master",
+        "sensio/generator-bundle": "~2.5@dev"
     },
     "scripts": {
         "post-install-cmd": [
