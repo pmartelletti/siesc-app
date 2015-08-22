@@ -15,6 +15,9 @@ security:
             id: fos_user.user_provider.username
 
     firewalls:
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js|media)/
+            security: false
         admin_secured_area:
             pattern: /admin/.*
             form_login:
@@ -44,17 +47,13 @@ security:
             anonymous:    true
             switch_user: true
             
-        dev:
-            pattern:  ^/(_(profiler|wdt)|css|images|js)/
-            security: false
+
 
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/assets, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/_wdt, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, role: ROLE_USER_APP }
         - { path: ^/data, role: ROLE_ADMIN_DATA }
         - { path: ^/partes/cierre-novedades, role: ROLE_PARTES_RL }
